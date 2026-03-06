@@ -1,10 +1,9 @@
 "use client"
 import React from "react"
 import Link from "next/link"
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react"
+import { CalendarIcon, HomeIcon, PencilIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
 import {
   Tooltip,
   TooltipContent,
@@ -12,7 +11,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Dock, DockIcon } from "./ui/dock"
+
 export type IconProps = React.HTMLAttributes<SVGElement>
+
 const Icons = {
   calendar: (props: IconProps) => <CalendarIcon {...props} />,
   linkedin: (props: IconProps) => (
