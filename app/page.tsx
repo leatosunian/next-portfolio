@@ -1,16 +1,17 @@
-"use client"
 import { DockComponent } from '@/components/DockComponent';
 import Navbar from '@/components/Navbar';
+import Projects from '@/components/sections/Projects';
 import Hero from '@/components/sections/Hero';
 import { SmoothCursor } from '@/components/ui/smooth-cursor';
 
 export default function Home() {
   return (
-    <main className="dark bg-background ">
+    <main className="overflow-x-hidden dark bg-background">
       <SmoothCursor />
       <Navbar />
       <Hero />
-      <DockComponent/>
+      <Projects />
+      <DockComponent />
       {/* <ContactSection /> */}
     </main>
   );

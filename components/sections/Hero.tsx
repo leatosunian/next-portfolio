@@ -27,7 +27,7 @@ const Hero = () => {
             `}
          </style>
 
-         <div className="relative flex items-center justify-center w-screen h-screen overflow-hidden">
+         <div className="relative flex items-center justify-center w-full h-screen overflow-hidden">
             {/* Particles Background */}
             <Particles
                className="absolute inset-0 w-full h-full"
@@ -36,14 +36,14 @@ const Hero = () => {
                refresh />
 
             {/* text container */}
-            <div className="relative z-10 flex flex-col items-start justify-center h-full max-w-3xl px-6 2xl:max-w-5xl gap-7 ">
+            <div className="relative z-10 flex flex-col items-start justify-center h-full max-w-3xl gap-16 px-6 2xl:max-w-5xl sm:gap-9 ">
 
                {/* title */}
                <div className='flex flex-col w-full '>
-                  <h1 className="text-2xl font-bold leading-snug text-white 2xl:text-6xl md:text-5xl sm:text-4xl">
-                     ¡Hola!👋 Soy <AuroraText speed={2} colors={["#552586", "#4c1c72", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-900'>Leandro Tosunian</AuroraText>,
+                  <h1 className="text-4xl font-bold leading-snug text-white text-wrap 2xl:text-6xl md:text-5xl sm:text-4xl">
+                     ¡Hola!👋 Soy <AuroraText speed={2} colors={["#552586", "#4c1c72", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-900 text-wrap'>Leandro Tosunian</AuroraText>,
                      <br />
-                     <AuroraText speed={2} colors={["#552586", "#4c1c72", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-900'>Desarrollador Web</AuroraText>.
+                     <AuroraText speed={2} colors={["#552586", "#4c1c72", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-900 text-wrap'>Desarrollador Web</AuroraText>.
                   </h1>
                </div>
                {/* description */}
@@ -53,13 +53,13 @@ const Hero = () => {
                   </p>
                </div>
                {/* CTA buttons */}
-               <div className='flex gap-7 w-fit h-fit'>
-                  {/* <RainbowButton variant={'outline'} className='h-full' ></RainbowButton> */}
-                  <Button variant='default' style={{backgroundColor:'#0a0a0a'}} className='text-white cursor-none animate-heartbeat dark:bg-destructive '>
+               <div className='flex w-full gap-5 sm:gap-4 sm:w-fit h-fit'>
+                  <Button variant='default' style={{ backgroundColor: '#0a0a0a' }} className='flex-1 text-white sm:flex-none sm:w-32 cursor-none animate-heartbeat dark:bg-destructive'>
                      Proyectos
                   </Button>
-                  <Button variant={'outline'} style={{backgroundColor:'#0a0a0a'}} className='h-full text-white cursor-none' >CV</Button>
-                  {/* <div style={{ width: '1px', backgroundColor: 'white', height: '90%', margin: 'auto' }}></div> */}
+                  <Button variant={'outline'} style={{ backgroundColor: '#0a0a0a' }} className='flex-1 text-white sm:flex-none sm:w-32 cursor-none'>
+                     CV
+                  </Button>
                </div>
             </div>
 
@@ -67,7 +67,7 @@ const Hero = () => {
             {/* background */}
             {/* <AnimatedGridPattern numSquares={40}
                maxOpacity={0.05}
-               duration={3}
+               duration={3}F
                repeatDelay={1}
                className={cn(
                   "mask-[radial-gradient(800px_circle_at_center,white,transparent)]",

@@ -44,13 +44,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 outline-none ${isScrolled ? "px-4 py-2" : ""}`}
+      className={`fixed top-0 w-full  z-50 transition-all duration-300 outline-none ${isScrolled ? "px-4 py-2" : ""}`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div
-        className={`max-w-7xl mx-auto transition-all duration-300 ${isScrolled
-          ? "glass rounded-2xl px-6 py-3 border border-white/15"
+        className={`max-w-7xl mx-auto transition-all duration-300 bg-[#0a0a0a]/60 ${isScrolled
+          ? "glass backdrop-blur-lg  rounded-2xl px-6 py-3 border border-white/15"
           : "px-4 sm:px-6 py-4 border border-transparent"
           }`}
       >
