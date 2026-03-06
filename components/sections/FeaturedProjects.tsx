@@ -1,7 +1,17 @@
 "use client"
 import React from 'react'
 import { Globe } from 'lucide-react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
+import image_420app from '@/public/420app.png'
+import image_42app2 from '@/public/42app2.png'
+import image_altiva from '@/public/altiva.png'
+import image_sacaturnoscreen from '@/public/sacaturnoscreen.png'
+import image_telovendo from '@/public/telovendo.png'
+import image_encino from '@/public/encino.png'
+import image_cannabica from "@/public/cannabica.png"
+import image_telovendopanel from "@/public/telovendopanel.png"
+import image_emartscreen1 from "@/public/emartscreen1.png"
+import image_emartscreen2 from "@/public/emartscreen2.png"
 
 // Technology Icons as SVG components
 const TechIcons = {
@@ -30,9 +40,14 @@ const TechIcons = {
       <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/>
     </svg>
   ),
-  swift: () => (
+  mongodb: () => (
     <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-      <path d="M7.508 0c-.287 0-.573 0-.86.002-.241.002-.483.003-.724.01-.132.003-.263.009-.395.015A9.154 9.154 0 0 0 4.348.15 5.492 5.492 0 0 0 2.85.645 5.04 5.04 0 0 0 .645 2.848c-.245.48-.4.972-.495 1.5-.093.52-.122 1.05-.136 1.576a35.2 35.2 0 0 0-.012.724C0 6.935 0 7.221 0 7.508v8.984c0 .287 0 .575.002.862.002.24.005.481.012.722.014.526.043 1.057.136 1.576.095.528.25 1.02.495 1.5a5.03 5.03 0 0 0 2.205 2.203c.48.244.97.4 1.498.495.52.093 1.05.124 1.576.138.241.007.483.009.724.01.287.002.573.002.86.002h8.984c.287 0 .573 0 .86-.002.241-.001.483-.003.724-.01a10.523 10.523 0 0 0 1.578-.138 5.322 5.322 0 0 0 1.498-.495 5.035 5.035 0 0 0 2.203-2.203c.245-.48.4-.972.495-1.5.093-.52.124-1.05.138-1.576.007-.241.009-.481.01-.722.002-.287.002-.575.002-.862V7.508c0-.287 0-.573-.002-.86a33.662 33.662 0 0 0-.01-.724 10.5 10.5 0 0 0-.138-1.576 5.328 5.328 0 0 0-.495-1.5A5.039 5.039 0 0 0 21.152.645 5.32 5.32 0 0 0 19.654.15a10.493 10.493 0 0 0-1.578-.138 34.98 34.98 0 0 0-.724-.01C17.065 0 16.779 0 16.492 0Zm6.035 3.41c.004.005.15.056.15.056l-.05-.03c.047.028.094.052.142.078a5.603 5.603 0 0 1 .578.39c.085.066.168.136.249.21.524.477.974 1.053 1.323 1.71a8.066 8.066 0 0 1 .899 3.044c.037.39.049.78.037 1.172-.006.197-.019.394-.038.59a8.018 8.018 0 0 1-.34 1.646 8.2 8.2 0 0 1-.593 1.396 8.139 8.139 0 0 1-1.25 1.783c-.378.416-.791.803-1.23 1.158-.357.29-.733.558-1.123.805-.6.38-1.227.72-1.874 1.018-.75.348-1.527.648-2.32.895-.468.145-.941.275-1.418.392-.002-.002-.004-.003-.005-.007a10.78 10.78 0 0 1-2.222-.63c-.339-.14-.67-.3-.991-.477a7.728 7.728 0 0 1-2.487-2.123c-.005-.006-.01-.012-.014-.02.006.005.012.012.019.017.377.339.78.65 1.204.93.74.488 1.53.912 2.36 1.262a13.39 13.39 0 0 0 2.078.672c.199.05.399.093.6.134l.062.012c-1.038-.765-1.975-1.65-2.782-2.643a14.14 14.14 0 0 1-2.478-4.392c-.063-.166-.122-.333-.176-.502.023.027.046.054.068.082.445.547.926 1.066 1.44 1.55 1.076 1.014 2.27 1.9 3.55 2.635.192.11.386.216.582.318a13.867 13.867 0 0 0 2.007.882c.249.089.5.17.753.245a11.38 11.38 0 0 0 .768.19c-.188-.135-.377-.27-.56-.412-.447-.346-.87-.72-1.265-1.12a12.896 12.896 0 0 1-2.312-3.108 12.624 12.624 0 0 1-1.238-3.473c.007.007.013.014.02.022.548.606 1.14 1.17 1.77 1.687a17.066 17.066 0 0 0 2.32 1.641c.612.37 1.25.7 1.91.983.402.173.812.328 1.227.465a9.093 9.093 0 0 0 1.153.298c.286.054.575.09.865.106a5.685 5.685 0 0 0 .9-.024c.236-.03.472-.074.702-.139.2-.055.396-.12.587-.197a3.78 3.78 0 0 0 .414-.199c.133-.073.262-.153.388-.237a4.39 4.39 0 0 0 .698-.596c.09-.094.175-.192.258-.293a3.48 3.48 0 0 0 .396-.588c.076-.142.147-.288.212-.436.116-.267.209-.543.283-.825.06-.228.105-.459.136-.692.033-.249.05-.499.054-.75.003-.18 0-.36-.01-.54a5.212 5.212 0 0 0-.102-.804 5.637 5.637 0 0 0-.347-1.083 5.132 5.132 0 0 0-.59-1.002 4.583 4.583 0 0 0-.856-.878c-.156-.124-.32-.239-.49-.343a4.36 4.36 0 0 0-.375-.209l-.03-.015c.005.003.012.006.017.01Z"/>
+      <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/>
+    </svg>
+  ),
+  node: () => (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+      <path d="M11.998 24c-.321 0-.641-.084-.922-.247L8.14 22.016c-.438-.245-.224-.332-.08-.383.584-.203.702-.25 1.328-.604.065-.037.151-.023.218.017l2.256 1.339a.29.29 0 00.272 0l8.795-5.076a.277.277 0 00.134-.238V6.921a.283.283 0 00-.137-.242l-8.791-5.072a.278.278 0 00-.271 0L3.075 6.68a.284.284 0 00-.139.241v10.15c0 .099.053.19.139.236l2.409 1.392c1.307.653 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675a1.857 1.857 0 01-.922-1.604V6.921c0-.659.353-1.275.922-1.603l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.794 5.082c.57.329.924.944.924 1.603v10.15c0 .659-.354 1.273-.924 1.604l-8.794 5.078c-.28.163-.601.247-.925.247zm2.715-6.997c-3.857 0-4.664-1.77-4.664-3.255 0-.142.114-.253.256-.253h1.137c.126 0 .232.091.252.215.172 1.161.683 1.746 3.019 1.746 1.858 0 2.649-.42 2.649-1.404 0-.566-.224-.987-3.112-1.27-2.415-.237-3.91-.772-3.91-2.703 0-1.781 1.502-2.843 4.019-2.843 2.828 0 4.224.981 4.401 3.087a.256.256 0 01-.253.28h-1.142a.253.253 0 01-.245-.195c-.272-1.21-.931-1.597-2.761-1.597-2.034 0-2.271.709-2.271 1.24 0 .644.28.832 3.016 1.196 2.711.36 4.007.87 4.007 2.762 0 1.924-1.602 3.024-4.398 3.024z"/>
     </svg>
   ),
 }
@@ -43,7 +58,7 @@ interface Project {
   label: string
   title: string
   description: string
-  imageUrl: string
+  imageUrl: StaticImageData
   link?: string
   technologies: TechKey[]
 }
@@ -53,31 +68,39 @@ const projects: Project[] = [
     label: "Featured Project",
     title: "Te Lo Vendo – Vehicle Marketplace",
     description: "A full-featured vehicle marketplace platform built with Next.js and TypeScript. Users can list, browse, and purchase vehicles with a modern, responsive interface. Features include advanced search filters, user authentication, and a seamless buying experience.",
-    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Te+Lo+Vendo",
+    imageUrl: image_telovendo,
     link: "#",
-    technologies: ["nextjs", "typescript", "react", "tailwind"]
+    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
     label: "Featured Project",
     title: "Te Lo Vendo – Admin Panel",
     description: "A comprehensive admin dashboard for managing the vehicle marketplace. Includes user management, vehicle listings moderation, analytics, and content management with a clean, intuitive interface.",
-    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Admin+Panel",
+    imageUrl: image_telovendopanel,
     link: "#",
-    technologies: ["nextjs", "typescript", "react", "tailwind"]
+    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
     label: "Featured Project",
     title: "420 App – Cannabis Delivery Platform",
     description: "A modern cannabis delivery application with real-time order tracking, product catalog management, and secure checkout. Built with a focus on user experience and compliance with industry regulations.",
-    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=420+App",
+    imageUrl: image_420app,
     link: "#",
-    technologies: ["nextjs", "typescript", "react", "tailwind"]
+    technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
+  },
+  {
+    label: "Featured Project",
+    title: "420 App – Mobile Experience",
+    description: "The mobile-first companion experience for the 420 App platform, featuring intuitive navigation, quick ordering, and seamless delivery tracking optimized for on-the-go users.",
+    imageUrl: image_42app2,
+    link: "#",
+    technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
     label: "Featured Project",
     title: "Altiva – Corporate Website",
     description: "A sleek corporate website showcasing professional services with modern design aesthetics. Features smooth animations, responsive layouts, and optimized performance for an exceptional user experience.",
-    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Altiva",
+    imageUrl: image_altiva,
     link: "#",
     technologies: ["nextjs", "typescript", "react", "tailwind"]
   },
@@ -85,33 +108,41 @@ const projects: Project[] = [
     label: "Featured Project",
     title: "SA Caturno – Business Platform",
     description: "A comprehensive business platform with integrated tools for project management, client communication, and service delivery. Built with scalability and performance in mind.",
-    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=SA+Caturno",
+    imageUrl: image_sacaturnoscreen,
     link: "#",
-    technologies: ["nextjs", "typescript", "react", "tailwind"]
+    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
     label: "Featured Project",
     title: "Encino – Real Estate Platform",
     description: "A modern real estate platform featuring property listings, virtual tours, and agent management. Designed with an elegant interface that makes property search intuitive and engaging.",
-    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Encino",
+    imageUrl: image_encino,
     link: "#",
-    technologies: ["nextjs", "typescript", "react", "tailwind"]
+    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
     label: "Featured Project",
     title: "Cannabica – Cannabis E-commerce",
     description: "An e-commerce platform specialized for the cannabis industry with age verification, product categorization, and secure payment processing. Features a clean, modern design with intuitive navigation.",
-    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Cannabica",
+    imageUrl: image_cannabica,
     link: "#",
-    technologies: ["nextjs", "typescript", "react", "tailwind"]
+    technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
     label: "Featured Project",
     title: "E-Mart – Online Marketplace",
     description: "A versatile online marketplace platform with multi-vendor support, product reviews, and advanced filtering. Built for scalability with a focus on conversion optimization and user engagement.",
-    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=E-Mart",
+    imageUrl: image_emartscreen1,
     link: "#",
-    technologies: ["nextjs", "typescript", "react", "tailwind"]
+    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
+  },
+  {
+    label: "Featured Project",
+    title: "E-Mart – Product Showcase",
+    description: "The detailed product view and checkout experience for E-Mart, featuring high-quality imagery, customer reviews, and a streamlined purchasing process.",
+    imageUrl: image_emartscreen2,
+    link: "#",
+    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   }
 ]
 
