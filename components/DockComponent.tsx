@@ -114,7 +114,7 @@ export function DockComponent() {
           <Separator orientation="vertical" className="h-full" />
           ))} */}
           {Object.entries(DATA.contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
+            <DockIcon key={name} className="cursor-none">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
@@ -122,7 +122,7 @@ export function DockComponent() {
                     aria-label={social.name}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full"
+                      "size-12 rounded-full cursor-none"
                     )}
                   >
                     <social.icon className="size-4" />

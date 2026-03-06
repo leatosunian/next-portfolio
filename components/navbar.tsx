@@ -55,7 +55,7 @@ export default function Navbar() {
           }`}
       >
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-lg font-bold text-white sm:text-xl md:flex-1">
+          <Link href="/" className="text-lg font-bold text-white cursor-none sm:text-xl md:flex-1">
             <Image src={logo} width={43} height={43} alt="Logo" />
           </Link>
 
@@ -64,28 +64,28 @@ export default function Navbar() {
             <div className="items-center hidden mr-6 space-x-8 md:flex">
               <button
                 onClick={() => scrollToSection("home")}
-                className="relative transition-colors nav-item text-white/75 hover:text-white"
+                className="relative transition-colors nav-item text-white/75 hover:text-white cursor-none"
                 aria-label="Navigate to home section"
               >
                 Inicio
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="relative transition-colors nav-item text-white/75 hover:text-white"
+                className="relative transition-colors nav-item text-white/75 hover:text-white cursor-none"
                 aria-label="Navigate to about section"
               >
                 Proyectos
               </button>
               <button
                 onClick={() => scrollToSection("portfolio")}
-                className="relative transition-colors nav-item text-white/75 hover:text-white"
+                className="relative transition-colors nav-item text-white/75 hover:text-white cursor-none"
                 aria-label="Navigate to portfolio section"
               >
                 Sobre mí
               </button>
               <button
                 onClick={() => scrollToSection("podcast")}
-                className="relative transition-colors nav-item text-white/75 hover:text-white"
+                className="relative transition-colors nav-item text-white/75 hover:text-white cursor-none"
                 aria-label="Navigate to podcast section"
               >
                 Contacto
@@ -97,7 +97,7 @@ export default function Navbar() {
           <div className="items-center hidden md:flex">
             <button
               //onClick={toggleLanguage}
-              className="flex items-center px-3 py-2 space-x-2 text-white transition-colors rounded-lg hover:text-white/80 glass"
+              className="flex items-center px-3 py-2 space-x-2 text-white transition-colors rounded-lg cursor-none hover:text-white/80 glass"
             >
               <Globe size={16} />
               <span className="text-sm font-medium">ES</span>

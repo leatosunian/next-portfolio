@@ -41,24 +41,24 @@ const Hero = () => {
                {/* title */}
                <div className='flex flex-col w-full '>
                   <h1 className="text-2xl font-bold leading-snug text-white 2xl:text-6xl md:text-5xl sm:text-4xl">
-                     ¡Hola!👋 Soy <AuroraText className='font-bold text-purple-900'>Leandro Tosunian</AuroraText>,
+                     ¡Hola!👋 Soy <AuroraText speed={2} colors={["#552586", "#4c1c72", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-900'>Leandro Tosunian</AuroraText>,
                      <br />
-                     <AuroraText className='font-bold text-purple-900'>Desarrollador Web</AuroraText>.
+                     <AuroraText speed={2} colors={["#552586", "#4c1c72", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-900'>Desarrollador Web</AuroraText>.
                   </h1>
                </div>
                {/* description */}
                <div className='w-full '>
                   <p className='text-lg text-white 2xl:text-2xl sm:text-xl'>
-                    Especializado en Next.js, Node.js y TypeScript, desarrollo aplicaciones full stack con arquitecturas limpias, SSR/ISR optimizado y buenas prácticas de escalabilidad. Enfocado en código mantenible y soluciones eficientes.
+                     Especializado en Next.js, Node.js y TypeScript, desarrollo aplicaciones full stack con arquitecturas limpias, SSR/ISR optimizado y buenas prácticas de escalabilidad. Enfocado en código mantenible y soluciones eficientes.
                   </p>
                </div>
                {/* CTA buttons */}
                <div className='flex gap-7 w-fit h-fit'>
                   {/* <RainbowButton variant={'outline'} className='h-full' ></RainbowButton> */}
-                  <Button variant='default' className='text-white bg-black animate-heartbeat dark:bg-destructive '>
+                  <Button variant='default' style={{backgroundColor:'#0a0a0a'}} className='text-white cursor-none animate-heartbeat dark:bg-destructive '>
                      Proyectos
                   </Button>
-                  <Button variant={'outline'} className='h-full text-white ' >CV</Button>
+                  <Button variant={'outline'} style={{backgroundColor:'#0a0a0a'}} className='h-full text-white cursor-none' >CV</Button>
                   {/* <div style={{ width: '1px', backgroundColor: 'white', height: '90%', margin: 'auto' }}></div> */}
                </div>
             </div>
