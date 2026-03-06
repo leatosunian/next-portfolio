@@ -51,19 +51,67 @@ interface Project {
 const projects: Project[] = [
   {
     label: "Featured Project",
-    title: "NeuraWeb – Futuristic AI Website Landing Design",
-    description: "A sleek, dark-themed AI-powered landing page concept built in Figma. Designed for modern startups and futuristic digital products, it features glowing neon visuals, immersive UI, and a dynamic tone. The design encapsulates the cutting-edge possibilities of AI and tech, offering a glimpse into the future of online experiences for tech-forward companies.",
-    imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZwUh6tgtWQW83LF6Nygz4735c5nWS4.png",
+    title: "Te Lo Vendo – Vehicle Marketplace",
+    description: "A full-featured vehicle marketplace platform built with Next.js and TypeScript. Users can list, browse, and purchase vehicles with a modern, responsive interface. Features include advanced search filters, user authentication, and a seamless buying experience.",
+    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Te+Lo+Vendo",
     link: "#",
-    technologies: ["nextjs", "typescript", "react", "tailwind", "figma"]
+    technologies: ["nextjs", "typescript", "react", "tailwind"]
   },
   {
     label: "Featured Project",
-    title: "Apple Vision Pro – HR Software Design",
-    description: "A futuristic HR software concept designed for Apple Vision Pro, built in Figma to reimagine attendance, leave tracking, and employee experience – all in one immersive interface.",
-    imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-eROMklhA3TDiz4Cn3hKLsC2eQ33k6q.png",
+    title: "Te Lo Vendo – Admin Panel",
+    description: "A comprehensive admin dashboard for managing the vehicle marketplace. Includes user management, vehicle listings moderation, analytics, and content management with a clean, intuitive interface.",
+    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Admin+Panel",
     link: "#",
-    technologies: ["swift", "figma", "react"]
+    technologies: ["nextjs", "typescript", "react", "tailwind"]
+  },
+  {
+    label: "Featured Project",
+    title: "420 App – Cannabis Delivery Platform",
+    description: "A modern cannabis delivery application with real-time order tracking, product catalog management, and secure checkout. Built with a focus on user experience and compliance with industry regulations.",
+    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=420+App",
+    link: "#",
+    technologies: ["nextjs", "typescript", "react", "tailwind"]
+  },
+  {
+    label: "Featured Project",
+    title: "Altiva – Corporate Website",
+    description: "A sleek corporate website showcasing professional services with modern design aesthetics. Features smooth animations, responsive layouts, and optimized performance for an exceptional user experience.",
+    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Altiva",
+    link: "#",
+    technologies: ["nextjs", "typescript", "react", "tailwind"]
+  },
+  {
+    label: "Featured Project",
+    title: "SA Caturno – Business Platform",
+    description: "A comprehensive business platform with integrated tools for project management, client communication, and service delivery. Built with scalability and performance in mind.",
+    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=SA+Caturno",
+    link: "#",
+    technologies: ["nextjs", "typescript", "react", "tailwind"]
+  },
+  {
+    label: "Featured Project",
+    title: "Encino – Real Estate Platform",
+    description: "A modern real estate platform featuring property listings, virtual tours, and agent management. Designed with an elegant interface that makes property search intuitive and engaging.",
+    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Encino",
+    link: "#",
+    technologies: ["nextjs", "typescript", "react", "tailwind"]
+  },
+  {
+    label: "Featured Project",
+    title: "Cannabica – Cannabis E-commerce",
+    description: "An e-commerce platform specialized for the cannabis industry with age verification, product categorization, and secure payment processing. Features a clean, modern design with intuitive navigation.",
+    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=Cannabica",
+    link: "#",
+    technologies: ["nextjs", "typescript", "react", "tailwind"]
+  },
+  {
+    label: "Featured Project",
+    title: "E-Mart – Online Marketplace",
+    description: "A versatile online marketplace platform with multi-vendor support, product reviews, and advanced filtering. Built for scalability with a focus on conversion optimization and user engagement.",
+    imageUrl: "https://placehold.co/1200x675/1a1a2e/a855f7?text=E-Mart",
+    link: "#",
+    technologies: ["nextjs", "typescript", "react", "tailwind"]
   }
 ]
 
