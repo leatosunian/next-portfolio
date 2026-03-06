@@ -60,6 +60,7 @@ interface Project {
   description: string
   imageUrl: StaticImageData
   link?: string
+  domain?: string
   technologies: TechKey[]
 }
 
@@ -69,7 +70,8 @@ const projects: Project[] = [
     title: "Te Lo Vendo – Vehicle Marketplace",
     description: "A full-featured vehicle marketplace platform built with Next.js and TypeScript. Users can list, browse, and purchase vehicles with a modern, responsive interface. Features include advanced search filters, user authentication, and a seamless buying experience.",
     imageUrl: image_telovendo,
-    link: "#",
+    link: "https://telovendo.com",
+    domain: "telovendo.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
@@ -77,7 +79,8 @@ const projects: Project[] = [
     title: "Te Lo Vendo – Admin Panel",
     description: "A comprehensive admin dashboard for managing the vehicle marketplace. Includes user management, vehicle listings moderation, analytics, and content management with a clean, intuitive interface.",
     imageUrl: image_telovendopanel,
-    link: "#",
+    link: "https://admin.telovendo.com",
+    domain: "admin.telovendo.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
@@ -85,7 +88,8 @@ const projects: Project[] = [
     title: "420 App – Cannabis Delivery Platform",
     description: "A modern cannabis delivery application with real-time order tracking, product catalog management, and secure checkout. Built with a focus on user experience and compliance with industry regulations.",
     imageUrl: image_420app,
-    link: "#",
+    link: "https://420app.com",
+    domain: "420app.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
@@ -93,7 +97,8 @@ const projects: Project[] = [
     title: "420 App – Mobile Experience",
     description: "The mobile-first companion experience for the 420 App platform, featuring intuitive navigation, quick ordering, and seamless delivery tracking optimized for on-the-go users.",
     imageUrl: image_42app2,
-    link: "#",
+    link: "https://420app.com",
+    domain: "420app.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
@@ -101,7 +106,8 @@ const projects: Project[] = [
     title: "Altiva – Corporate Website",
     description: "A sleek corporate website showcasing professional services with modern design aesthetics. Features smooth animations, responsive layouts, and optimized performance for an exceptional user experience.",
     imageUrl: image_altiva,
-    link: "#",
+    link: "https://altiva.com",
+    domain: "altiva.com",
     technologies: ["nextjs", "typescript", "react", "tailwind"]
   },
   {
@@ -109,7 +115,8 @@ const projects: Project[] = [
     title: "SA Caturno – Business Platform",
     description: "A comprehensive business platform with integrated tools for project management, client communication, and service delivery. Built with scalability and performance in mind.",
     imageUrl: image_sacaturnoscreen,
-    link: "#",
+    link: "https://sacaturno.com",
+    domain: "sacaturno.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
@@ -117,7 +124,8 @@ const projects: Project[] = [
     title: "Encino – Real Estate Platform",
     description: "A modern real estate platform featuring property listings, virtual tours, and agent management. Designed with an elegant interface that makes property search intuitive and engaging.",
     imageUrl: image_encino,
-    link: "#",
+    link: "https://encino.com",
+    domain: "encino.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
@@ -125,7 +133,8 @@ const projects: Project[] = [
     title: "Cannabica – Cannabis E-commerce",
     description: "An e-commerce platform specialized for the cannabis industry with age verification, product categorization, and secure payment processing. Features a clean, modern design with intuitive navigation.",
     imageUrl: image_cannabica,
-    link: "#",
+    link: "https://cannabica.com",
+    domain: "cannabica.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
@@ -133,7 +142,8 @@ const projects: Project[] = [
     title: "E-Mart – Online Marketplace",
     description: "A versatile online marketplace platform with multi-vendor support, product reviews, and advanced filtering. Built for scalability with a focus on conversion optimization and user engagement.",
     imageUrl: image_emartscreen1,
-    link: "#",
+    link: "https://e-mart.com",
+    domain: "e-mart.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
@@ -141,7 +151,8 @@ const projects: Project[] = [
     title: "E-Mart – Product Showcase",
     description: "The detailed product view and checkout experience for E-Mart, featuring high-quality imagery, customer reviews, and a streamlined purchasing process.",
     imageUrl: image_emartscreen2,
-    link: "#",
+    link: "https://e-mart.com",
+    domain: "e-mart.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   }
 ]
@@ -168,15 +179,17 @@ const ProjectCard = ({ project, reverse = false }: { project: Project; reverse?:
           </p>
         </div>
         
-        {/* Link Icon and Tech Stack */}
-        <div className="flex items-center gap-3">
-          {project.link && (
+        {/* Domain Button and Tech Stack */}
+        <div className="flex flex-wrap items-center gap-3">
+          {project.link && project.domain && (
             <a 
-              href={project.link} 
-              className="flex items-center justify-center transition-colors border rounded-full w-10 h-10 border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500"
-              aria-label="Visit project"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors border rounded-full border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 bg-zinc-900/50"
             >
-              <Globe className="w-5 h-5" />
+              <Globe className="w-4 h-4" />
+              {project.domain}
             </a>
           )}
           
