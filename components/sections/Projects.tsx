@@ -219,11 +219,74 @@ const ProjectCard = ({ project, reverse = false }: { project: Project; reverse?:
   )
 }
 
+// Title Option 1: Vertical line accent with gradient text
+const ProjectsTitleOption1 = () => {
+  return (
+    <div className="relative mb-16 lg:mb-24">
+      <div className="flex items-stretch">
+        {/* Vertical gradient line */}
+        <div 
+          className="w-1 mr-4 rounded-full shrink-0"
+          style={{
+            background: 'linear-gradient(to bottom, #a855f7, #7c3aed, #6d28d9)',
+            minHeight: '100%'
+          }}
+        />
+        {/* Title with gradient */}
+        <h1 
+          className="text-7xl font-bold tracking-tight sm:text-8xl lg:text-9xl"
+          style={{
+            background: 'linear-gradient(to right, #ffffff 0%, #ffffff 40%, #a855f7 70%, #7c3aed 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
+          Proyectos
+        </h1>
+      </div>
+    </div>
+  )
+}
+
+// Title Option 2: Italic font with decorative number behind
+const ProjectsTitleOption2 = () => {
+  return (
+    <div className="relative mb-16 lg:mb-24 overflow-hidden">
+      {/* Large decorative number behind */}
+      <div 
+        className="absolute right-0 top-1/2 -translate-y-1/2 text-[12rem] sm:text-[16rem] lg:text-[20rem] font-bold leading-none select-none pointer-events-none"
+        style={{
+          color: 'rgba(126, 34, 206, 0.15)',
+        }}
+      >
+        01
+      </div>
+      {/* Italic title */}
+      <h1 
+        className="relative z-10 text-6xl italic font-light tracking-tight sm:text-7xl lg:text-8xl text-white"
+        style={{
+          fontStyle: 'italic',
+        }}
+      >
+        Proyectos
+      </h1>
+    </div>
+  )
+}
+
 // Main component to render featured projects
 const Projects = () => {
   return (
     <section className="relative w-full px-6 py-20 overflow-x-hidden bg-background lg:px-12 xl:px-20">
       <div className="mx-auto max-w-7xl">
+        
+        {/* OPTION 1: Vertical line with gradient text - UNCOMMENT TO USE */}
+        <ProjectsTitleOption1 />
+        
+        {/* OPTION 2: Italic with decorative number - UNCOMMENT TO USE */}
+        {/* <ProjectsTitleOption2 /> */}
+        
         <div className="flex flex-col gap-24 lg:gap-32">
           {projects.map((project, index) => (
             <ProjectCard
