@@ -18,7 +18,7 @@ export const ProjectCard = ({ project, reverse = false }: { project: Project; re
         </span>
 
         {/* Title */}
-        <h3 className="text-3xl font-bold leading-tight text-white lg:text-4xl xl:text-5xl text-balance">
+        <h3 className="text-4xl font-bold leading-tight text-white lg:text-4xl xl:text-5xl text-balance">
           {project.title}
         </h3>
 
