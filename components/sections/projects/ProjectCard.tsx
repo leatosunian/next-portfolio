@@ -1,5 +1,8 @@
+"use client"
+
 import React, { useCallback, useEffect, useState } from 'react'
-import { ChevronLeft, ChevronRight, Globe } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Globe, Expand } from 'lucide-react'
+import { motion, AnimatePresence, PanInfo } from 'framer-motion'
 import Image, { StaticImageData } from 'next/image'
 import image_420app2 from '@/public/420app2.png'
 import image_altiva from '@/public/altiva.png'
@@ -13,25 +16,48 @@ import image_emartscreen2 from "@/public/emartscreen2.png"
 import Link from 'next/link'
 import { Project } from '@/app/interfaces/IProject'
 import { TechIcons } from '@/components/ui/tech-icons'
+import { FullscreenGallery } from '@/components/ui/fullscreen-gallery'
 
-// Image Gallery Carousel with auto-rotation every 2 seconds
+// Image Gallery Carousel with auto-rotation, swipe support, and fullscreen modal
 const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: string }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [isFullscreenOpen, setIsFullscreenOpen] = useState(false)
+  const [direction, setDirection] = useState(0)
 
   const goToNext = useCallback(() => {
+    setDirection(1)
     setCurrentIndex((prev) => (prev + 1) % images.length)
   }, [images.length])
 
   const goToPrevious = useCallback(() => {
+    setDirection(-1)
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
   }, [images.length])
 
   const goToSlide = useCallback((index: number) => {
+    setDirection(index > currentIndex ? 1 : -1)
     setCurrentIndex(index)
+  }, [currentIndex])
+
+  // Handle swipe gestures
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const swipeThreshold = 50
+    const swipeVelocity = 500
+
+    if (info.offset.x > swipeThreshold || info.velocity.x > swipeVelocity) {
+      goToPrevious()
+    } else if (info.offset.x < -swipeThreshold || info.velocity.x < -swipeVelocity) {
+      goToNext()
+    }
+  }
+
+  // Open fullscreen gallery at current index
+  const openFullscreen = useCallback(() => {
+    setIsFullscreenOpen(true)
   }, [])
 
-  // Auto-rotation every 2 seconds
+  // Auto-rotation every 3.2 seconds
   useEffect(() => {
     if (images.length <= 1 || isPaused) return
 
@@ -42,71 +68,130 @@ const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: str
     return () => clearInterval(interval)
   }, [images.length, isPaused, goToNext])
 
+  // Animation variants for slide transitions
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 0
+    })
+  }
+
   return (
-    <div
-      className="relative w-full h-full group"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* Images */}
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
-        >
-          <Image
-            src={image}
-            alt={`${title} - imagen ${index + 1}`}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority={index === 0}
-          />
-        </div>
-      ))}
-
-      {/* Navigation Arrows - Only show if more than 1 image */}
-      {images.length > 1 && (
-        <>
-          {/* Left Arrow */}
-          <button
-            onClick={goToPrevious}
-            className="absolute z-20 p-2 transition-all -translate-y-1/2 rounded-full opacity-0 left-3 top-1/2 bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 group-hover:opacity-100 active:opacity-100 active:outline-none active:ring-2 active:ring-purple-500"
-            aria-label="Imagen anterior"
+    <>
+      <div
+        className="relative w-full h-full overflow-hidden group"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Swipeable Images Container */}
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: 'spring', stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.7}
+            onDragEnd={handleDragEnd}
+            className="absolute inset-0 cursor-grab active:cursor-grabbing"
+            onClick={openFullscreen}
           >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Right Arrow */}
-          <button
-            onClick={goToNext}
-            className="absolute z-20 p-2 transition-all -translate-y-1/2 rounded-full opacity-0 right-3 top-1/2 bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 group-hover:opacity-100 active:opacity-100 active:outline-none active:ring-2 active:ring-purple-500"
-            aria-label="Siguiente imagen"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </>
-      )}
-
-      {/* Dot Indicators - Bottom center, purple and stretched when active */}
-      {images.length > 1 && (
-        <div className="absolute z-20 flex items-center gap-2 -translate-x-1/2 bottom-4 left-1/2">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-black/50 ${index === currentIndex
-                ? 'bg-purple-500 w-5 h-1.5'
-                : 'bg-white/50 hover:bg-white/80 w-1.5 h-1.5'
-                }`}
-              aria-label={`Ir a imagen ${index + 1}`}
-              aria-current={index === currentIndex ? 'true' : 'false'}
+            <Image
+              src={images[currentIndex]}
+              alt={`${title} - imagen ${currentIndex + 1}`}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={currentIndex === 0}
+              draggable={false}
             />
-          ))}
-        </div>
-      )}
-    </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Fullscreen button */}
+        <button
+          onClick={openFullscreen}
+          className="absolute z-20 p-2 transition-all rounded-full opacity-0 top-3 right-3 bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 group-hover:opacity-100"
+          aria-label="Ver en pantalla completa"
+        >
+          <Expand className="w-4 h-4" />
+        </button>
+
+        {/* Navigation Arrows - Only show if more than 1 image */}
+        {images.length > 1 && (
+          <>
+            {/* Left Arrow */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                goToPrevious()
+              }}
+              className="absolute z-20 p-2 transition-all -translate-y-1/2 rounded-full opacity-0 left-3 top-1/2 bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 group-hover:opacity-100 active:opacity-100 active:outline-none active:ring-2 active:ring-purple-500"
+              aria-label="Imagen anterior"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                goToNext()
+              }}
+              className="absolute z-20 p-2 transition-all -translate-y-1/2 rounded-full opacity-0 right-3 top-1/2 bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 group-hover:opacity-100 active:opacity-100 active:outline-none active:ring-2 active:ring-purple-500"
+              aria-label="Siguiente imagen"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </>
+        )}
+
+        {/* Dot Indicators - Bottom center, purple and stretched when active */}
+        {images.length > 1 && (
+          <div className="absolute z-20 flex items-center gap-2 -translate-x-1/2 bottom-4 left-1/2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  goToSlide(index)
+                }}
+                className={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-black/50 ${index === currentIndex
+                  ? 'bg-purple-500 w-5 h-1.5'
+                  : 'bg-white/50 hover:bg-white/80 w-1.5 h-1.5'
+                  }`}
+                aria-label={`Ir a imagen ${index + 1}`}
+                aria-current={index === currentIndex ? 'true' : 'false'}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Fullscreen Gallery Modal */}
+      <FullscreenGallery
+        images={images}
+        initialIndex={currentIndex}
+        isOpen={isFullscreenOpen}
+        onClose={() => setIsFullscreenOpen(false)}
+        title={title}
+      />
+    </>
   )
 }
 
