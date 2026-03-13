@@ -206,17 +206,17 @@ const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: str
         </>
       )}
       
-      {/* Dot Indicators - Bottom center, purple when active */}
+      {/* Dot Indicators - Bottom center, purple and stretched when active */}
       {images.length > 1 && (
-        <div className="absolute z-20 flex gap-2 -translate-x-1/2 bottom-4 left-1/2">
+        <div className="absolute z-20 flex items-center gap-2 -translate-x-1/2 bottom-4 left-1/2">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-black/50 ${
+              className={`h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-black/50 ${
                 index === currentIndex 
-                  ? 'bg-purple-500 scale-110' 
-                  : 'bg-white/50 hover:bg-white/80'
+                  ? 'bg-purple-500 w-6' 
+                  : 'bg-white/50 hover:bg-white/80 w-2.5'
               }`}
               aria-label={`Ir a imagen ${index + 1}`}
               aria-current={index === currentIndex ? 'true' : 'false'}
