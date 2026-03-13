@@ -1,121 +1,17 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { ChevronLeft, ChevronRight, Globe } from 'lucide-react'
-import Image, { StaticImageData } from 'next/image'
-import image_420app2 from '@/public/420app2.png'
-import image_altiva from '@/public/altiva.png'
-import image_sacaturnoscreen from '@/public/sacaturnoscreen.png'
-import image_telovendo from '@/public/telovendo.png'
-import image_encino from '@/public/encino.png'
-import image_cannabica from "@/public/cannabica.png"
-import image_telovendopanel from "@/public/telovendopanel.png"
-import image_emartscreen1 from "@/public/emartscreen1.png"
-import image_emartscreen2 from "@/public/emartscreen2.png"
+"use client"
+
 import Link from 'next/link'
 import { Project } from '@/app/interfaces/IProject'
 import { TechIcons } from '@/components/ui/tech-icons'
+import { ImageGallery } from './ImageGallery'
+import { Globe } from 'lucide-react'
 
-// Image Gallery Carousel with auto-rotation every 2 seconds
-const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: string }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
-
-  const goToNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % images.length)
-  }, [images.length])
-
-  const goToPrevious = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
-  }, [images.length])
-
-  const goToSlide = useCallback((index: number) => {
-    setCurrentIndex(index)
-  }, [])
-
-  // Auto-rotation every 2 seconds
-  useEffect(() => {
-    if (images.length <= 1 || isPaused) return
-
-    const interval = setInterval(() => {
-      goToNext()
-    }, 3200)
-
-    return () => clearInterval(interval)
-  }, [images.length, isPaused, goToNext])
-
-  return (
-    <div
-      className="relative w-full h-full group"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* Images */}
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
-        >
-          <Image
-            src={image}
-            alt={`${title} - imagen ${index + 1}`}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority={index === 0}
-          />
-        </div>
-      ))}
-
-      {/* Navigation Arrows - Only show if more than 1 image */}
-      {images.length > 1 && (
-        <>
-          {/* Left Arrow */}
-          <button
-            onClick={goToPrevious}
-            className="absolute z-20 p-2 transition-all -translate-y-1/2 rounded-full opacity-0 left-3 top-1/2 bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 group-hover:opacity-100 active:opacity-100 active:outline-none active:ring-2 active:ring-purple-500"
-            aria-label="Imagen anterior"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Right Arrow */}
-          <button
-            onClick={goToNext}
-            className="absolute z-20 p-2 transition-all -translate-y-1/2 rounded-full opacity-0 right-3 top-1/2 bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 group-hover:opacity-100 active:opacity-100 active:outline-none active:ring-2 active:ring-purple-500"
-            aria-label="Siguiente imagen"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </>
-      )}
-
-      {/* Dot Indicators - Bottom center, purple and stretched when active */}
-      {images.length > 1 && (
-        <div className="absolute z-20 flex items-center gap-2 -translate-x-1/2 bottom-4 left-1/2">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-black/50 ${index === currentIndex
-                ? 'bg-purple-500 w-5 h-1.5'
-                : 'bg-white/50 hover:bg-white/80 w-1.5 h-1.5'
-                }`}
-              aria-label={`Ir a imagen ${index + 1}`}
-              aria-current={index === currentIndex ? 'true' : 'false'}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
-// Component for individual project card
+// project card component
 export const ProjectCard = ({ project, reverse = false }: { project: Project; reverse?: boolean }) => {
   return (
     <div className={`flex flex-col gap-8 lg:gap-16 min-w-0 w-full ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-start lg:items-center`}>
-      {/* Text Content */}
-      <div className="flex flex-col gap-6 lg:w-1/2">
+            {/* Text Content */}
+      <div className="flex flex-col gap-5 lg:w-1/2">
         {/* Label */}
         <span className="text-sm font-medium tracking-wide text-purple-500 uppercase">
           {project.label}
@@ -133,28 +29,28 @@ export const ProjectCard = ({ project, reverse = false }: { project: Project; re
           </p>
         </div>
 
-        {/* Domain Button and Tech Stack */}
+        {/* Link Button and Tech Stack */}
         <div className="flex flex-wrap items-center gap-3">
           {project.link && project.domain && (
             <Link
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors border rounded-full border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 bg-zinc-900/50"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors border rounded-full cursor-none border-zinc-700 text-zinc-300 hover:text-white hover:border-purple-500 bg-zinc-900/50"
             >
               <Globe className="w-4 h-4" />
               {project.domain}
             </Link>
           )}
 
-          {/* Technology Icons */}
+          {/* Tech Icons */}
           <div className="flex items-center gap-2">
             {project.technologies.map((tech) => {
               const IconComponent = TechIcons[tech]
               return (
                 <div
                   key={tech}
-                  className="flex items-center justify-center w-10 h-10 transition-colors border rounded-full border-zinc-700 bg-zinc-900/50 text-zinc-400 hover:text-white hover:border-zinc-500"
+                  className="flex items-center justify-center w-10 h-10 transition-colors border rounded-full border-zinc-700 bg-zinc-900/50 text-zinc-400 hover:text-white hover:border-purple-500"
                   title={tech.charAt(0).toUpperCase() + tech.slice(1)}
                 >
                   <IconComponent />
@@ -164,12 +60,14 @@ export const ProjectCard = ({ project, reverse = false }: { project: Project; re
           </div>
         </div>
       </div>
+
       {/* Image Gallery */}
       <div className="relative w-full min-w-0 lg:w-1/2">
         <div className="relative overflow-hidden shadow-2xl rounded-xl aspect-video shadow-purple-500/10">
           <ImageGallery images={project.images} title={project.title} />
         </div>
       </div>
+
     </div>
   )
 }
