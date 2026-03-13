@@ -1,6 +1,6 @@
 "use client"
-import React, { useState, useEffect } from 'react'
-import { Globe } from 'lucide-react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { Globe, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image, { StaticImageData } from 'next/image'
 import image_420app2 from '@/public/420app2.png'
 import image_altiva from '@/public/altiva.png'
@@ -130,27 +130,46 @@ const projects: Project[] = [
   }
 ]
 
-// Image Gallery component with auto-rotation every 2 seconds
+// Image Gallery Carousel with auto-rotation every 2 seconds
 const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: string }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
 
+  const goToNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }, [images.length])
+
+  const goToPrevious = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  }, [images.length])
+
+  const goToSlide = useCallback((index: number) => {
+    setCurrentIndex(index)
+  }, [])
+
+  // Auto-rotation every 2 seconds
   useEffect(() => {
-    if (images.length <= 1) return
+    if (images.length <= 1 || isPaused) return
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length)
+      goToNext()
     }, 2000)
 
     return () => clearInterval(interval)
-  }, [images.length])
+  }, [images.length, isPaused, goToNext])
 
   return (
-    <div className="relative w-full h-full">
+    <div 
+      className="relative w-full h-full group"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Images */}
       {images.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-500 ${
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
+          className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+            index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         >
           <Image
@@ -164,19 +183,43 @@ const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: str
         </div>
       ))}
       
-      {/* Gallery indicators */}
+      {/* Navigation Arrows - Only show if more than 1 image */}
       {images.length > 1 && (
-        <div className="absolute z-10 flex gap-1.5 -translate-x-1/2 bottom-3 left-1/2">
+        <>
+          {/* Left Arrow */}
+          <button
+            onClick={goToPrevious}
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            aria-label="Imagen anterior"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          
+          {/* Right Arrow */}
+          <button
+            onClick={goToNext}
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/40 backdrop-blur-sm text-white/80 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            aria-label="Siguiente imagen"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </>
+      )}
+      
+      {/* Dot Indicators - Bottom center, purple when active */}
+      {images.length > 1 && (
+        <div className="absolute z-20 flex gap-2 -translate-x-1/2 bottom-4 left-1/2">
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
+              onClick={() => goToSlide(index)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-black/50 ${
                 index === currentIndex 
-                  ? 'bg-white w-4' 
-                  : 'bg-white/50 hover:bg-white/75'
+                  ? 'bg-purple-500 scale-110' 
+                  : 'bg-white/50 hover:bg-white/80'
               }`}
-              aria-label={`Ver imagen ${index + 1}`}
+              aria-label={`Ir a imagen ${index + 1}`}
+              aria-current={index === currentIndex ? 'true' : 'false'}
             />
           ))}
         </div>
