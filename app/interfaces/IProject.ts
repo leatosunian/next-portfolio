@@ -6,7 +6,7 @@ export interface Project {
     label: string
     title: string
     description: string
-    imageUrl: StaticImageData
+    images: StaticImageData[]
     link?: string
     domain?: string
     technologies: TechKey[]

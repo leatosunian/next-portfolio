@@ -25,7 +25,7 @@ const projects: Project[] = [
     label: "SaaS",
     title: "SacaTurno - Turnos Online",
     description: "Servicio de software para gestionar turnos de forma online. Cuenta con 15 días de prueba gratuita. Luego, se paga una suscripción mensual a través de Mercado Pago, con activación automática. Solo tenés que crear tu cuenta, configurar tu negocio y servicios, y ya podés empezar a cargar turnos.",
-    imageUrl: image_sacaturnoscreen,
+    images: [image_sacaturnoscreen],
     link: "https://sacaturno.com.ar",
     domain: "sacaturno.com.ar",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
@@ -34,69 +34,52 @@ const projects: Project[] = [
     label: "Catálogo Online",
     title: "Telovendo - Página Web con Catálogo",
     description: "Página web para Telovendo Santa Fé, dedicados a la venta de vehículos. El sitio cuenta con un diseño moderno y responsivo, con su página principal, un apartado de catálogo de vehículos y un formulario de contacto para enviar una solicitud de cotización. Todo el stock y el envío de consultas se gestionan desde un panel de administración privado, donde además cuenta con un CRM para gestión de clientes y un presupuestador digital, que genera un archivo PDF con un diseño profesional para descargar y enviar al cliente.",
-    imageUrl: image_telovendo,
+    images: [image_telovendo, image_telovendopanel],
     link: "https://telovendo.com.ar",
     domain: "telovendo.com.ar",
-    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
-  },
-  {
-    label: "CRM a medida",
-    title: "Telovendo - CRM / Presupuestador Digital",
-    description: "A comprehensive admin dashboard for managing the vehicle marketplace. Includes user management, vehicle listings moderation, analytics, and content management with a clean, intuitive interface.",
-    imageUrl: image_telovendopanel,
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
     label: "Desarrollo a medida",
     title: "420app - Inventario y Pedidos",
     description: "420App es una aplicación web desarrollada para optimizar la administración de productos y pedidos. Permite aplicar ajustes de precios por porcentaje, definir márgenes de ganancia individuales y gestionar pedidos ágil y eficientemente. Es una herramienta para simplificar su gestión comercial diaria.",
-    imageUrl: image_420app2,
+    images: [image_420app2],
     link: "https://420app.com",
     domain: "420app.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
-    label: "Featured Project",
-    title: "Altiva – Corporate Website",
+    label: "Página Corporativa",
+    title: "Altiva - Sitio Web Corporativo",
     description: "A sleek corporate website showcasing professional services with modern design aesthetics. Features smooth animations, responsive layouts, and optimized performance for an exceptional user experience.",
-    imageUrl: image_altiva,
+    images: [image_altiva],
     link: "https://altiva.com",
     domain: "altiva.com",
     technologies: ["nextjs", "typescript", "react", "tailwind"]
   },
-
   {
-    label: "Featured Project",
-    title: "Encino – Real Estate Platform",
+    label: "Real Estate",
+    title: "Encino - Plataforma Inmobiliaria",
     description: "A modern real estate platform featuring property listings, virtual tours, and agent management. Designed with an elegant interface that makes property search intuitive and engaging.",
-    imageUrl: image_encino,
+    images: [image_encino],
     link: "https://encino.com",
     domain: "encino.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
-    label: "Featured Project",
-    title: "Cannabica – Cannabis E-commerce",
+    label: "E-commerce",
+    title: "Cannabica - E-commerce",
     description: "An e-commerce platform specialized for the cannabis industry with age verification, product categorization, and secure payment processing. Features a clean, modern design with intuitive navigation.",
-    imageUrl: image_cannabica,
+    images: [image_cannabica],
     link: "https://cannabica.com",
     domain: "cannabica.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
-    label: "Featured Project",
-    title: "E-Mart – Online Marketplace",
+    label: "Marketplace",
+    title: "E-Mart - Marketplace Online",
     description: "A versatile online marketplace platform with multi-vendor support, product reviews, and advanced filtering. Built for scalability with a focus on conversion optimization and user engagement.",
-    imageUrl: image_emartscreen1,
-    link: "https://e-mart.com",
-    domain: "e-mart.com",
-    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
-  },
-  {
-    label: "Featured Project",
-    title: "E-Mart – Product Showcase",
-    description: "The detailed product view and checkout experience for E-Mart, featuring high-quality imagery, customer reviews, and a streamlined purchasing process.",
-    imageUrl: image_emartscreen2,
+    images: [image_emartscreen1, image_emartscreen2],
     link: "https://e-mart.com",
     domain: "e-mart.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
