@@ -17,7 +17,6 @@ import Link from 'next/link'
 import { Project } from '@/app/interfaces/IProject'
 import { TechIcons } from '@/components/ui/tech-icons'
 import { FullscreenGallery } from '@/components/ui/fullscreen-gallery'
-import { useGallery } from '@/components/context/gallery-context'
 
 // Image Gallery Carousel with auto-rotation, swipe support, and fullscreen modal
 const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: string }) => {
@@ -25,8 +24,6 @@ const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: str
   const [isPaused, setIsPaused] = useState(false)
   const [isFullscreenOpen, setIsFullscreenOpen] = useState(false)
   const [direction, setDirection] = useState(0)
-  const [isDragging, setIsDragging] = useState(false)
-  const { setIsGalleryOpen } = useGallery()
 
   const goToNext = useCallback(() => {
     setDirection(1)
@@ -44,17 +41,6 @@ const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: str
   }, [currentIndex])
 
   // Handle swipe gestures
-  const handleDragStart = () => {
-    setIsDragging(false)
-  }
-
-  const handleDrag = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    // Mark as dragging if moved more than 5px
-    if (Math.abs(info.offset.x) > 5) {
-      setIsDragging(true)
-    }
-  }
-
   const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const swipeThreshold = 50
     const swipeVelocity = 500
@@ -66,19 +52,10 @@ const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: str
     }
   }
 
-  // Open fullscreen gallery at current index - only if not dragging
+  // Open fullscreen gallery at current index
   const openFullscreen = useCallback(() => {
-    if (!isDragging) {
-      setIsFullscreenOpen(true)
-      setIsGalleryOpen(true)
-    }
-  }, [isDragging, setIsGalleryOpen])
-
-  // Close fullscreen gallery
-  const closeFullscreen = useCallback(() => {
-    setIsFullscreenOpen(false)
-    setIsGalleryOpen(false)
-  }, [setIsGalleryOpen])
+    setIsFullscreenOpen(true)
+  }, [])
 
   // Auto-rotation every 3.2 seconds
   useEffect(() => {
@@ -130,8 +107,6 @@ const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: str
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.7}
-            onDragStart={handleDragStart}
-            onDrag={handleDrag}
             onDragEnd={handleDragEnd}
             className="absolute inset-0 cursor-grab active:cursor-grabbing"
             onClick={openFullscreen}
@@ -213,7 +188,7 @@ const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: str
         images={images}
         initialIndex={currentIndex}
         isOpen={isFullscreenOpen}
-        onClose={closeFullscreen}
+        onClose={() => setIsFullscreenOpen(false)}
         title={title}
       />
     </>

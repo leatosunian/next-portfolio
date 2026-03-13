@@ -11,7 +11,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Dock, DockIcon } from "./ui/dock"
-import { useGallery } from "./context/gallery-context"
 
 export type IconProps = React.HTMLAttributes<SVGElement>
 
@@ -88,11 +87,6 @@ const DATA = {
   },
 }
 export function DockComponent() {
-  const { isGalleryOpen } = useGallery()
-
-  // Hide dock when gallery is open
-  if (isGalleryOpen) return null
-
   return (
     <div className="fixed z-50 flex flex-col items-center w-full -translate-x-1/2 bottom-4 left-1/2">
 
