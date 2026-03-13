@@ -108,8 +108,14 @@ export const FullscreenGallery = ({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
-          onClick={onClose}
         >
+          {/* Backdrop - clicking closes modal */}
+          <div 
+            className="absolute inset-0 z-0" 
+            onClick={onClose}
+            aria-label="Cerrar galería"
+          />
+
           {/* Close button */}
           <button
             onClick={onClose}
@@ -131,8 +137,7 @@ export const FullscreenGallery = ({
 
           {/* Main image container */}
           <div
-            className="relative flex items-center justify-center w-full h-full px-4 py-20 md:px-16 lg:px-24"
-            onClick={(e) => e.stopPropagation()}
+            className="relative z-10 flex items-center justify-center w-full h-full px-4 py-20 md:px-16 lg:px-24 pointer-events-none"
           >
             {/* Navigation Arrows */}
             {images.length > 1 && (
@@ -183,12 +188,12 @@ export const FullscreenGallery = ({
                   onDragEnd={handleDragEnd}
                   className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
                 >
-                  <div className="relative w-full h-full">
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl">
                     <Image
                       src={images[currentIndex]}
                       alt={`${title} - imagen ${currentIndex + 1}`}
                       fill
-                      className="object-contain"
+                      className="object-contain rounded-2xl"
                       sizes="100vw"
                       priority
                       draggable={false}
