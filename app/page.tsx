@@ -1,6 +1,6 @@
 import { DockComponent } from '@/components/DockComponent';
 import Navbar from '@/components/Navbar';
-import Projects from '@/components/sections/Projects';
+import Projects from '@/components/sections/projects/Projects';
 import Hero from '@/components/sections/Hero';
 import { SmoothCursor } from '@/components/ui/smooth-cursor';
 

@@ -65,24 +65,24 @@ const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "#",
+        url: "https://github.com/leatosunian/",
         icon: Icons.github,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "#",
+        url: "https://www.linkedin.com/in/leandrotosunian/",
         icon: Icons.linkedin,
       },
       Instagram: {
         name: "Instagram",
-        url: "#",
+        url: "https://www.instagram.com/tosunian.dev/",
         icon: Icons.instagram,
       },
       Whatsapp: {
         name: "Whatsapp",
-        url: "#",
+        url: "https://wa.me/+5492235423025",
         icon: Icons.whatsapp,
-      },
+      }
     },
   },
 }
@@ -92,35 +92,14 @@ export function DockComponent() {
 
       <TooltipProvider>
         <Dock direction="middle" className="text-foreground/80 bg-[#0a0a0a]/60">
-          {/* {DATA.navbar.map((item) => (
-            <DockIcon key={item.label}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={item.href}
-                    aria-label={item.label}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full"
-                    )}
-                  >
-                    <item.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          <Separator orientation="vertical" className="h-full" />
-          ))} */}
-          {Object.entries(DATA.contact.social).map(([name, social]) => (
+           {Object.entries(DATA.contact.social).map(([name, social]) => (
             <DockIcon key={name} className="cursor-none">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
                     href={social.url}
                     aria-label={social.name}
+                    target="_blank"
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12 rounded-full cursor-none"

@@ -64,31 +64,35 @@ export default function Navbar() {
             <div className="items-center hidden mr-6 space-x-8 md:flex">
               <button
                 onClick={() => scrollToSection("home")}
-                className="relative transition-colors nav-item text-white/75 hover:text-white cursor-none"
+                className="relative px-3 py-2 transition-colors text-white/75 hover:text-white cursor-none group"
                 aria-label="Navigate to home section"
               >
                 Inicio
+                <span className="absolute bottom-0 w-0 h-px transition-all duration-300 -translate-x-1/2 bg-white left-1/2 group-hover:w-full"></span>
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="relative transition-colors nav-item text-white/75 hover:text-white cursor-none"
+                className="relative px-3 py-2 transition-colors text-white/75 hover:text-white cursor-none group"
                 aria-label="Navigate to about section"
               >
                 Proyectos
+                <span className="absolute bottom-0 w-0 h-px transition-all duration-300 -translate-x-1/2 bg-white left-1/2 group-hover:w-full"></span>
               </button>
               <button
                 onClick={() => scrollToSection("portfolio")}
-                className="relative transition-colors nav-item text-white/75 hover:text-white cursor-none"
+                className="relative px-3 py-2 transition-colors text-white/75 hover:text-white cursor-none group"
                 aria-label="Navigate to portfolio section"
               >
                 Sobre mí
+                <span className="absolute bottom-0 w-0 h-px transition-all duration-300 -translate-x-1/2 bg-white left-1/2 group-hover:w-full"></span>
               </button>
               <button
                 onClick={() => scrollToSection("podcast")}
-                className="relative transition-colors nav-item text-white/75 hover:text-white cursor-none"
+                className="relative px-3 py-2 transition-colors text-white/75 hover:text-white cursor-none group"
                 aria-label="Navigate to podcast section"
               >
                 Contacto
+                <span className="absolute bottom-0 w-0 h-px transition-all duration-300 -translate-x-1/2 bg-white left-1/2 group-hover:w-full"></span>
               </button>
 
             </div>
