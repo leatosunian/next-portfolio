@@ -1,8 +1,7 @@
 "use client"
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Globe } from 'lucide-react'
 import Image, { StaticImageData } from 'next/image'
-import image_420app from '@/public/420app.png'
 import image_420app2 from '@/public/420app2.png'
 import image_altiva from '@/public/altiva.png'
 import image_sacaturnoscreen from '@/public/sacaturnoscreen.png'
@@ -59,7 +58,7 @@ interface Project {
   label: string
   title: string
   description: string
-  imageUrl: StaticImageData
+  images: StaticImageData[]
   link?: string
   domain?: string
   technologies: TechKey[]
@@ -70,7 +69,7 @@ const projects: Project[] = [
     label: "SaaS",
     title: "SacaTurno - Turnos Online",
     description: "Servicio de software para gestionar turnos de forma online. Cuenta con 15 días de prueba gratuita. Luego, se paga una suscripción mensual a través de Mercado Pago, con activación automática. Solo tenés que crear tu cuenta, configurar tu negocio y servicios, y ya podés empezar a cargar turnos.",
-    imageUrl: image_sacaturnoscreen,
+    images: [image_sacaturnoscreen],
     link: "https://sacaturno.com.ar",
     domain: "sacaturno.com.ar",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
@@ -79,74 +78,112 @@ const projects: Project[] = [
     label: "Catálogo Online",
     title: "Telovendo - Página Web con Catálogo",
     description: "Página web para Telovendo Santa Fé, dedicados a la venta de vehículos. El sitio cuenta con un diseño moderno y responsivo, con su página principal, un apartado de catálogo de vehículos y un formulario de contacto para enviar una solicitud de cotización. Todo el stock y el envío de consultas se gestionan desde un panel de administración privado, donde además cuenta con un CRM para gestión de clientes y un presupuestador digital, que genera un archivo PDF con un diseño profesional para descargar y enviar al cliente.",
-    imageUrl: image_telovendo,
+    images: [image_telovendo, image_telovendopanel],
     link: "https://telovendo.com.ar",
     domain: "telovendo.com.ar",
-    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
-  },
-  {
-    label: "CRM a medida",
-    title: "Telovendo - CRM / Presupuestador Digital",
-    description: "A comprehensive admin dashboard for managing the vehicle marketplace. Includes user management, vehicle listings moderation, analytics, and content management with a clean, intuitive interface.",
-    imageUrl: image_telovendopanel,
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
     label: "Desarrollo a medida",
     title: "420app - Inventario y Pedidos",
     description: "420App es una aplicación web desarrollada para optimizar la administración de productos y pedidos. Permite aplicar ajustes de precios por porcentaje, definir márgenes de ganancia individuales y gestionar pedidos ágil y eficientemente. Es una herramienta para simplificar su gestión comercial diaria.",
-    imageUrl: image_420app2,
+    images: [image_420app2],
     link: "https://420app.com",
     domain: "420app.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
-    label: "Featured Project",
-    title: "Altiva – Corporate Website",
+    label: "Página Corporativa",
+    title: "Altiva - Sitio Web Corporativo",
     description: "A sleek corporate website showcasing professional services with modern design aesthetics. Features smooth animations, responsive layouts, and optimized performance for an exceptional user experience.",
-    imageUrl: image_altiva,
+    images: [image_altiva],
     link: "https://altiva.com",
     domain: "altiva.com",
     technologies: ["nextjs", "typescript", "react", "tailwind"]
   },
-
   {
-    label: "Featured Project",
-    title: "Encino – Real Estate Platform",
+    label: "Real Estate",
+    title: "Encino - Plataforma Inmobiliaria",
     description: "A modern real estate platform featuring property listings, virtual tours, and agent management. Designed with an elegant interface that makes property search intuitive and engaging.",
-    imageUrl: image_encino,
+    images: [image_encino],
     link: "https://encino.com",
     domain: "encino.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   },
   {
-    label: "Featured Project",
-    title: "Cannabica – Cannabis E-commerce",
+    label: "E-commerce",
+    title: "Cannabica - E-commerce",
     description: "An e-commerce platform specialized for the cannabis industry with age verification, product categorization, and secure payment processing. Features a clean, modern design with intuitive navigation.",
-    imageUrl: image_cannabica,
+    images: [image_cannabica],
     link: "https://cannabica.com",
     domain: "cannabica.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
   },
   {
-    label: "Featured Project",
-    title: "E-Mart – Online Marketplace",
+    label: "Marketplace",
+    title: "E-Mart - Marketplace Online",
     description: "A versatile online marketplace platform with multi-vendor support, product reviews, and advanced filtering. Built for scalability with a focus on conversion optimization and user engagement.",
-    imageUrl: image_emartscreen1,
-    link: "https://e-mart.com",
-    domain: "e-mart.com",
-    technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
-  },
-  {
-    label: "Featured Project",
-    title: "E-Mart – Product Showcase",
-    description: "The detailed product view and checkout experience for E-Mart, featuring high-quality imagery, customer reviews, and a streamlined purchasing process.",
-    imageUrl: image_emartscreen2,
+    images: [image_emartscreen1, image_emartscreen2],
     link: "https://e-mart.com",
     domain: "e-mart.com",
     technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
   }
 ]
+
+// Image Gallery component with auto-rotation every 2 seconds
+const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: string }) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    if (images.length <= 1) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length)
+    }, 2000)
+
+    return () => clearInterval(interval)
+  }, [images.length])
+
+  return (
+    <div className="relative w-full h-full">
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-500 ${
+            index === currentIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <Image
+            src={image}
+            alt={`${title} - imagen ${index + 1}`}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={index === 0}
+          />
+        </div>
+      ))}
+      
+      {/* Gallery indicators */}
+      {images.length > 1 && (
+        <div className="absolute z-10 flex gap-1.5 -translate-x-1/2 bottom-3 left-1/2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === currentIndex 
+                  ? 'bg-white w-4' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Ver imagen ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 // Component for individual project card
 const ProjectCard = ({ project, reverse = false }: { project: Project; reverse?: boolean }) => {
@@ -203,74 +240,12 @@ const ProjectCard = ({ project, reverse = false }: { project: Project; reverse?:
         </div>
       </div>
 
-      {/* Image */}
+      {/* Image Gallery */}
       <div className="relative w-full min-w-0 lg:w-1/2">
         <div className="relative overflow-hidden shadow-2xl rounded-xl aspect-video shadow-purple-500/10">
-          <Image
-            src={project.imageUrl}
-            alt={project.title}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+          <ImageGallery images={project.images} title={project.title} />
         </div>
       </div>
-    </div>
-  )
-}
-
-// Title Option 1: Vertical line accent with gradient text
-const ProjectsTitleOption1 = () => {
-  return (
-    <div className="relative mb-16 lg:mb-24">
-      <div className="flex items-stretch">
-        {/* Vertical gradient line */}
-        <div 
-          className="w-1 mr-4 rounded-full shrink-0"
-          style={{
-            background: 'linear-gradient(to bottom, #a855f7, #7c3aed, #6d28d9)',
-            minHeight: '100%'
-          }}
-        />
-        {/* Title with gradient */}
-        <h1 
-          className="text-7xl font-bold tracking-tight sm:text-8xl lg:text-9xl"
-          style={{
-            background: 'linear-gradient(to right, #ffffff 0%, #ffffff 40%, #a855f7 70%, #7c3aed 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
-        >
-          Proyectos
-        </h1>
-      </div>
-    </div>
-  )
-}
-
-// Title Option 2: Italic font with decorative number behind
-const ProjectsTitleOption2 = () => {
-  return (
-    <div className="relative mb-16 lg:mb-24 overflow-hidden">
-      {/* Large decorative number behind */}
-      <div 
-        className="absolute right-0 top-1/2 -translate-y-1/2 text-[12rem] sm:text-[16rem] lg:text-[20rem] font-bold leading-none select-none pointer-events-none"
-        style={{
-          color: 'rgba(126, 34, 206, 0.15)',
-        }}
-      >
-        01
-      </div>
-      {/* Italic title */}
-      <h1 
-        className="relative z-10 text-6xl italic font-light tracking-tight sm:text-7xl lg:text-8xl text-white"
-        style={{
-          fontStyle: 'italic',
-        }}
-      >
-        Proyectos
-      </h1>
     </div>
   )
 }
@@ -280,21 +255,43 @@ const Projects = () => {
   return (
     <section className="relative w-full px-6 py-20 overflow-x-hidden bg-background lg:px-12 xl:px-20">
       <div className="mx-auto max-w-7xl">
-        
-        {/* OPTION 1: Vertical line with gradient text - UNCOMMENT TO USE */}
-        <ProjectsTitleOption1 />
-        
-        {/* OPTION 2: Italic with decorative number - UNCOMMENT TO USE */}
-        {/* <ProjectsTitleOption2 /> */}
-        
-        <div className="flex flex-col gap-24 lg:gap-32">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              reverse={index % 2 !== 0}
-            />
-          ))}
+        <div className="flex flex-col gap-10">
+          {/* Title */}
+          <div className="relative mb-16 lg:mb-24">
+            <div className="flex items-stretch">
+              {/* Vertical gradient line */}
+              <div
+                className="w-1 mr-4 rounded-full shrink-0"
+                style={{
+                  background: 'linear-gradient(to bottom, #a855f7, #7c3aed, #6d28d9)',
+                  minHeight: '100%'
+                }}
+              />
+              {/* Title with gradient */}
+              <h1
+                className="text-5xl font-bold sm:text-8xl lg:text-7xl"
+                style={{
+                  background: 'linear-gradient(to right, #ffffff 0%, #ffffff 40%, #a855f7 70%, #7c3aed 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Proyectos
+              </h1>
+            </div>
+          </div>
+
+          {/* Project Cards */}
+          <div className="flex flex-col gap-24 lg:gap-32">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                project={project}
+                reverse={index % 2 !== 0}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
