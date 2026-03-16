@@ -217,7 +217,7 @@ export default function TechStack() {
         </div>
 
         {/* Stats bar */}
-        <div
+        {/* <div
           className="flex flex-col items-center justify-between gap-12 p-12 mt-24 border rounded-2xl md:flex-row"
           style={{
             backgroundColor: "#131316",
@@ -244,7 +244,7 @@ export default function TechStack() {
             </div>
           ))}
 
-          {/* <div
+          <div
             className="hidden w-px h-16 md:block"
             style={{ backgroundColor: "rgba(72,71,74,0.2)" }}
           />
@@ -259,8 +259,8 @@ export default function TechStack() {
             >
               View Case Studies <ArrowRight size={16} />
             </button>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
       </div>
     </section>
   );
