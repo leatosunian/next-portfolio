@@ -25,7 +25,8 @@ export const projects: Project[] = [
         label: "SaaS Turnos Online",
         title: "SacaTurno",
         description: "Servicio de software para gestionar turnos de forma online. Cuenta con 15 días de prueba gratuita. Luego, se paga una suscripción mensual a través de Mercado Pago, con activación automática. Solo tenés que crear tu cuenta, configurar tu negocio y servicios, y ya podés empezar a cargar turnos.",
-        images: [image_sacaturnoscreen],
+        projectImages: [image_sacaturnoscreen],
+        galleryImages: [image_sacaturnoscreen],
         link: "https://sacaturno.com.ar",
         domain: "sacaturno.com.ar",
         technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
@@ -34,7 +35,8 @@ export const projects: Project[] = [
         label: "Catálogo Online",
         title: "Telovendo Santa Fé",
         description: "Página web para Telovendo Santa Fé, dedicados a la venta de vehículos. El sitio cuenta con un diseño moderno y responsivo, con su página principal, un apartado de catálogo de vehículos y un formulario de contacto para enviar una solicitud de cotización. Todo el stock y el envío de consultas se gestionan desde un panel de administración privado, donde además cuenta con un CRM para gestión de clientes y un presupuestador digital, que genera un archivo PDF con un diseño profesional para descargar y enviar al cliente.",
-        images: [image_telovendo, image_telovendo2, image_telovendo3, image_telovendo4],
+        projectImages: [image_telovendo, image_telovendo2, image_telovendo3, image_telovendo4],
+        galleryImages: [image_telovendo, image_telovendo2, image_telovendo3, image_telovendo4],
         link: "https://telovendosf.com.ar",
         domain: "telovendo.com.ar",
         technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
@@ -43,14 +45,16 @@ export const projects: Project[] = [
         label: "Desarrollo a medida",
         title: "420app - Inventario y Pedidos",
         description: "420App es una aplicación web desarrollada a medida para optimizar la administración de productos y pedidos. Gracias al relevamiento de las necesidades del negocio, es una herramienta para simplificar su gestión comercial diaria. Permite aplicar ajustes de precios por porcentaje, definir márgenes de ganancia individuales y gestionar pedidos ágil y eficientemente.",
-        images: [image_420app1, image_420app2, image_420app3, image_420app8, image_420app8],
+        projectImages: [image_420app1, image_420app2, image_420app3, image_420app8, image_420app8],
+        galleryImages: [image_420app1, image_420app2, image_420app3, image_420app8, image_420app8],
         technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
     },
     {
         label: "Catálogo Corporativo",
         title: "Altiva Propiedades",
         description: "A sleek corporate website showcasing professional services with modern design aesthetics. Features smooth animations, responsive layouts, and optimized performance for an exceptional user experience.",
-        images: [image_altiva],
+        projectImages: [image_altiva],
+        galleryImages: [image_altiva],
         link: "https://altivapropiedades.netlify.app/",
         domain: "altivapropiedades.com.ar",
         technologies: ["nextjs", "typescript", "react", "tailwind"]
@@ -59,7 +63,8 @@ export const projects: Project[] = [
         label: "E-commerce",
         title: "Somacann",
         description: "An e-commerce platform specialized for the cannabis industry with age verification, product categorization, and secure payment processing. Features a clean, modern design with intuitive navigation.",
-        images: [image_cannabica],
+        projectImages: [image_cannabica],
+        galleryImages: [image_cannabica],
         link: "https://cannabicagroup.com.ar/",
         domain: "cannabicagroup.com.ar",
         technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
@@ -68,7 +73,8 @@ export const projects: Project[] = [
         label: "Landing Page",
         title: "Encino Carpintería",
         description: "Página web corporativa para un taller de carpintería, con un diseño moderno y minimalista desarrollada para convertir las visitas a la web a nuevos clientes.",
-        images: [image_encino],
+        projectImages: [image_encino],
+        galleryImages: [image_encino],
         link: "https://encino-carpinteria.netlify.app/",
         domain: "encinocarpinteria.com.ar",
         technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
@@ -77,7 +83,8 @@ export const projects: Project[] = [
         label: "Plataforma e-commerce",
         title: "E-Mart ",
         description: "A versatile online marketplace platform with multi-vendor support, product reviews, and advanced filtering. Built for scalability with a focus on conversion optimization and user engagement.",
-        images: [image_emartscreen1, image_emartscreen2],
+        projectImages: [image_emartscreen1, image_emartscreen2],
+        galleryImages: [image_emartscreen1, image_emartscreen2],
         technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]
     }
 ]

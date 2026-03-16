@@ -4,6 +4,7 @@ import Projects from '@/components/sections/projects/Projects';
 import Hero from '@/components/sections/Hero';
 import { SmoothCursor } from '@/components/ui/smooth-cursor';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import TechStack from '../components/sections/tech-stack/TechStack';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Projects />
+        <TechStack />
         <DockComponent />
       </TooltipProvider>
       {/* <ContactSection /> */}

@@ -1,0 +1,21 @@
+{
+  // ── Copilot ───────────────────────────────────────────────────────
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/copilot-instructions.md"
+    }
+  ],
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true
+  },
+
+  // ── Formatters específicos Next.js / TypeScript ───────────────────
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

@@ -1,16 +1,14 @@
+"use client"
+
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import { StaticImageData } from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Globe, Expand } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Expand } from 'lucide-react'
 import { FullscreenGallery } from "./FullscreenGallery";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Button } from "@/components/ui/button";
-
-
 
 // Image Gallery Carousel with auto-rotation, swipe support, and fullscreen modal
-export const ImageGallery = ({ images, title }: { images: StaticImageData[]; title: string }) => {
+export const ImageGallery = ({ images, galleryImages, title }: { images: StaticImageData[]; galleryImages: StaticImageData[]; title: string }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [isFullscreenOpen, setIsFullscreenOpen] = useState(false)
@@ -177,7 +175,7 @@ export const ImageGallery = ({ images, title }: { images: StaticImageData[]; tit
 
       {/* Fullscreen Gallery Modal */}
       <FullscreenGallery
-        images={images}
+        images={galleryImages}
         initialIndex={currentIndex}
         isOpen={isFullscreenOpen}
         onClose={() => setIsFullscreenOpen(false)}

@@ -64,7 +64,7 @@ export const ProjectCard = ({ project, reverse = false }: { project: Project; re
       {/* Image Gallery */}
       <div className="relative w-full min-w-0 lg:w-1/2">
         <div className="relative overflow-hidden shadow-2xl rounded-xl aspect-video shadow-purple-500/10">
-          <ImageGallery images={project.images} title={project.title} />
+          <ImageGallery images={project.projectImages} galleryImages={project.galleryImages} title={project.title} />
         </div>
       </div>
 

@@ -1,12 +1,13 @@
 import { TechIcons } from '@/components/ui/tech-icons'
-import Image, { StaticImageData } from 'next/image'
+import { StaticImageData } from 'next/image'
 type TechKey = keyof typeof TechIcons
 
 export interface Project {
     label: string
     title: string
     description: string
-    images: StaticImageData[]
+    projectImages: StaticImageData[]
+    galleryImages: StaticImageData[]
     link?: string
     domain?: string
     technologies: TechKey[]
