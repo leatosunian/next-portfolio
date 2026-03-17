@@ -48,10 +48,8 @@ export const Projects = () => {
             </div>
 
             <h1
-              className="max-w-4xl text-5xl font-extrabold leading-none tracking-tighter text-white md:text-7xl"
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-              }}
+              className="max-w-4xl text-5xl font-extrabold leading-none tracking-tighter md:text-7xl"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Proyectos <span className="text-purple-500">Destacados</span>
             </h1>

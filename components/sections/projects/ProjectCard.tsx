@@ -1,13 +1,13 @@
 "use client"
 
 import Link from 'next/link'
-import { Project } from '@/app/interfaces/IProject'
+import { IProject } from '@/app/interfaces/IProject'
 import { TechIcons } from '@/components/ui/tech-icons'
 import { ImageGallery } from './ImageGallery'
 import { Globe } from 'lucide-react'
 
 // project card component
-export const ProjectCard = ({ project, reverse = false }: { project: Project; reverse?: boolean }) => {
+export const ProjectCard = ({ project, reverse = false }: { project: IProject; reverse?: boolean }) => {
   return (
     <div className={`flex flex-col gap-8 lg:gap-16 min-w-0 w-full ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-start lg:items-center`}>
             {/* Text Content */}

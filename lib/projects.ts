@@ -18,9 +18,9 @@ import image_encino from '@/public/encino.png'
 import image_cannabica from "@/public/cannabica.png"
 import image_emartscreen1 from "@/public/emartscreen1.png"
 import image_emartscreen2 from "@/public/emartscreen2.png"
-import { Project } from '@/app/interfaces/IProject'
+import { IProject } from '@/app/interfaces/IProject'
 
-export const projects: Project[] = [
+export const projects: IProject[] = [
     {
         label: "SaaS Turnos Online",
         title: "SacaTurno",
