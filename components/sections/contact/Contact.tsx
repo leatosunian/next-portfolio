@@ -2,34 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, UserRound, Code2, AtSign, ArrowRight } from "lucide-react";
+import { Mail, UserRound, Code2, AtSign, ArrowRight, Instagram } from "lucide-react";
+import { FaGithub, FaInstagram, FaLinkedin, FaMailBulk, FaWhatsapp } from 'react-icons/fa';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const links = [
   {
+    icon: <FaLinkedin size={20} />,
+    label: "LinkedIn",
+    value: "in/leandrotosunian",
+    href: "#",
+  },
+  {
+    icon: <FaGithub size={20} />,
+    label: "GitHub",
+    value: "/leatosunian",
+    href: "https://github.com/leatosunian",
+  },
+  {
+    icon: <FaWhatsapp size={20} />,
+    label: "WhatsApp",
+    value: "+54 223-5423025",
+    href: "https://api.whatsapp.com/send?phone=5492235423025",
+  },
+  {
+    icon: <FaInstagram size={20} />,
+    label: "Instagram",
+    value: "tosunian.dev",
+    href: "https://www.instagram.com/tosunian.dev/",
+  },
+  {
     icon: <Mail size={20} />,
-    label: "Professional Email",
-    value: "hello@devportfolio.com",
-    href: "mailto:hello@devportfolio.com",
-  },
-  {
-    icon: <UserRound size={20} />,
-    label: "Professional Network",
-    value: "LinkedIn",
-    href: "#",
-  },
-  {
-    icon: <Code2 size={20} />,
-    label: "Open Source Projects",
-    value: "GitHub",
-    href: "#",
-  },
-  {
-    icon: <AtSign size={20} />,
-    label: "Quick Updates",
-    value: "Twitter",
-    href: "#",
+    label: "Correo electrónico",
+    value: "leandrotosunian@hotmail.com",
+    href: "mailto:leandrotosunian@hotmail.com",
   },
 ];
 
@@ -67,9 +74,7 @@ export default function Contact() {
           </h1>
 
           <p className="max-w-2xl mt-8 text-lg leading-relaxed font-body text-zinc-400">
-            I specialize in creating high-performance, cinematic web
-            experiences. Whether you have a project in mind or just want to
-            discuss the latest tech stack, I&apos;m just a click away.
+            Si llegaste hasta acá, probablemente tengamos algo para hablar. Escribime sin compromiso, sea para un proyecto o para una oportunidad laboral.
           </p>
         </header>
 
@@ -80,7 +85,7 @@ export default function Contact() {
           <div className="flex flex-col gap-4 lg:col-span-5">
             {/* Section label */}
             <div className="pb-2">
-              <h2 className="text-2xl font-bold font-headline">Todos mis links</h2>
+              <h2 className="text-2xl font-bold font-headline">Links</h2>
               <div className="w-12 h-1 mt-2 bg-purple-400 rounded-full" />
             </div>
 
@@ -98,7 +103,7 @@ export default function Contact() {
             <div className="flex items-center self-start gap-3 px-6 py-4 mt-4 bg-black border rounded-full border-white/5">
               <div className="h-2 w-2 animate-pulse rounded-full bg-purple-500 shadow-[0_0_8px_rgba(199,153,255,0.8)]" />
               <span className="font-label text-[0.7rem] uppercase tracking-widest text-zinc-400">
-                Active Response Time  : &lt; 24 Hours
+                Respuesta antes de 24 horas
               </span>
             </div>
           </div>
@@ -124,10 +129,11 @@ function ContactLink({
   return (
     <Link
       href={href}
+      target="_blank"
       className="group flex items-center justify-between rounded-xl border border-white/5 bg-[#131316] p-6 transition-all duration-300 hover:bg-[#19191c]"
     >
       <div className="flex items-center gap-5">
-        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#262529] text-purple-500 transition-all duration-300 group-hover:bg-purple-500 group-hover:text-[#440080]">
+        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#262529] text-purple-500 transition-all duration-300 group-hover:bg-purple-500 group-hover:text-[#2e0155]">
           {icon}
         </div>
         <div>

@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { ArrowRight, ChevronUp } from "lucide-react";
+import { ShineBorder } from "./ui/shine-border";
+// Si lo instalaste con la CLI, el path puede ser:
+// import { ShineBorder } from "@/registry/magicui/shine-border";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -27,87 +30,82 @@ export default function Footer() {
     <footer className="bg-[#0e0e10] text-white border-t border-white/5">
       {/* ── Top section ── */}
       <div className="px-6 py-20 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-          {/* Newsletter */}
-          <div className="lg:col-span-1">
-            <h2 className="text-3xl font-bold leading-tight tracking-tight font-headline">
-              Stay in the loop.
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed font-body text-zinc-400">
-              Receive occasional updates on new projects, tech experiments, and
-              design resources.
-            </p>
-            <div className="mt-8 flex items-center overflow-hidden rounded-lg border border-white/10 bg-[#131316]">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="flex-1 px-4 py-3 text-sm text-white bg-transparent outline-none placeholder-zinc-500"
-              />
-              <button className="m-1 rounded-md bg-purple-500 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-purple-400 whitespace-nowrap">
-                Join Newsletter
-              </button>
-            </div>
-          </div>
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
 
-          {/* Nav links */}
-          <div className="flex flex-col gap-4 lg:col-span-1 lg:pl-16">
-            <p className="font-label text-[0.65rem] font-bold uppercase tracking-widest text-zinc-500">
-              Navigation
-            </p>
-            <nav className="flex flex-col gap-3">
-              {navLinks.map(({ label, href }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-400"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Social links */}
-          <div className="flex flex-col gap-4">
-            <p className="font-label text-[0.65rem] font-bold uppercase tracking-widest text-zinc-500">
-              Social
-            </p>
-            <nav className="flex flex-col gap-3">
-              {socialLinks.map(({ label, href }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-400"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </div>
-      </div>
-
-      {/* ── CTA Banner ── */}
-      <div className="px-6 pb-12 mx-auto max-w-7xl">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-xl border border-white/5 bg-[#131316] p-8 sm:flex-row sm:items-center">
-          <div>
-            <h3 className="text-2xl font-bold font-headline">
-              Have a vision in mind?
-            </h3>
-            <p className="mt-1 text-sm font-body text-zinc-400">
-              Let&apos;s build something exceptional together.
-            </p>
-          </div>
-          <Link
-            href="#contact"
-            className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-purple-400 whitespace-nowrap"
-          >
-            Get in touch
-            <ArrowRight
-              size={16}
-              className="transition-transform group-hover:translate-x-1"
+          {/* ── CTA card con ShineBorder ──
+              IMPORTANTE: el padre debe tener `relative` y `overflow-hidden` obligatoriamente.
+              ShineBorder se coloca como primer hijo y es position:absolute,
+              por eso el contenido va DESPUÉS de él dentro del mismo div.
+          */}
+          <div className="relative overflow-hidden flex flex-col items-start justify-between gap-6 rounded-xl bg-[#131316] p-8 sm:flex-row sm:items-center lg:items-center lg:flex-1 lg:min-h-40">
+            <ShineBorder
+              shineColor={["#a855f7", "#c084fc", "#7c3aed"]}
+              duration={14}
+              borderWidth={1}
             />
-          </Link>
+
+            {/* Contenido — va después de ShineBorder */}
+            <div>
+              <h3 className="text-2xl font-bold font-headline">
+                ¿Listo para empezar?
+              </h3>
+              <p className="mt-1 text-sm font-body text-zinc-400">
+                Comencemos a desarrollar tu idea.
+              </p>
+            </div>
+            <Link
+              href="https://api.whatsapp.com/send?phone=5492235423025"
+              target="_blank"
+              className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-purple-400 whitespace-nowrap"
+            >
+              Contactar
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+          </div>
+
+          {/* ── Nav + Social ── */}
+          <div className="grid grid-cols-2 gap-8 sm:gap-12 lg:gap-16 lg:shrink-0">
+
+            {/* Nav links */}
+            <div className="flex flex-col gap-4">
+              <p className="font-label text-[0.65rem] font-bold uppercase tracking-widest text-zinc-500">
+                Navegación
+              </p>
+              <nav className="flex flex-col gap-3">
+                {navLinks.map(({ label, href }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-400"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Social links */}
+            <div className="flex flex-col gap-4">
+              <p className="font-label text-[0.65rem] font-bold uppercase tracking-widest text-zinc-500">
+                Social
+              </p>
+              <nav className="flex flex-col gap-3">
+                {socialLinks.map(({ label, href }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-400"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+          </div>
         </div>
       </div>
 
@@ -116,22 +114,8 @@ export default function Footer() {
         <div className="flex flex-col items-start justify-between gap-4 px-6 py-6 mx-auto max-w-7xl sm:flex-row sm:items-center">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
             <p className="text-xs font-body text-zinc-500">
-              © 2024 Developer Portfolio. Built with minimalist design.
+              © 2026 Leandro Tosunian | www.tosunian.dev
             </p>
-            <div className="flex gap-4">
-              <Link
-                href="#"
-                className="font-label text-[0.65rem] font-bold uppercase tracking-widest text-zinc-600 transition-colors hover:text-zinc-400"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="#"
-                className="font-label text-[0.65rem] font-bold uppercase tracking-widest text-zinc-600 transition-colors hover:text-zinc-400"
-              >
-                Terms of Service
-              </Link>
-            </div>
           </div>
 
           <button

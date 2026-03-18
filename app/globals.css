@@ -4,6 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@keyframes shine {
+  0%  { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  to  { background-position: 0% 0%; }
+}
+
+@theme {
+  --animate-shine: shine var(--duration) infinite linear;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -112,7 +122,15 @@
     transform: scale(1.05);}
   100% {
     box-shadow: 0 0 0 0 transparent;
-    transform: scale(1);}}}
+    transform: scale(1);}}
+  --animate-shine: shine var(--duration) infinite linear;
+  @keyframes shine {
+  0% {
+    background-position: 0% 0%;}
+  50% {
+    background-position: 100% 100%;}
+  to {
+    background-position: 0% 0%;}}}
 
 :root {
   --radius: 0.625rem;
