@@ -32,7 +32,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0e0e10] text-white border-t border-white/5">
       {/* ── Top section ── */}
-      <div className="px-6 py-20 mx-auto max-w-7xl">
+      <div className="px-6 py-10 sm:py-20 mx-auto max-w-7xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
 
           {/* ── CTA card con ShineBorder ──
