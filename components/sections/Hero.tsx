@@ -49,7 +49,7 @@ const Hero = () => {
                {/* description */}
                <div className='w-full '>
                   <p className='text-lg text-white 2xl:text-2xl sm:text-xl'>
-                     Especializado en Next.js, Node.js y TypeScript, desarrollo aplicaciones full stack con arquitecturas limpias, SSR/ISR optimizado y buenas prácticas de escalabilidad. Enfocado en código mantenible y soluciones eficientes.
+                     Diseño y desarrollo aplicaciones web de principio a fin. TypeScript, Next.js y Node.js son el centro de mi stack actual. Enfocado en código escalable, mantenible y soluciones eficientes.
                   </p>
                </div>
                {/* CTA buttons */}

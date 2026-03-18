@@ -22,15 +22,18 @@ export function DownloadButton({
                     "rgba(199,153,255,0.2)";
                 (e.currentTarget as HTMLDivElement).style.boxShadow =
                     "0 0 20px 0 rgba(199,153,255,0.05)";
+                (e.currentTarget as HTMLDivElement).style.color = "black";
+
             }}
             onMouseLeave={(e) => {
                 (e.currentTarget as HTMLDivElement).style.backgroundColor = "#1a191d";
                 (e.currentTarget as HTMLDivElement).style.borderColor = "transparent";
                 (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+                (e.currentTarget as HTMLDivElement).style.color = "white";
             }}
             className={`group/btn flex items-center gap-3 text-sm font-medium cursor-none  bg-[#131316]  w-fit transition-all border duration-300 rounded-lg shadow-sm p-3.5  ${reverse ? "flex-row-reverse" : ""
                 }`}
-            style={{  fontFamily: "Inter, sans-serif", borderColor: "rgba(72,71,74,0.05)" }}
+            style={{ fontFamily: "Inter, sans-serif", borderColor: "rgba(72,71,74,0.05)" }}
         >
             <Link
                 href="/path/to/certificate.pdf"

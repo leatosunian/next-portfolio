@@ -178,14 +178,13 @@ export default function TechStack() {
                   className="text-3xl font-bold"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
-                  Technologies &amp; Frameworks
+                  Frameworks
                 </h2>
                 <p
                   className="max-w-lg mt-2 text-sm"
                   style={{ color: "#adaaad" }}
                 >
-                  Full-stack modern ecosystem for building lightning-fast,
-                  real-time web experiences.
+                  Tecnologías que utilizo para construir desde la interfaz hasta el servidor.
                 </p>
               </div>
 

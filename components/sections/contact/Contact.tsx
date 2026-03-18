@@ -12,7 +12,7 @@ const links = [
     icon: <FaLinkedin size={20} />,
     label: "LinkedIn",
     value: "in/leandrotosunian",
-    href: "#",
+    href: "https://www.linkedin.com/in/leandrotosunian/",
   },
   {
     icon: <FaGithub size={20} />,
@@ -76,6 +76,13 @@ export default function Contact() {
           <p className="max-w-2xl mt-8 text-lg leading-relaxed font-body text-zinc-400">
             Si llegaste hasta acá, probablemente tengamos algo para hablar. Escribime sin compromiso, sea para un proyecto o para una oportunidad laboral.
           </p>
+
+          <div className="items-center self-start hidden gap-3 px-6 py-4 mt-8 bg-black border rounded-full sm:flex w-fit border-white/5">
+            <div className="h-2 w-2 animate-pulse rounded-full bg-purple-500 shadow-[0_0_8px_rgba(199,153,255,0.8)]" />
+            <span className="font-label text-[0.7rem] uppercase tracking-widest text-zinc-400">
+              Respuesta antes de 24 horas
+            </span>
+          </div>
         </header>
 
         {/* Content grid */}
@@ -100,7 +107,7 @@ export default function Contact() {
             ))}
 
             {/* Status indicator */}
-            <div className="flex items-center self-start gap-3 px-6 py-4 mt-4 bg-black border rounded-full border-white/5">
+            <div className="flex items-center self-start gap-3 px-6 py-4 mt-4 bg-black border rounded-full sm:hidden border-white/5">
               <div className="h-2 w-2 animate-pulse rounded-full bg-purple-500 shadow-[0_0_8px_rgba(199,153,255,0.8)]" />
               <span className="font-label text-[0.7rem] uppercase tracking-widest text-zinc-400">
                 Respuesta antes de 24 horas
@@ -130,7 +137,7 @@ function ContactLink({
     <Link
       href={href}
       target="_blank"
-      className="group flex items-center justify-between rounded-xl border border-white/5 bg-[#131316] p-6 transition-all duration-300 hover:bg-[#19191c]"
+      className="group cursor-none flex items-center justify-between rounded-xl border border-white/5 bg-[#131316] p-3 transition-all duration-300 hover:bg-[#19191c]"
     >
       <div className="flex items-center gap-5">
         <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#262529] text-purple-500 transition-all duration-300 group-hover:bg-purple-500 group-hover:text-[#2e0155]">

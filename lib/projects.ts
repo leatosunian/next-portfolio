@@ -1,4 +1,3 @@
-import Image, { StaticImageData } from 'next/image'
 import image_420app1 from '@/public/420app_1.png'
 import image_420app2 from '@/public/420app_2.png'
 import image_420app3 from '@/public/420app_3.png'
@@ -46,13 +45,13 @@ export const projects: IProject[] = [
         title: "420app - Inventario y Pedidos",
         description: "420App es una aplicación web desarrollada a medida para optimizar la administración de productos y pedidos. Gracias al relevamiento de las necesidades del negocio, es una herramienta para simplificar su gestión comercial diaria. Permite aplicar ajustes de precios por porcentaje, definir márgenes de ganancia individuales y gestionar pedidos ágil y eficientemente.",
         projectImages: [image_420app1, image_420app2, image_420app3, image_420app8, image_420app8],
-        galleryImages: [image_420app1, image_420app2, image_420app3, image_420app8, image_420app8],
+        galleryImages: [image_420app1, image_420app2, image_420app3, image_420app4, image_420app5, image_420app6, image_420app7, image_420app8, image_420app9],
         technologies: ["nextjs", "typescript", "react", "tailwind", "node"]
     },
     {
         label: "Catálogo Corporativo",
         title: "Altiva Propiedades",
-        description: "A sleek corporate website showcasing professional services with modern design aesthetics. Features smooth animations, responsive layouts, and optimized performance for an exceptional user experience.",
+        description: "Aplicación web para Altiva Propiedades con interfaz responsive, landing institucional y módulo de listado de propiedades con filtros avanzados. Incluye gestión de formularios para captura de leads y un panel de administración privado con CRM inmobiliario para administrar propiedades, clientes y consultas, optimizando el seguimiento comercial.",
         projectImages: [image_altiva],
         galleryImages: [image_altiva],
         link: "https://altivapropiedades.netlify.app/",
@@ -62,7 +61,7 @@ export const projects: IProject[] = [
     {
         label: "E-commerce",
         title: "Somacann",
-        description: "An e-commerce platform specialized for the cannabis industry with age verification, product categorization, and secure payment processing. Features a clean, modern design with intuitive navigation.",
+        description: "E-commerce desarrollado sobre la plataforma propia E-Mart, con catálogo de productos, carrito de compras y checkout integrado con Mercado Pago. Implementa gestión de pedidos y flujo de compra optimizado, orientado a soluciones escalables para ventas online.",
         projectImages: [image_cannabica],
         galleryImages: [image_cannabica],
         link: "https://cannabicagroup.com.ar/",
@@ -72,7 +71,7 @@ export const projects: IProject[] = [
     {
         label: "Landing Page",
         title: "Encino Carpintería",
-        description: "Página web corporativa para un taller de carpintería, con un diseño moderno y minimalista desarrollada para convertir las visitas a la web a nuevos clientes.",
+        description: "Landing page desarrollada a medida para Encino Carpintería, con foco en performance y experiencia de usuario. Implementa diseño responsive, optimización de assets, buenas prácticas de SEO y estructura orientada a métricas de rendimiento (Core Web Vitals). Incluye secciones dinámicas (galería, reseñas) y formularios de contacto para conversión.",
         projectImages: [image_encino],
         galleryImages: [image_encino],
         link: "https://encino-carpinteria.netlify.app/",
@@ -82,7 +81,7 @@ export const projects: IProject[] = [
     {
         label: "Plataforma e-commerce",
         title: "E-Mart ",
-        description: "A versatile online marketplace platform with multi-vendor support, product reviews, and advanced filtering. Built for scalability with a focus on conversion optimization and user engagement.",
+        description: "Plataforma e-commerce completa (eMart) con frontend de tienda y panel de administración. El storefront incluye catálogo con filtros avanzados (categorías, variantes, precio), carrito y checkout integrado con Mercado Pago, junto con autenticación de usuarios, historial de compras y seguimiento de pedidos. El backoffice permite la gestión integral del negocio: ABM de productos, manejo de categorías, configuración de envíos, administración de órdenes y automatización de notificaciones con tracking. Diseñada con arquitectura modular, manejo de estado y persistencia de datos para garantizar escalabilidad y consistencia operativa.",
         projectImages: [image_emartscreen1, image_emartscreen2],
         galleryImages: [image_emartscreen1, image_emartscreen2],
         technologies: ["nextjs", "typescript", "react", "tailwind", "mongodb"]

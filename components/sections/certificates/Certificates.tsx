@@ -34,8 +34,7 @@ export default function Certificates() {
             className="max-w-2xl mt-8 text-lg leading-relaxed"
             style={{ color: "#adaaad", fontFamily: "Inter, sans-serif" }}
           >
-            A curated selection of certifications that validate my expertise in
-            modern full-stack engineering and cloud architecture.
+            Cursos y certificaciones que fui sumando a lo largo de mi formación como desarrollador.
           </p>
         </header>
 

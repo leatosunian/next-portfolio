@@ -9,16 +9,19 @@ import { ShineBorder } from "./ui/shine-border";
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Projects", href: "#" },
+  { label: "Inicio", href: "#" },
+  { label: "Proyectos", href: "#" },
   { label: "Stack", href: "#" },
-  { label: "Journal", href: "#" },
+  { label: "Certificaciones", href: "#" },
+  { label: "Contacto", href: "#" },
 ];
 
 const socialLinks = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Twitter", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/leandrotosunian/" },
+  { label: "GitHub", href: "https://github.com/leatosunian" },
+  { label: "WhatsApp", href: "https://api.whatsapp.com/send?phone=5492235423025" },
+  { label: "Instagram", href: "https://www.instagram.com/tosunian.dev/" },
+  { label: "Email", href: "mailto:leandrotosunian@hotmail.com" },
 ];
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -47,7 +50,7 @@ export default function Footer() {
             {/* Contenido — va después de ShineBorder */}
             <div>
               <h3 className="text-2xl font-bold font-headline">
-                ¿Listo para empezar?
+                ¿Listo para empezar tu proyecto?
               </h3>
               <p className="mt-1 text-sm font-body text-zinc-400">
                 Comencemos a desarrollar tu idea.
@@ -56,7 +59,7 @@ export default function Footer() {
             <Link
               href="https://api.whatsapp.com/send?phone=5492235423025"
               target="_blank"
-              className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-purple-400 whitespace-nowrap"
+              className="group flex cursor-none items-center gap-2 rounded-full border border-white/10 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
             >
               Contactar
               <ArrowRight
@@ -79,7 +82,7 @@ export default function Footer() {
                   <Link
                     key={label}
                     href={href}
-                    className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-400"
+                    className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-500"
                   >
                     {label}
                   </Link>
@@ -97,7 +100,8 @@ export default function Footer() {
                   <Link
                     key={label}
                     href={href}
-                    className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-400"
+                    target="_blank"
+                    className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-500"
                   >
                     {label}
                   </Link>
@@ -111,7 +115,7 @@ export default function Footer() {
 
       {/* ── Bottom bar ── */}
       <div className="border-t border-white/5">
-        <div className="flex flex-col items-start justify-between gap-4 px-6 py-6 mx-auto max-w-7xl sm:flex-row sm:items-center">
+        <div className="flex flex-col items-center justify-between gap-4 px-6 py-6 mx-auto max-w-7xl sm:flex-row sm:items-center">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
             <p className="text-xs font-body text-zinc-500">
               © 2026 Leandro Tosunian | www.tosunian.dev
@@ -120,7 +124,7 @@ export default function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center justify-center w-8 h-8 transition-all border rounded-full border-white/10 text-zinc-400 hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-purple-400"
+            className="items-center justify-center hidden w-8 h-8 transition-all border rounded-full sm:flex border-white/10 text-zinc-400 hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-purple-400"
             aria-label="Back to top"
           >
             <ChevronUp size={16} />

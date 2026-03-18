@@ -7,7 +7,7 @@ export const certificates: ICertificate[] = [
         title: "HTML, CSS y JavaScript",
         issuer: "UCIP - Mar del Plata, Argentina",
         description:
-            "Validated technical expertise in designing and deploying scalable, highly available, and fault-tolerant systems on AWS. Mastery of VPC, EC2, S3, and Serverless architectures.",
+            "Curso de 4 meses enfocado en los fundamentos del desarrollo web: estructura, estilos e interactividad desde cero.",
         image: image_ucip,
         imageAlt: "HTML, CSS y JavaScript",
         accentColor: "#c799ff",
