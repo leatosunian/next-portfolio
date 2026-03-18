@@ -14,6 +14,20 @@ export const ImageGallery = ({ images, galleryImages, title }: { images: StaticI
   const [isFullscreenOpen, setIsFullscreenOpen] = useState(false)
   const [direction, setDirection] = useState(0)
 
+
+  // Precargar todas las imágenes del carousel y la galería al montar el componente
+  useEffect(() => {
+    const allImages = [...images, ...galleryImages]
+    const seen = new Set<string>()
+    allImages.forEach((img) => {
+      const src = typeof img === 'string' ? img : img.src
+      if (seen.has(src)) return
+      seen.add(src)
+      const preload = new window.Image()
+      preload.src = src
+    })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   const goToNext = useCallback(() => {
     setDirection(1)
     setCurrentIndex((prev) => (prev + 1) % images.length)
