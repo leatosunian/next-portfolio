@@ -63,11 +63,7 @@ const Hero = () => {
                      <BorderBeam
                         size={60}
                         className="from-transparent via-purple-500 to-transparent"
-                        transition={{
-                           type: "decay",
-                           stiffness: 200,
-                           damping: 1000,
-                        }}
+                        
                      />
                   </Button>
 
