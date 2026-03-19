@@ -69,7 +69,7 @@ export default function Contact() {
             className="max-w-4xl text-5xl font-extrabold leading-none tracking-tighter md:text-7xl"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
-            Pongamonos en{" "}
+            Pongámonos en{" "}
             <span className="text-purple-500">contacto</span>
           </h1>
 
