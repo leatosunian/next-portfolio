@@ -9,5 +9,5 @@ export interface ICertificate {
     accentColor: string;
     accentColorRgb: string;
     reverse: boolean;
-    link?: string;
+    link: string;
 }

@@ -3,6 +3,9 @@ import React from 'react'
 import { AuroraText } from '../ui/aurora-text'
 import { Particles } from '../ui/particles'
 import { Button } from '../ui/button'
+import { BorderBeam } from '../ui/border-beam'
+import Link from 'next/link'
+import { Download } from 'lucide-react';
 
 const Hero = () => {
    return (
@@ -22,15 +25,15 @@ const Hero = () => {
                }
                .animate-heartbeat {
                   animation: heartbeat 3s ease-out infinite;
-                  background-color: black;
+                  background-color: #0e0e10;
                }
             `}
          </style>
 
-         <div className="relative flex items-center justify-center w-full h-screen overflow-hidden">
+         <div className="relative flex items-center justify-center w-full h-screen overflow-hidden" id='hero'>
             {/* Particles Background */}
             <Particles
-               className="absolute inset-0 w-full h-full"
+               className="absolute bg-[#0e0e10] inset-0 w-full h-full"
                quantity={100}
                ease={80}
                refresh />
@@ -41,9 +44,9 @@ const Hero = () => {
                {/* title */}
                <div className='flex flex-col w-full '>
                   <h1 className="text-4xl font-bold leading-snug text-white text-wrap 2xl:text-6xl md:text-5xl sm:text-4xl">
-                     ¡Hola!👋 Soy <AuroraText speed={2} colors={["#552586", "#4c1c72", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-900 text-wrap'>Leandro Tosunian</AuroraText>,
+                     ¡Hola! Soy <AuroraText speed={2} colors={["#ad46ff", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-500 text-wrap'>Leandro Tosunian</AuroraText>,
                      <br />
-                     <AuroraText speed={2} colors={["#552586", "#4c1c72", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-900 text-wrap'>Desarrollador Web</AuroraText>.
+                     <AuroraText speed={2} colors={["#ad46ff", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-500 text-wrap'>Desarrollador Web</AuroraText>.
                   </h1>
                </div>
                {/* description */}
@@ -54,12 +57,26 @@ const Hero = () => {
                </div>
                {/* CTA buttons */}
                <div className='flex w-full gap-5 sm:gap-4 sm:w-fit h-fit'>
-                  <Button variant='default' style={{ backgroundColor: '#0a0a0a' }} className='flex-1 text-white sm:flex-none sm:w-32 cursor-none animate-heartbeat dark:bg-destructive'>
+
+                  <Button className="relative overflow-hidden text-white" size="lg" variant="outline">
                      Proyectos
+                     <BorderBeam
+                        size={60}
+                        className="from-transparent via-purple-500 to-transparent"
+                        transition={{
+                           type: "decay",
+                           stiffness: 200,
+                           damping: 1000,
+                        }}
+                     />
                   </Button>
-                  <Button variant={'outline'} style={{ backgroundColor: '#0a0a0a' }} className='flex-1 text-white sm:flex-none sm:w-32 cursor-none'>
-                     CV
-                  </Button>
+
+                  <Link href="https://drive.google.com/file/d/1T5ys_UxPdNVaPX4I4JWOVs6GqJJBtLPd/view?usp=sharing" className="relative overflow-hidden text-white">
+                     <Button className="relative overflow-hidden text-white" size="lg" variant="outline">
+                        <Download className="w-5 h-5" />
+                        Descargar CV
+                     </Button>
+                  </Link>
                </div>
             </div>
 

@@ -6,12 +6,10 @@ import Link from "next/link";
 // ─── Download Button ──────────────────────────────────────────────────────────
 
 export function DownloadButton({
-    accentColor,
-    accentColorRgb,
     reverse,
+    link
 }: {
-    accentColor: string;
-    accentColorRgb: string;
+    link: string;
     reverse: boolean;
 }) {
     return (
@@ -36,7 +34,7 @@ export function DownloadButton({
             style={{ fontFamily: "Inter, sans-serif", borderColor: "rgba(72,71,74,0.05)" }}
         >
             <Link
-                href="/path/to/certificate.pdf"
+                href={link}
                 target="_blank"
                 className="transition-all rounded-lg shadow-sm "
 

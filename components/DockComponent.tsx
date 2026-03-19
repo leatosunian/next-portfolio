@@ -92,7 +92,7 @@ export function DockComponent() {
     <div className="fixed z-50 flex-col items-center hidden w-full -translate-x-1/2 sm:flex bottom-4 left-1/2">
 
       <TooltipProvider>
-        <Dock direction="middle" className="text-foreground/80 bg-[#0a0a0a]/60">
+        <Dock direction="middle" className="text-foreground/80 bg-[#0e0e10]/60">
            {Object.entries(DATA.contact.social).map(([name, social]) => (
             <DockIcon key={name} className="cursor-none">
               <Tooltip>

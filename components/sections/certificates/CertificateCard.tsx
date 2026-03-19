@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { DownloadButton } from "./DownloadButton";
 import { ICertificate } from "@/app/interfaces/ICertificate";
+import Link from "next/link";
+import { ArrowRight, Download } from "lucide-react";
 
 export function CertificateCard({
   title,
@@ -9,6 +11,7 @@ export function CertificateCard({
   image,
   imageAlt,
   accentColor,
+  link,
   accentColorRgb,
   reverse,
 }: ICertificate) {
@@ -73,11 +76,14 @@ export function CertificateCard({
           </p>
 
           <div className={`pt-4 ${reverse ? "flex md:justify-end" : ""}`}>
-            <DownloadButton
-              accentColor={accentColor}
-              accentColorRgb={accentColorRgb}
-              reverse={reverse}
-            />
+            <Link
+              href={link}
+              target="_blank"
+              className="group flex cursor-none items-center w-fit gap-2 rounded-xl border border-purple-500/20 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
+            >
+              <Download  size={18} />
+              Descargar Certificado
+            </Link>
           </div>
         </div>
       </div>

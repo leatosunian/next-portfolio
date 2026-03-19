@@ -5,7 +5,7 @@ import { projects } from "@/lib/projects";
 // Main component to render featured projects
 export const Projects = () => {
   return (
-    <section className="relative w-full px-6 py-20 overflow-x-hidden bg-background lg:px-12 xl:px-20">
+    <section className="relative bg-[#0e0e10] w-full px-6 py-20 overflow-x-hidden lg:px-12 xl:px-20" id="projects">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-10 ">
           {/* title */}

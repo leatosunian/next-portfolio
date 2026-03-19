@@ -44,7 +44,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <section className="relative h-fit overflow-hidden bg-[#0e0e10] text-white">
+    <section className="relative h-fit overflow-hidden bg-[#0e0e10] text-white" id="contact">
       {/* Background glows */}
       {/* <div className="absolute top-1/2 left-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-500/5 blur-[120px] pointer-events-none" />
             <div className="absolute -bottom-48 -right-48 -z-10 h-[600px] w-[600px] rounded-full bg-fuchsia-400/5 blur-[100px] pointer-events-none" /> */}
@@ -55,7 +55,7 @@ export default function Contact() {
         style={{ backgroundColor: `rgba(199, 153, 255, 0.2)` }}
       />
 
-      <div className="flex flex-col justify-between gap-0 px-6 py-14 mx-auto lg:gap-20 lg:flex-row max-w-7xl">
+      <div className="flex flex-col justify-between gap-0 px-6 mx-auto py-14 lg:gap-20 lg:flex-row max-w-7xl">
         {/* Header */}
         <header className="mb-10 space-y-4 lg:mb-24">
           <div className="flex items-center gap-4">

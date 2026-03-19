@@ -69,6 +69,7 @@ export default function TechStack() {
   return (
     <section
       className="min-h-screen"
+      id="tech-stack"
       style={{ backgroundColor: "#0e0e10", color: "#fffbfe" }}
     >
       <div className="px-6 py-24 mx-auto max-w-7xl">

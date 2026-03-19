@@ -3,17 +3,14 @@
 import Link from "next/link";
 import { ArrowRight, ChevronUp } from "lucide-react";
 import { ShineBorder } from "./ui/shine-border";
-// Si lo instalaste con la CLI, el path puede ser:
-// import { ShineBorder } from "@/registry/magicui/shine-border";
-
-// ─── Data ────────────────────────────────────────────────────────────────────
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const navLinks = [
-  { label: "Inicio", href: "#" },
-  { label: "Proyectos", href: "#" },
-  { label: "Stack", href: "#" },
-  { label: "Certificaciones", href: "#" },
-  { label: "Contacto", href: "#" },
+  { label: "Inicio", id: "hero" },
+  { label: "Proyectos", id: "projects" },
+  { label: "Stack", id: "tech-stack" },
+  { label: "Certificaciones", id: "certificates" },
+  { label: "Contacto", id: "contact" },
 ];
 
 const socialLinks = [
@@ -24,30 +21,22 @@ const socialLinks = [
   { label: "Email", href: "mailto:leandrotosunian@hotmail.com" },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
-
 export default function Footer() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const smoothScroll = useSmoothScroll()
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" })
 
   return (
     <footer className="bg-[#0e0e10] text-white border-t border-white/5">
-      {/* ── Top section ── */}
-      <div className="px-6 py-10 sm:py-20 mx-auto max-w-7xl">
+      <div className="px-6 py-10 mx-auto sm:py-20 max-w-7xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
 
-          {/* ── CTA card con ShineBorder ──
-              IMPORTANTE: el padre debe tener `relative` y `overflow-hidden` obligatoriamente.
-              ShineBorder se coloca como primer hijo y es position:absolute,
-              por eso el contenido va DESPUÉS de él dentro del mismo div.
-          */}
+          {/* CTA card */}
           <div className="relative overflow-hidden flex flex-col items-start justify-between gap-6 rounded-xl bg-[#131316] p-8 sm:flex-row sm:items-center lg:items-center lg:flex-1 lg:min-h-40">
             <ShineBorder
               shineColor={["#a855f7", "#c084fc", "#7c3aed"]}
               duration={14}
               borderWidth={1}
             />
-
-            {/* Contenido — va después de ShineBorder */}
             <div>
               <h3 className="text-2xl font-bold font-headline">
                 ¿Listo para empezar tu proyecto?
@@ -62,14 +51,11 @@ export default function Footer() {
               className="group flex cursor-none items-center gap-2 rounded-full border border-white/10 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
             >
               Contactar
-              <ArrowRight
-                size={16}
-                className="transition-transform group-hover:translate-x-1"
-              />
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
-          {/* ── Nav + Social ── */}
+          {/* Nav + Social */}
           <div className="grid grid-cols-2 gap-8 sm:gap-12 lg:gap-16 lg:shrink-0">
 
             {/* Nav links */}
@@ -78,14 +64,14 @@ export default function Footer() {
                 Navegación
               </p>
               <nav className="flex flex-col gap-3">
-                {navLinks.map(({ label, href }) => (
-                  <Link
+                {navLinks.map(({ label, id }) => (
+                  <button
                     key={label}
-                    href={href}
+                    onClick={() => smoothScroll(id)}
                     className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-500"
                   >
                     {label}
-                  </Link>
+                  </button>
                 ))}
               </nav>
             </div>
@@ -113,15 +99,12 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Bottom bar ── */}
+      {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="flex flex-col items-center justify-between gap-4 px-6 py-6 mx-auto max-w-7xl sm:flex-row sm:items-center">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
-            <p className="text-xs font-body text-zinc-500">
-              © 2026 Leandro Tosunian | www.tosunian.dev
-            </p>
-          </div>
-
+          <p className="text-xs font-body text-zinc-500">
+            © 2026 Leandro Tosunian | www.tosunian.dev
+          </p>
           <button
             onClick={scrollToTop}
             className="items-center justify-center hidden w-8 h-8 transition-all border rounded-full sm:flex border-white/10 text-zinc-400 hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-purple-400"
