@@ -1,8 +1,26 @@
+"use client";
+
 import Image from "next/image";
-import { DownloadButton } from "./DownloadButton";
-import { ICertificate } from "@/app/interfaces/ICertificate";
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+import { ICertificate } from "@/app/interfaces/ICertificate";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1
+    }
+  }
+};
 
 export function CertificateCard({
   title,
@@ -28,12 +46,14 @@ export function CertificateCard({
           }`}
       >
         {/* Image */}
-        <div
+        <motion.div
           className="relative flex-1 overflow-hidden rounded-xl aspect-4/3"
           style={{
             backgroundColor: "#1f1f22",
             boxShadow: "0px 0px 40px 0px rgba(199,153,255,0.08)",
           }}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.4 }}
         >
           <Image
             src={image}
@@ -47,13 +67,21 @@ export function CertificateCard({
             className="absolute inset-0 pointer-events-none rounded-xl ring-1 ring-inset"
             style={{ boxShadow: "inset 0 0 0 1px rgba(72,71,74,0.2)" }}
           />
-        </div>
+        </motion.div>
 
         {/* Content */}
-        <div
+        <motion.div
           className={`flex-1 space-y-6 ${reverse ? "md:text-right" : ""}`}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
         >
-          <div className="space-y-2">
+          <motion.div 
+            className="space-y-2"
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
             <h2
               className="text-3xl font-bold leading-snug"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
@@ -66,26 +94,37 @@ export function CertificateCard({
             >
               {issuer}
             </p>
-          </div>
+          </motion.div>
 
-          <p
+          <motion.p
             className="leading-relaxed"
             style={{ color: "#adaaad", fontFamily: "Inter, sans-serif" }}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             {description}
-          </p>
+          </motion.p>
 
-          <div className={`pt-4 ${reverse ? "flex md:justify-end" : ""}`}>
-            <Link
-              href={link}
-              target="_blank"
-              className="group flex cursor-none items-center w-fit gap-2 rounded-xl border border-purple-500/20 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
+          <motion.div 
+            className={`pt-4 ${reverse ? "flex md:justify-end" : ""}`}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <Download  size={18} />
-              Descargar Certificado
-            </Link>
-          </div>
-        </div>
+              <Link
+                href={link}
+                target="_blank"
+                className="group flex cursor-none items-center w-fit gap-2 rounded-xl border border-purple-500/20 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
+              >
+                <Download size={18} />
+                Descargar Certificado
+              </Link>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </article>
   );

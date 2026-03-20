@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 import { ArrowLeft, Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -68,19 +69,28 @@ export default function Navbar() {
 
             {/* Desktop nav */}
             {!isStreamingPage && !isCeloPage && (
-              <div className="items-center hidden mr-6 space-x-8 md:flex">
-                {navItems.map(({ label, id }) => (
-                  <button
+              <motion.div 
+                className="items-center hidden mr-6 space-x-8 md:flex"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              >
+                {navItems.map(({ label, id }, index) => (
+                  <motion.button
                     key={id}
                     onClick={() => scrollToSection(id)}
                     className="relative px-3 py-2 transition-colors text-white/75 hover:text-white cursor-none group"
                     aria-label={`Navigate to ${label} section`}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 + index * 0.05 }}
+                    whileHover={{ y: -2 }}
                   >
                     {label}
                     <span className="absolute bottom-0 w-0 h-px transition-all duration-300 -translate-x-1/2 bg-white left-1/2 group-hover:w-full" />
-                  </button>
+                  </motion.button>
                 ))}
-              </div>
+              </motion.div>
             )}
 
             <div className="items-center hidden md:flex" />
