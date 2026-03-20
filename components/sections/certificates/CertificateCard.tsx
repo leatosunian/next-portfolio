@@ -77,7 +77,7 @@ export function CertificateCard({
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
         >
-          <motion.div 
+          <motion.div
             className="space-y-2"
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -105,24 +105,19 @@ export function CertificateCard({
             {description}
           </motion.p>
 
-          <motion.div 
+          <motion.div
             className={`pt-4 ${reverse ? "flex md:justify-end" : ""}`}
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
+            <Link
+              href={link}
+              target="_blank"
+              className="group flex cursor-none items-center w-fit gap-2 rounded-xl border border-purple-500/20 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
             >
-              <Link
-                href={link}
-                target="_blank"
-                className="group flex cursor-none items-center w-fit gap-2 rounded-xl border border-purple-500/20 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
-              >
-                <Download size={18} />
-                Descargar Certificado
-              </Link>
-            </motion.div>
+              <Download size={18} />
+              Descargar Certificado
+            </Link>
           </motion.div>
         </motion.div>
       </div>

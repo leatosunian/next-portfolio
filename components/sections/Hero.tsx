@@ -50,7 +50,7 @@ const Hero = () => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                >
                   <h1 className="text-4xl font-bold leading-snug text-white text-wrap 2xl:text-6xl md:text-5xl sm:text-4xl">
-                     ¡Hola! Soy <AuroraText speed={2} colors={["#ad46ff", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-500 text-wrap'>Leandro Tosunian</AuroraText>,
+                     ¡Hola! Soy <AuroraText speed={2} colors={["#ad46ff", "#a448eb", "#b983df"]} className='font-bold text-purple-500 text-wrap'>Leandro Tosunian</AuroraText>,
                      <br />
                      <AuroraText speed={2} colors={["#ad46ff", "#7e4ca5", "#b57edc"]} className='font-bold text-purple-500 text-wrap'>Desarrollador Web</AuroraText>.
                   </h1>
@@ -74,7 +74,7 @@ const Hero = () => {
                   transition={{ duration: 0.5, ease: "easeOut" }}
                >
                   <Button
-                     className="relative overflow-hidden text-white transition-colors duration-300 bg-transparent border border-white/20 hover:bg-purple-500 hover:border-purple-500 cursor-none "
+                     className="relative overflow-hidden text-white transition-all duration-300 bg-[#1f1f22] border border-white/20 hover:bg-purple-500 hover:border-purple-500 cursor-none "
                      size="lg"
                      variant="outline"
                   >
