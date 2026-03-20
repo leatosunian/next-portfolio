@@ -69,6 +69,7 @@ export default function Loader() {
                 width={80}
                 height={80}
                 priority
+                loading="eager"
               />
             </motion.div>
 
