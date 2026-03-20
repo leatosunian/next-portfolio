@@ -64,7 +64,7 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between">
             <Link href="/" className="text-lg font-bold text-white cursor-none sm:text-xl md:flex-1">
-              <Image src={logo} width={43} height={43} alt="Logo" />
+              <Image src={logo} width={43} height={43} alt="Logo" priority loading="eager" />
             </Link>
 
             {/* Desktop nav */}
