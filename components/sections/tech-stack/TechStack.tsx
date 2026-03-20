@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   Code2,
   Wrench,
@@ -23,8 +24,36 @@ import {
   Brush,
   Box,
   Share2,
-  ArrowRight,
 } from "lucide-react";
+
+// ─── Animation Variants ──────────────────────────────────────────────────────
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const cardStagger = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.15
+    }
+  }
+};
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -57,12 +86,6 @@ const frameworks = [
   { icon: <ArrowLeftRight size={32} />, label: "Socket.io" },
 ];
 
-const stats = [
-  { value: "3+", label: "Años de experiencia" },
-  { value: "21", label: "Apps en producción" },
-  { value: "99%", label: "Uptime del sistema" },
-];
-
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function TechStack() {
@@ -74,8 +97,18 @@ export default function TechStack() {
     >
       <div className="px-6 py-24 mx-auto max-w-7xl">
         {/* Header */}
-        <header className="space-y-4 mb-15">
-          <div className="flex items-center gap-4">
+        <motion.header 
+          className="space-y-4 mb-15"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+        >
+          <motion.div 
+            className="flex items-center gap-4"
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
             <div className="w-8 h-px bg-purple-500" />
             <span
               className="text-xs font-bold uppercase text-purple-500 tracking-[0.2em]"
@@ -83,33 +116,42 @@ export default function TechStack() {
             >
               Concimientos
             </span>
-          </div>
+          </motion.div>
 
-          <h1
+          <motion.h1
             className="max-w-4xl text-5xl font-extrabold leading-none tracking-tighter md:text-7xl"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            variants={fadeInUp}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             Tech <span className="text-purple-500">Stack</span>
-          </h1>
+          </motion.h1>
 
-          <p
+          <motion.p
             className="max-w-2xl mt-8 text-lg leading-relaxed"
             style={{ color: "#adaaad", fontFamily: "Inter, sans-serif" }}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             Conjunto de tecnologías que utilizo para construir aplicaciones web
             escalables y de alto rendimiento
-          </p>
-        </header>
+          </motion.p>
+        </motion.header>
 
         {/* Bento Grid */}
         <div className="grid items-start grid-cols-1 gap-6 md:grid-cols-12">
           {/* ── Lenguajes ── */}
-          <section
+          <motion.section
             className="h-full p-8 border md:col-span-4 rounded-xl"
             style={{
               backgroundColor: "#131316",
               borderColor: "rgba(72,71,74,0.1)",
             }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div className="flex items-center justify-between mb-10">
               <h2
@@ -121,20 +163,37 @@ export default function TechStack() {
               <Code2 style={{ color: "#c799ff" }} size={22} />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {languages.map(({ icon, label }) => (
-                <LanguageCard key={label} icon={icon} label={label} />
+            <motion.div 
+              className="grid grid-cols-2 gap-4"
+              variants={cardStagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              {languages.map(({ icon, label }, index) => (
+                <motion.div
+                  key={label}
+                  variants={fadeInUp}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <LanguageCard icon={icon} label={label} />
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
           {/* ── Herramientas ── */}
-          <section
+          <motion.section
             className="relative h-full p-8 overflow-hidden border md:col-span-8 rounded-xl"
             style={{
               backgroundColor: "#1f1f22",
               borderColor: "rgba(72,71,74,0.1)",
             }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
           >
             {/* decorative blur */}
             <div
@@ -152,20 +211,37 @@ export default function TechStack() {
               <Wrench style={{ color: "#ea9bff" }} size={22} />
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            <motion.div 
+              className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"
+              variants={cardStagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
               {tools.map(({ icon, label }) => (
-                <ToolCard key={label} icon={icon} label={label} />
+                <motion.div
+                  key={label}
+                  variants={fadeInUp}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <ToolCard icon={icon} label={label} />
+                </motion.div>
               ))}
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
           {/* ── Technologies & Frameworks ── */}
-          <section
+          <motion.section
             className="relative p-10 mt-6 overflow-hidden border md:col-span-12 rounded-xl"
             style={{
               backgroundColor: "#19191c",
               borderColor: "rgba(72,71,74,0.1)",
             }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
           >
             {/* decorative blur */}
             <div
@@ -208,59 +284,25 @@ export default function TechStack() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-              {frameworks.map(({ icon, label }) => (
-                <FrameworkCard key={label} icon={icon} label={label} />
-              ))}
-            </div>
-          </section>
-        </div>
-
-        {/* Stats bar */}
-        {/* <div
-          className="flex flex-col items-center justify-between gap-12 p-12 mt-24 border rounded-2xl md:flex-row"
-          style={{
-            backgroundColor: "#131316",
-            borderColor: "rgba(72,71,74,0.1)",
-          }}
-        >
-          {stats.map(({ value, label }) => (
-            <div key={label} className="flex flex-col gap-2">
-              <span
-                className="text-4xl font-black"
-                style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  color: "#fffbfe",
-                }}
-              >
-                {value}
-              </span>
-              <span
-                className="text-[10px] uppercase tracking-widest"
-                style={{ color: "#adaaad" }}
-              >
-                {label}
-              </span>
-            </div>
-          ))}
-
-          <div
-            className="hidden w-px h-16 md:block"
-            style={{ backgroundColor: "rgba(72,71,74,0.2)" }}
-          />
-
-          <div className="text-center md:text-left">
-            <p className="mb-4 text-sm" style={{ color: "#adaaad" }}>
-              Want to see these in action?
-            </p>
-            <button
-              className="flex items-center gap-3 text-xs font-bold tracking-widest uppercase transition-all hover:gap-5"
-              style={{ color: "#c799ff" }}
+            <motion.div 
+              className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+              variants={cardStagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
             >
-              View Case Studies <ArrowRight size={16} />
-            </button>
-          </div>
-        </div> */}
+              {frameworks.map(({ icon, label }) => (
+                <motion.div
+                  key={label}
+                  variants={fadeInUp}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <FrameworkCard icon={icon} label={label} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.section>
+        </div>
       </div>
     </section>
   );
@@ -276,21 +318,16 @@ function LanguageCard({
   label: string;
 }) {
   return (
-    <div
+    <motion.div
       className="p-6 transition-all duration-300 border border-transparent rounded-lg cursor-none group"
       style={{ backgroundColor: "#262529" }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.backgroundColor = "#2c2c2f";
-        (e.currentTarget as HTMLDivElement).style.borderColor =
-          "rgba(199,153,255,0.2)";
-        (e.currentTarget as HTMLDivElement).style.boxShadow =
-          "0 0 20px 0 rgba(199,153,255,0.2)";
+      whileHover={{ 
+        scale: 1.03, 
+        backgroundColor: "#2c2c2f",
+        borderColor: "rgba(199,153,255,0.2)",
+        boxShadow: "0 0 20px 0 rgba(199,153,255,0.2)"
       }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.backgroundColor = "#262529";
-        (e.currentTarget as HTMLDivElement).style.borderColor = "transparent";
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-      }}
+      transition={{ duration: 0.3 }}
     >
       <div className="flex flex-col items-center gap-4">
         <span
@@ -306,24 +343,21 @@ function LanguageCard({
           {label}
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function ToolCard({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div
+    <motion.div
       className="flex flex-col items-center gap-3 p-4 transition-all border border-transparent rounded-lg cursor-none"
       style={{ backgroundColor: "#262529" }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.backgroundColor = "#2c2c2f";
-        (e.currentTarget as HTMLDivElement).style.borderColor =
-          "rgba(234,155,255,0.2)";
+      whileHover={{ 
+        scale: 1.05,
+        backgroundColor: "#2c2c2f",
+        borderColor: "rgba(234,155,255,0.2)"
       }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.backgroundColor = "#262529";
-        (e.currentTarget as HTMLDivElement).style.borderColor = "transparent";
-      }}
+      transition={{ duration: 0.3 }}
     >
       <span style={{ color: "#ea9bff" }}>{icon}</span>
       <span
@@ -332,7 +366,7 @@ function ToolCard({ icon, label }: { icon: React.ReactNode; label: string }) {
       >
         {label}
       </span>
-    </div>
+    </motion.div>
   );
 }
 
@@ -344,30 +378,21 @@ function FrameworkCard({
   label: string;
 }) {
   return (
-    <div
+    <motion.div
       className="p-6 text-center transition-all border cursor-none group rounded-xl"
       style={{
         backgroundColor: "#131316",
         borderColor: "rgba(72,71,74,0.05)",
       }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.borderColor =
-          "rgba(199,153,255,0.2)";
+      whileHover={{ 
+        scale: 1.05,
+        borderColor: "rgba(199,153,255,0.2)"
       }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.borderColor =
-          "rgba(72,71,74,0.05)";
-      }}
+      transition={{ duration: 0.3 }}
     >
       <span
-        className="block mb-4 transition-colors duration-300 cursor-none"
+        className="block mb-4 transition-colors duration-300 cursor-none group-hover:text-[#c799ff]"
         style={{ color: "#adaaad" }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLSpanElement).style.color = "#c799ff";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLSpanElement).style.color = "#adaaad";
-        }}
       >
         {icon}
       </span>
@@ -377,6 +402,6 @@ function FrameworkCard({
       >
         {label}
       </h3>
-    </div>
+    </motion.div>
   );
 }
