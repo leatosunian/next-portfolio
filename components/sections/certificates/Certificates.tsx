@@ -31,7 +31,7 @@ export default function Certificates() {
       id="certificates"
       style={{ color: "#fffbfe" }}
     >
-      <div className="px-6 py-24 mx-auto max-w-7xl">
+      <div className="px-6 mx-auto py-26 max-w-7xl">
         {/* Header */}
         <motion.header 
           className="mb-24 space-y-4"

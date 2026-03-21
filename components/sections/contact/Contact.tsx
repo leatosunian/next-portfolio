@@ -62,7 +62,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <section className="relative h-fit overflow-hidden bg-[#0e0e10] text-white" id="contact">
+    <section className="relative h-fit overflow-hidden pt-12 bg-[#0e0e10] text-white" id="contact">
       {/* Decorative glow */}
       <div
         className="absolute -inset-10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"

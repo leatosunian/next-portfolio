@@ -1,7 +1,7 @@
 import { DockComponent } from '@/components/DockComponent';
 import Navbar from '@/components/Navbar';
 import Projects from '@/components/sections/projects/Projects';
-import Hero from '@/components/sections/Hero';
+import Hero from '@/components/sections/hero/Hero';
 import { SmoothCursor } from '@/components/ui/smooth-cursor';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import TechStack from '../components/sections/tech-stack/TechStack';
@@ -17,15 +17,16 @@ export default function Home() {
         <SmoothCursor />
         <Navbar />
         <Hero />
+
         <Projects />
 
-        <Separator style={{width:'20vw'}} className='mx-auto my-0 sm:my-4 ' />
+        <Separator style={{width:'20vw'}} className='mx-auto mt-0 sm:mt-4 ' />
         <TechStack />
-        <Separator style={{width:'20vw'}} className='mx-auto my-0 sm:my-4 ' />
+        <Separator style={{width:'20vw'}} className='mx-auto mt-0 sm:mt-4 ' />
 
         <Certificates />
 
-        <Separator style={{width:'25vw'}} className='mx-auto my-0 sm:my-4 ' />
+        <Separator style={{width:'25vw'}} className='mx-auto mt-0 sm:mt-4 ' />
 
         <Contact />
         <Footer />

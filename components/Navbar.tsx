@@ -56,9 +56,9 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         <div
-          className={`max-w-7xl mx-auto transition-all duration-300 bg-[#0e0e10]/60 ${isScrolled
-              ? "glass backdrop-blur-lg rounded-2xl px-6 py-3 border border-white/15"
-              : "px-4 sm:px-6 py-4 border border-transparent"
+          className={`max-w-7xl mx-auto transition-all duration-300  ${isScrolled
+            ? "glass backdrop-blur-lg bg-[#0e0e10]/60 rounded-2xl px-6 py-3 border border-white/15"
+            : "px-6 sm:px-6 py-4 border border-transparent"
             }`}
         >
           <div className="flex items-center justify-between">
@@ -100,7 +100,7 @@ export default function Navbar() {
               {!isStreamingPage && !isCeloPage && (
                 <button
                   onClick={() => setIsMobileMenuOpen(true)}
-                  className="p-2 text-white transition-colors rounded-lg hover:text-white/80 glass cursor-none"
+                  className="text-white transition-colors rounded-lg  hover:text-white/80 glass cursor-none"
                   aria-label="Open mobile menu"
                   aria-expanded={isMobileMenuOpen}
                 >
@@ -122,7 +122,7 @@ export default function Navbar() {
 
       {/* PANEL LATERAL — z-[60], encima de todo */}
       <div
-        className={`fixed top-0 right-0 h-full w-[78vw] max-w-xs z-[60] md:hidden
+        className={`fixed top-0 right-0 h-full w-[78vw] max-w-xs z-60 md:hidden
           transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]
           ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
         role="dialog"
@@ -133,9 +133,9 @@ export default function Navbar() {
         <div className="absolute inset-0 bg-[#0e0e10]/80 backdrop-blur-2xl border-l border-white/10" />
 
         {/* Gradiente decorativo superior */}
-        <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-white/[0.06] to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-48 pointer-events-none bg-linear-to-b from-white/6 to-transparent" />
         {/* Gradiente decorativo inferior */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/[0.03] to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-32 pointer-events-none bg-linear-to-t from-white/3 to-transparent" />
 
         {/* Botón X — esquina superior derecha del panel */}
         <button
