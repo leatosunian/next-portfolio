@@ -22,6 +22,18 @@ export const metadata: Metadata = {
 
   metadataBase: new URL("https://tosunian.dev"),
 
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },   // fallback image
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+
   // Open Graph
   openGraph: {
     url: "https://tosunian.dev",
