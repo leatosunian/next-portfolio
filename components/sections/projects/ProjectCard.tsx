@@ -24,7 +24,7 @@ export const ProjectCard = ({ project, reverse = false }: { project: IProject; r
         </h3>
 
         {/* Description Card */}
-        <motion.div 
+        <motion.div
           className="p-6 border rounded-2xl bg-zinc-900/80 border-zinc-800"
           whileHover={{ scale: 1.01, borderColor: "rgba(168, 85, 247, 0.3)" }}
           transition={{ duration: 0.3 }}
@@ -74,15 +74,11 @@ export const ProjectCard = ({ project, reverse = false }: { project: IProject; r
       </div>
 
       {/* Image Gallery */}
-      <motion.div 
-        className="relative w-full min-w-0 lg:w-1/2"
-        whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.4 }}
-      >
+      <div className="relative w-full min-w-0 lg:w-1/2">
         <div className="relative overflow-hidden shadow-2xl rounded-xl aspect-video shadow-purple-500/10">
           <ImageGallery images={project.projectImages} galleryImages={project.galleryImages} title={project.title} />
         </div>
-      </motion.div>
+      </div>
 
     </div>
   )

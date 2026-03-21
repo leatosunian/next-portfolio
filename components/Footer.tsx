@@ -40,10 +40,9 @@ const socialLinks = [
 
 export default function Footer() {
   const smoothScroll = useSmoothScroll()
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" })
 
   return (
-    <motion.footer 
+    <motion.footer
       className="bg-[#0e0e10] text-white overflow-hidden border-t border-white/5"
       initial="hidden"
       whileInView="visible"
@@ -54,7 +53,7 @@ export default function Footer() {
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
 
           {/* CTA card */}
-          <motion.div 
+          <motion.div
             className="relative overflow-hidden flex flex-col items-start justify-between gap-6 rounded-xl bg-[#131316] p-8 sm:flex-row sm:items-center lg:items-center lg:flex-1 lg:min-h-40"
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -92,7 +91,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:gap-12 lg:gap-16 lg:shrink-0">
 
             {/* Nav links */}
-            <motion.div 
+            <motion.div
               className="flex flex-col gap-4"
               variants={fadeInUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -116,7 +115,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Social links */}
-            <motion.div 
+            <motion.div
               className="flex flex-col gap-4"
               variants={fadeInUp}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
@@ -148,7 +147,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <motion.div 
+      <motion.div
         className="border-t border-white/5"
         variants={fadeInUp}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
@@ -157,15 +156,13 @@ export default function Footer() {
           <p className="text-xs font-body text-zinc-500">
             © 2026 Leandro Tosunian | www.tosunian.dev
           </p>
-          <motion.button
-            onClick={scrollToTop}
+          {/* <motion.button
+            onClick={() => smoothScroll("projects")}
             className="items-center justify-center hidden w-8 h-8 transition-all border rounded-full sm:flex border-white/10 text-zinc-400 hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-purple-400"
             aria-label="Back to top"
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
           >
             <ChevronUp size={16} />
-          </motion.button>
+          </motion.button> */}
         </div>
       </motion.div>
     </motion.footer>
