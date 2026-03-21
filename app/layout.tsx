@@ -15,16 +15,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Leandro Tosunian | Desarrollador Web',
-  description: 'Portfolio de desarrollo web — www.tosunian.dev',
-  openGraph: {
-    url: 'https://tosunian.dev',
-    siteName: 'Leandro Tosunian',
-    locale: 'es_AR',
-    type: 'website',
-  },
-}
+  // Title and description for SEO and browser tab
+  title: "Leandro Tosunian | Desarrollador Web",
+  description:
+    "Desarrollador web especializado en aplicaciones web, software a medida, tiendas online, páginas institucionales y landing pages. Construyo productos digitales con Next.js, Node.js y MongoDB.",
 
+  metadataBase: new URL("https://tosunian.dev"),
+
+  // Open Graph
+  openGraph: {
+    url: "https://tosunian.dev",
+    siteName: "Leandro Tosunian",
+    title: "Leandro Tosunian | Desarrollador Web",
+    description:
+      "Desarrollador web especializado en aplicaciones web, software a medida, tiendas online, páginas institucionales y landing pages. Construyo productos digitales con Next.js, Node.js y MongoDB.",
+    locale: "es_AR",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Leandro Tosunian — Portfolio de Desarrollo Web",
+      },
+    ],
+  },
+
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning 
+      <body suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <Loader />
