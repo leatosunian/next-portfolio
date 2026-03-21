@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ShineBorder } from "./ui/shine-border";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
@@ -104,7 +104,7 @@ export default function Footer() {
                   <motion.button
                     key={label}
                     onClick={() => smoothScroll(id)}
-                    className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-500"
+                    className="text-sm font-medium transition-colors cursor-none font-label w-fit text-zinc-300 hover:text-purple-500"
                     whileHover={{ x: 4 }}
                     transition={{ duration: 0.2, delay: index * 0.02 }}
                   >
@@ -133,7 +133,7 @@ export default function Footer() {
                     <Link
                       href={href}
                       target="_blank"
-                      className="text-sm font-medium transition-colors font-label w-fit text-zinc-300 hover:text-purple-500"
+                      className="text-sm font-medium transition-colors cursor-none font-label w-fit text-zinc-300 hover:text-purple-500"
                     >
                       {label}
                     </Link>

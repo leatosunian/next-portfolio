@@ -354,9 +354,9 @@ const Hero = () => {
                </motion.p>
 
                {/* CTA Buttons */}
-               <motion.div className="flex flex-wrap gap-4" variants={fadeInUp}>
+               <motion.div className="flex flex-wrap gap-4 cursor-none " variants={fadeInUp}>
                   <Button
-                     className="relative overflow-hidden text-white transition-all duration-300 bg-[#1f1f22] border border-white/20 hover:bg-[#ad46ff] hover:border-[#ad46ff] cursor-pointer px-7 py-3"
+                     className="relative overflow-hidden text-white transition-all duration-300 bg-[#1f1f22] border border-white/20 hover:bg-[#ad46ff] hover:border-[#ad46ff] cursor-none px-7 py-3"
                      size="lg"
                      variant="outline"
                   >
@@ -373,7 +373,7 @@ const Hero = () => {
                      rel="noopener noreferrer"
                   >
                      <Button
-                        className="relative overflow-hidden text-white transition-colors duration-300 bg-transparent border cursor-pointer border-white/20 hover:bg-[#ad46ff] hover:border-[#ad46ff] px-7 py-3"
+                        className="relative overflow-hidden text-white transition-colors duration-300 bg-transparent border cursor-none border-white/20 hover:bg-[#ad46ff] hover:border-[#ad46ff] px-7 py-3"
                         size="lg"
                         variant="outline"
                      >
