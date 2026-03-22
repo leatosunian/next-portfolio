@@ -54,6 +54,10 @@ export const metadata: Metadata = {
     ],
   },
 
+  alternates: {
+    canonical: 'https://tosunian.dev',
+  },
+
 };
 
 
