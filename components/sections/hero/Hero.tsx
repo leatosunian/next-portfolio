@@ -1,16 +1,18 @@
 "use client"
 
 import React from "react"
-import { motion, Variants } from "framer-motion"
+import { animate, motion, Variants } from "framer-motion"
 import { AuroraText } from "../../ui/aurora-text"
 import { Particles } from "../../ui/particles"
 import { Button } from "../../ui/button"
 import { BorderBeam } from "../../ui/border-beam"
 import Link from "next/link"
 import { Download } from "lucide-react"
+import { useLoader } from "@/app/context/LoaderContext"
+import { CodeMockup } from "./CodeMockup"
+import { FloatingTechCard } from "./FloatingTech"
 
-// ─ Animation Variants (Variants type — no function variants) 
-
+// Animation Variants  
 const fadeInUp: Variants = {
    hidden: { opacity: 0, y: 24 },
    visible: {
@@ -42,239 +44,10 @@ const cardReveal: Variants = {
    },
 }
 
-// ─ Code lines (data-driven, no raw apostrophes in JSX text) 
 
-type PartColor = "purple" | "muted" | "dim" | "empty"
-
-interface CodePart {
-   text: string
-   color: PartColor
-}
-
-interface CodeLine {
-   num: string
-   parts: CodePart[]
-}
-
-const CODE_LINES: CodeLine[] = [
-   {
-      num: "01",
-      parts: [
-         { text: "import", color: "purple" },
-         { text: " { WebDeveloper } ", color: "muted" },
-         { text: "from", color: "purple" },
-         { text: " '@tosunian/dev'", color: "dim" },
-      ],
-   },
-   {
-      num: "02",
-      parts: [{ text: "\u00a0", color: "empty" }],
-   },
-   {
-      num: "03",
-      parts: [
-         { text: "const", color: "purple" },
-         { text: " portfolio ", color: "muted" },
-         { text: "= ", color: "muted" },
-         { text: "new ", color: "purple" },
-         { text: "Architect", color: "dim" },
-         { text: "({", color: "muted" },
-      ],
-   },
-   {
-      num: "04",
-      parts: [
-         { text: "  name: ", color: "muted" },
-         { text: "'Leandro'", color: "dim" },
-         { text: ",", color: "muted" },
-      ],
-   },
-   {
-      num: "05",
-      parts: [
-         { text: "  focus: ", color: "muted" },
-         { text: "'Performance'", color: "dim" },
-         { text: ",", color: "muted" },
-      ],
-   },
-   {
-      num: "06",
-      parts: [
-         { text: "  stack: [", color: "muted" },
-         { text: "'Next.js'", color: "dim" },
-         { text: ", ", color: "muted" },
-         { text: "'Node.js'", color: "dim" },
-         { text: ", ", color: "muted" },
-         { text: "'MongoDB'", color: "dim" },
-         { text: "]", color: "muted" },
-      ],
-   },
-   {
-      num: "07",
-      parts: [{ text: "});", color: "muted" }],
-   },
-]
-
-const COLOR_MAP: Record<PartColor, string> = {
-   purple: "text-[#ad46ff]",
-   muted: "text-white/75",
-   dim: "text-purple-300",
-   empty: "opacity-0 select-none",
-}
-
-// ─ GlassPanel 
-
-interface GlassPanelProps {
-   children: React.ReactNode
-   className?: string
-}
-
-const GlassPanel = ({ children, className = "" }: GlassPanelProps) => (
-   <div
-      className={`rounded-2xl border border-white/[0.07] shadow-2xl ${className}`}
-      style={{
-         background: "rgba(18, 18, 24, 0.65)",
-         backdropFilter: "blur(18px)",
-         WebkitBackdropFilter: "blur(18px)",
-      }}
-   >
-      {children}
-   </div>
-)
-
-// ─ CodeMockup 
-
-const STACK_ICONS = [
-   { icon: "⚡", label: "TypeScript" },
-   { icon: "▲", label: "Next.js" },
-   { icon: "⬡", label: "Node.js" },
-] as const
-
-const CodeMockup = () => (
-   <GlassPanel className="relative p-5 overflow-hidden sm:p-6">
-      {/* Window chrome */}
-      <div className="flex items-center justify-between mb-6">
-         <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500/50" />
-            <div className="w-3 h-3 rounded-full bg-yellow-400/50" />
-            <div className="w-3 h-3 rounded-full bg-[#ad46ff]/50" />
-         </div>
-         <span className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-white/25">
-            VS CODE — PAGE.TSX
-         </span>
-      </div>
-
-      {/* Code lines */}
-      <div className="space-y-2.5 font-mono text-xs sm:text-sm leading-relaxed">
-         {CODE_LINES.map((line, i) => (
-            <motion.div
-               key={line.num}
-               className="flex items-center gap-3 sm:gap-4"
-               initial={{ opacity: 0, x: -10 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ delay: 0.9 + i * 0.07, duration: 0.4, ease: "easeOut" }}
-            >
-               <span className="text-[#ad46ff]/30 w-5 text-right shrink-0 select-none tabular-nums">
-                  {line.num}
-               </span>
-               <span>
-                  {line.parts.map((part, j) => (
-                     <span key={j} className={COLOR_MAP[part.color]}>
-                        {part.text}
-                     </span>
-                  ))}
-               </span>
-            </motion.div>
-         ))}
-      </div>
-
-      {/* Status bar */}
-      <div className="flex items-center justify-between pt-5 mt-8 border-t border-white/6">
-         <div className="flex -space-x-2.5">
-            {STACK_ICONS.map(({ icon, label }) => (
-               <div
-                  key={label}
-                  title={label}
-                  className="w-9 h-9 rounded-full border-2 border-[#0e0e10] bg-[#1a1a22] flex items-center justify-center"
-               >
-                  <span className="text-[#ad46ff] text-xs font-bold">{icon}</span>
-               </div>
-            ))}
-         </div>
-         <motion.div
-            className="text-[9px] sm:text-[10px] text-[#ad46ff] font-bold tracking-widest uppercase bg-[#ad46ff]/10 px-3 py-1 rounded-full"
-            animate={{ opacity: [1, 0.35, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-         >
-            Deploying…
-         </motion.div>
-      </div>
-   </GlassPanel>
-)
-
-// ─ FloatingTechChip 
-// Uses a single animate object for both entry + float loop.
-// NO variant arrays — avoids the "variants + animate array" conflict.
-
-interface FloatingTechChipProps {
-   icon: string
-   label: string
-   sublabel: string
-   color: string
-   className?: string
-   entryDelay?: number
-   floatAmplitude?: number
-}
-
-const FloatingTechChip = ({
-   icon,
-   label,
-   sublabel,
-   color,
-   className = "",
-   entryDelay = 1.0,
-   floatAmplitude = -8,
-}: FloatingTechChipProps) => (
-   <motion.div
-      className={`absolute ${className}`}
-      initial={{ opacity: 0, scale: 0.85, y: 12 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-         opacity: { duration: 0.5, delay: entryDelay },
-         scale: {
-            duration: 0.5, delay: entryDelay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number]
-         },
-      }}
-   >
-      <motion.div
-         animate={{ y: [0, floatAmplitude, 0] }}
-         transition={{
-            y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: entryDelay },
-         }}
-      >
-         <GlassPanel className="px-3 py-2.5 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3">
-            <div
-               className="flex items-center justify-center w-8 h-8 rounded-lg sm:w-10 sm:h-10 shrink-0"
-               style={{ background: `${color}18` }}
-            >
-               <span className="text-base sm:text-lg" style={{ color }}>
-                  {icon}
-               </span>
-            </div>
-            <div>
-               <div className="text-[11px] sm:text-xs font-bold text-white leading-none mb-0.5">
-                  {label}
-               </div>
-               <div className="text-[9px] sm:text-[10px] text-white/40">{sublabel}</div>
-            </div>
-         </GlassPanel>
-      </motion.div>
-   </motion.div>
-)
-
-// ─ Hero 
-
-const Hero = () => {
+// Hero 
+export const Hero = () => {
+   const { isLoaded } = useLoader();
    return (
       <div
          className="relative flex items-center justify-center w-full min-h-screen overflow-hidden"
@@ -288,7 +61,7 @@ const Hero = () => {
             refresh
          />
 
-         {/* Glow orbs */}
+         {/* background glow orbs */}
          <div
             aria-hidden="true"
             className="absolute rounded-full pointer-events-none -top-32 -left-32 w-120 h-120 opacity-20"
@@ -314,7 +87,7 @@ const Hero = () => {
                className="flex flex-col items-start gap-10 sm:gap-10"
                variants={staggerContainer}
                initial="hidden"
-               animate="visible"
+               animate={isLoaded ? "visible" : "hidden"}  // ← antes era solo "visible"
             >
                {/* Eyebrow */}
                <motion.div className="flex items-center gap-3" variants={fadeInUp}>
@@ -384,18 +157,19 @@ const Hero = () => {
                </motion.div>
             </motion.div>
 
-            {/*  Right column (desktop only)  */}
+            {/*  Right column (vscode mockup) (desktop only)  */}
             <motion.div
                className="relative items-center justify-center hidden lg:flex"
                variants={cardReveal}
                initial="hidden"
-               animate="visible"
+               animate={isLoaded ? "visible" : "hidden"}  // ← antes era solo "visible"
             >
                <div className="relative w-full mx-auto max-w-120">
+                  {/* vscode mockup */}
                   <CodeMockup />
 
                   {/* Mongodb chip */}
-                  <FloatingTechChip
+                  <FloatingTechCard
                      icon="🗄️"
                      label="MongoDB"
                      sublabel="Base de Datos"
@@ -406,7 +180,7 @@ const Hero = () => {
                   />
 
                   {/* Node chip */}
-                  <FloatingTechChip
+                  <FloatingTechCard
                      icon="⬡"
                      label="Node.js"
                      sublabel="Backend Framework"
@@ -417,7 +191,7 @@ const Hero = () => {
                   />
 
                   {/* Next.js chip */}
-                  <FloatingTechChip
+                  <FloatingTechCard
                      icon="▲"
                      label="Next.js"
                      sublabel="Fullstack Framework"
@@ -434,4 +208,3 @@ const Hero = () => {
    )
 }
 
-export default Hero

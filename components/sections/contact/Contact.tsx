@@ -57,6 +57,7 @@ const links = [
     href: "mailto:leandrotosunian@hotmail.com",
   },
 ];
+    // eslint-disable-next-line react-hooks/set-state-in-effect
 
 // ─── Component ───────────────────────────────────────────────────────────────
 

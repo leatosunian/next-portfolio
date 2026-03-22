@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Loader from "@/components/Loader";
+import { LoaderProvider } from "./context/LoaderContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,20 +56,17 @@ export const metadata: Metadata = {
 
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
-      >
-        <Loader />
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
+      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <LoaderProvider>
+          <Loader />
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
+        </LoaderProvider>
       </body>
     </html>
   );
