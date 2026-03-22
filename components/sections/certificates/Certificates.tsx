@@ -7,6 +7,7 @@ import Image from "next/image";
 import { ArrowRight, GraduationCap, MapPin } from "lucide-react";
 import Link from "next/link";
 import image_utn from "@/public/utn.png";
+import { useTranslations } from "next-intl";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -25,6 +26,8 @@ const staggerContainer = {
 };
 
 export default function Certificates() {
+  const t = useTranslations("certificates");
+  
   return (
     <section
       className="min-h-screen"
@@ -50,7 +53,7 @@ export default function Certificates() {
               className="text-purple-500 text-xs font-bold uppercase tracking-[0.2em]"
               style={{ fontFamily: "Inter, sans-serif" }}
             >
-              Educación
+              {t("sectionLabel")}
             </span>
           </motion.div>
 
@@ -60,7 +63,7 @@ export default function Certificates() {
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Formación y{" "} <span className="text-purple-500">Certificaciones</span>
+            {t("title")} <span className="text-purple-500">{t("titleHighlight")}</span>
           </motion.h1>
 
           <motion.p
@@ -69,7 +72,7 @@ export default function Certificates() {
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            Cursos y certificaciones que fui sumando a lo largo de mi formación como desarrollador.
+            {t("description")}
           </motion.p>
         </motion.header>
 
@@ -77,7 +80,7 @@ export default function Certificates() {
         <div className="flex flex-col gap-24">
           {certificates.map((cert, index) => (
             <motion.div
-              key={cert.title}
+              key={cert.translationKey}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
@@ -150,7 +153,7 @@ export default function Certificates() {
                     className="inline-block rounded-full border border-purple-500/40 bg-purple-500/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-purple-400"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
-                    Último Año
+                    {t("utn.badge")}
                   </span>
 
                   <span
@@ -158,7 +161,7 @@ export default function Certificates() {
                     style={{ color: "#adaaad", fontFamily: "Inter, sans-serif" }}
                   >
                     <MapPin size={16} className="text-purple-500/70" />
-                    Mar del Plata, Argentina
+                    {t("utn.location")}
                   </span>
                 </motion.div>
 
@@ -172,13 +175,13 @@ export default function Certificates() {
                     className="text-3xl font-bold leading-snug"
                     style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                   >
-                    Tecnicatura Superior en Programación
+                    {t("utn.title")}
                   </h2>
                   <p
                     className="font-medium"
                     style={{ color: "#c799ff", fontFamily: "Inter, sans-serif" }}
                   >
-                    UTN - Universidad Tecnológica Nacional
+                    {t("utn.issuer")}
                   </p>
                 </motion.div>
 
@@ -189,7 +192,7 @@ export default function Certificates() {
                   variants={fadeInUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                  Estudiante avanzado, cursando el último año de la Tecnicatura Superior en Programación. Formación en programación orientada a objetos, algoritmos y estructuras de datos, junto con fundamentos de bases de datos, sistemas operativos y arquitectura de computadoras. La carrera se orienta al desarrollo de software mediante la resolución de problemas y la aplicación práctica en proyectos.
+                  {t("utn.description")}
                 </motion.p>
 
                 {/* CTA + stats row */}
@@ -207,7 +210,7 @@ export default function Certificates() {
                       target="_blank"
                       className="flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 bg-purple-500 rounded-xl hover:bg-purple-600 whitespace-nowrap"
                     >
-                      Ver Plan de Estudios
+                      {t("utn.viewPlan")}
                       <ArrowRight size={16} />
                     </Link>
                   </motion.div>
@@ -219,13 +222,13 @@ export default function Certificates() {
                         className="text-[10px] font-bold uppercase tracking-[0.15em]"
                         style={{ color: "#6b6a6e", fontFamily: "Inter, sans-serif" }}
                       >
-                        Estado
+                        {t("utn.status")}
                       </p>
                       <p
                         className="text-sm font-semibold"
                         style={{ fontFamily: "Inter, sans-serif" }}
                       >
-                        Cuatrimestre 3/4
+                        {t("utn.statusValue")}
                       </p>
                     </div>
 
@@ -234,13 +237,13 @@ export default function Certificates() {
                         className="text-[10px] font-bold uppercase tracking-[0.15em]"
                         style={{ color: "#6b6a6e", fontFamily: "Inter, sans-serif" }}
                       >
-                        Promedio
+                        {t("utn.average")}
                       </p>
                       <p
                         className="text-sm font-semibold"
                         style={{ fontFamily: "Inter, sans-serif" }}
                       >
-                        8.5/10
+                        {t("utn.averageValue")}
                       </p>
                     </div>
                   </div>

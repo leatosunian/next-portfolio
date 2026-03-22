@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "title": "Leandro Tosunian | Desarrollador Web",
+    "description": "Desarrollador web especializado en aplicaciones web, software a medida, tiendas online, páginas institucionales y landing pages. Construyo productos digitales con Next.js, Node.js y MongoDB."
+  },
+  "navbar": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "techStack": "Tech Stack",
+    "certificates": "Certificaciones",
+    "contact": "Contacto",
+    "mainNavigation": "Navegación principal",
+    "navigateTo": "Navegar a la sección {section}",
+    "backToHome": "Volver al inicio",
+    "openMobileMenu": "Abrir menú móvil",
+    "closeMobileMenu": "Cerrar menú móvil",
+    "mobileNavigation": "Menú de navegación móvil",
+    "toggleLanguage": "Cambiar idioma"
+  },
+  "hero": {
+    "eyebrow": "BIENVENIDO",
+    "greeting": "Hola! Soy",
+    "name": "Leandro Tosunian",
+    "role": "Desarrollador Web",
+    "description": "Diseño y desarrollo aplicaciones web de principio a fin. TypeScript, Next.js y Node.js son el centro de mi stack actual. Enfocado en código escalable, mantenible y soluciones eficientes.",
+    "projectsButton": "Proyectos",
+    "downloadCV": "Descargar CV",
+    "mongodbLabel": "Base de Datos",
+    "nodeLabel": "Backend Framework",
+    "nextjsLabel": "Fullstack Framework"
+  },
+  "projects": {
+    "sectionLabel": "Experiencia",
+    "title": "Proyectos",
+    "titleHighlight": "Destacados",
+    "description": "Conjunto de proyectos que muestran mis habilidades y experiencia en desarrollo web, destacando la diversidad de tecnologías y enfoques utilizados para resolver problemas reales.",
+    "items": {
+      "sacaturno": {
+        "label": "SaaS Turnos Online",
+        "title": "SacaTurno",
+        "description": "Servicio de software para gestionar turnos de forma online. Cuenta con 15 días de prueba gratuita. Luego, se paga una suscripción mensual a través de Mercado Pago, con activación automática. Solo tenés que crear tu cuenta, configurar tu negocio y servicios, y ya podés empezar a cargar turnos."
+      },
+      "telovendo": {
+        "label": "Catálogo Online",
+        "title": "Telovendo Santa Fé",
+        "description": "Página web para Telovendo Santa Fé, dedicados a la venta de vehículos. El sitio cuenta con un diseño moderno y responsivo, con su página principal, un apartado de catálogo de vehículos y un formulario de contacto para enviar una solicitud de cotización. Todo el stock y el envío de consultas se gestionan desde un panel de administración privado, donde además cuenta con un CRM para gestión de clientes y un presupuestador digital, que genera un archivo PDF con un diseño profesional para descargar y enviar al cliente."
+      },
+      "app420": {
+        "label": "Desarrollo a medida",
+        "title": "420app - Inventario y Pedidos",
+        "description": "420App es una aplicación web desarrollada a medida para optimizar la administración de productos y pedidos. Gracias al relevamiento de las necesidades del negocio, es una herramienta para simplificar su gestión comercial diaria. Permite aplicar ajustes de precios por porcentaje, definir márgenes de ganancia individuales y gestionar pedidos ágil y eficientemente."
+      },
+      "altiva": {
+        "label": "Catálogo Corporativo",
+        "title": "Altiva Propiedades",
+        "description": "Aplicación web para Altiva Propiedades con interfaz responsive, landing institucional y módulo de listado de propiedades con filtros avanzados. Incluye gestión de formularios para captura de leads y un panel de administración privado con CRM inmobiliario para administrar propiedades, clientes y consultas, optimizando el seguimiento comercial."
+      },
+      "somacann": {
+        "label": "E-commerce",
+        "title": "Somacann",
+        "description": "E-commerce desarrollado sobre la plataforma propia E-Mart, con catálogo de productos, carrito de compras y checkout integrado con Mercado Pago. Implementa gestión de pedidos y flujo de compra optimizado, orientado a soluciones escalables para ventas online."
+      },
+      "encino": {
+        "label": "Landing Page",
+        "title": "Encino Carpintería",
+        "description": "Landing page desarrollada a medida para Encino Carpintería, con foco en performance y experiencia de usuario. Implementa diseño responsive, optimización de assets, buenas prácticas de SEO y estructura orientada a métricas de rendimiento (Core Web Vitals). Incluye secciones dinámicas (galería, reseñas) y formularios de contacto para conversión."
+      },
+      "emart": {
+        "label": "Plataforma e-commerce",
+        "title": "E-Mart",
+        "description": "Plataforma e-commerce completa (eMart) con frontend de tienda y panel de administración. El storefront incluye catálogo con filtros avanzados (categorías, variantes, precio), carrito y checkout integrado con Mercado Pago, junto con autenticación de usuarios, historial de compras y seguimiento de pedidos. El backoffice permite la gestión integral del negocio: ABM de productos, manejo de categorías, configuración de envíos, administración de órdenes y automatización de notificaciones con tracking. Diseñada con arquitectura modular, manejo de estado y persistencia de datos para garantizar escalabilidad y consistencia operativa."
+      }
+    }
+  },
+  "techStack": {
+    "sectionLabel": "Conocimientos",
+    "title": "Tech",
+    "titleHighlight": "Stack",
+    "description": "Conjunto de tecnologías que utilizo para construir aplicaciones web escalables y de alto rendimiento",
+    "languages": "Lenguajes",
+    "tools": "Herramientas",
+    "frameworks": "Frameworks",
+    "frameworksDescription": "Tecnologías que utilizo para construir desde la interfaz hasta el servidor."
+  },
+  "certificates": {
+    "sectionLabel": "Educación",
+    "title": "Formación y",
+    "titleHighlight": "Certificaciones",
+    "description": "Cursos y certificaciones que fui sumando a lo largo de mi formación como desarrollador.",
+    "downloadCertificate": "Descargar Certificado",
+    "items": {
+      "htmlCss": {
+        "title": "HTML, CSS y JavaScript",
+        "issuer": "UCIP - Mar del Plata, Argentina",
+        "description": "Curso de 4 meses enfocado en los fundamentos del desarrollo web: estructura, estilos e interactividad desde cero."
+      },
+      "fullstackMern": {
+        "title": "JavaScript Full Stack MERN/MEVN",
+        "issuer": "Udemy",
+        "description": "Desarrollo web full stack con JavaScript, abarcando tanto el frontend como el backend. En el frontend, se utilizan React y Vue.js para crear interfaces de usuario dinámicas y responsivas. En el backend, se emplea Node.js con Express para construir APIs robustas y eficientes. Además, se integra MongoDB como base de datos NoSQL para almacenar y gestionar datos de manera flexible. El curso también cubre temas esenciales como autenticación, despliegue y mejores prácticas en el desarrollo web moderno."
+      },
+      "fullstackReact": {
+        "title": "Full Stack React, Next.js y Node.js con TypeScript",
+        "issuer": "Udemy",
+        "description": "Formación integral en desarrollo Full Stack con React y TypeScript, cubriendo desde los fundamentos (useState, hooks esenciales) hasta arquitecturas modernas con Next.js 14 y Server Actions. Incluye manejo de estado global con Context API y Zustand, consumo de APIs, validación con Zod y formularios con React Hook Form. En el backend, desarrollo de APIs con Node.js, Express y bases de datos MongoDB (Mongoose) y PostgreSQL (Prisma), implementando autenticación, autorización y gestión de roles. Además, se trabajan herramientas clave como React Query, Tailwind CSS y Headless UI para construir aplicaciones escalables, performantes y listas para producción."
+      }
+    },
+    "utn": {
+      "badge": "Último Año",
+      "location": "Mar del Plata, Argentina",
+      "title": "Tecnicatura Superior en Programación",
+      "issuer": "UTN - Universidad Tecnológica Nacional",
+      "description": "Estudiante avanzado, cursando el último año de la Tecnicatura Superior en Programación. Formación en programación orientada a objetos, algoritmos y estructuras de datos, junto con fundamentos de bases de datos, sistemas operativos y arquitectura de computadoras. La carrera se orienta al desarrollo de software mediante la resolución de problemas y la aplicación práctica en proyectos.",
+      "viewPlan": "Ver Plan de Estudios",
+      "status": "Estado",
+      "statusValue": "Cuatrimestre 3/4",
+      "average": "Promedio",
+      "averageValue": "8.5/10"
+    }
+  },
+  "contact": {
+    "sectionLabel": "Redes sociales",
+    "title": "Pongámonos en",
+    "titleHighlight": "contacto",
+    "description": "Si llegaste hasta acá, probablemente tengamos algo para hablar. Escribime sin compromiso, sea para un proyecto o para una oportunidad laboral.",
+    "responseTime": "Respuesta antes de 24 horas",
+    "linksTitle": "Links",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "email": "Correo electrónico"
+  },
+  "footer": {
+    "ctaTitle": "Listo para empezar tu proyecto?",
+    "ctaDescription": "Comencemos a desarrollar tu idea.",
+    "ctaButton": "Contactar",
+    "navigation": "Navegación",
+    "social": "Social",
+    "copyright": "2026 Leandro Tosunian | www.tosunian.dev"
+  }
+}

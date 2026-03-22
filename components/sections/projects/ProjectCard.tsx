@@ -6,21 +6,32 @@ import { IProject } from '@/app/interfaces/IProject'
 import { TechIcons } from '@/components/ui/tech-icons'
 import { ImageGallery } from './ImageGallery'
 import { Globe } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 // project card component
-export const ProjectCard = ({ project, reverse = false }: { project: IProject; reverse?: boolean }) => {
+export const ProjectCard = ({ 
+  project, 
+  reverse = false,
+  translationKey 
+}: { 
+  project: IProject; 
+  reverse?: boolean;
+  translationKey: string;
+}) => {
+  const t = useTranslations("projects.items");
+  
   return (
     <div className={`flex flex-col gap-8 lg:gap-16 min-w-0 w-full ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-start lg:items-center`}>
       {/* Text Content */}
       <div className="flex flex-col gap-5 lg:w-1/2">
         {/* Label */}
         <span className="text-sm font-medium tracking-wide text-purple-500 uppercase">
-          {project.label}
+          {t(`${translationKey}.label`)}
         </span>
 
         {/* Title */}
         <h3 className="text-4xl font-bold leading-tight text-white lg:text-4xl xl:text-5xl text-balance">
-          {project.title}
+          {t(`${translationKey}.title`)}
         </h3>
 
         {/* Description Card */}
@@ -30,7 +41,7 @@ export const ProjectCard = ({ project, reverse = false }: { project: IProject; r
           transition={{ duration: 0.3 }}
         >
           <p className="leading-relaxed text-zinc-300">
-            {project.description}
+            {t(`${translationKey}.description`)}
           </p>
         </motion.div>
 

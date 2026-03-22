@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 import { projects } from "@/lib/projects";
+import { useTranslations } from "next-intl";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -21,6 +22,8 @@ const staggerContainer = {
 
 // Main component to render featured projects
 export const Projects = () => {
+  const t = useTranslations("projects");
+  
   return (
     <section className="relative  bg-[#0e0e10] w-full px-6 py-26 overflow-x-hidden lg:px-12 xl:px-20" id="projects">
       <div className="mx-auto max-w-7xl">
@@ -42,7 +45,7 @@ export const Projects = () => {
                 className="text-xs font-bold uppercase tracking-[0.2em] text-purple-500"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >
-                Experiencia
+                {t("sectionLabel")}
               </span>
             </motion.div>
 
@@ -52,7 +55,7 @@ export const Projects = () => {
               variants={fadeInUp}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              Proyectos <span className="text-purple-500">Destacados</span>
+              {t("title")} <span className="text-purple-500">{t("titleHighlight")}</span>
             </motion.h1>
 
             <motion.p
@@ -61,9 +64,7 @@ export const Projects = () => {
               variants={fadeInUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              Conjunto de proyectos que muestran mis habilidades y experiencia
-              en desarrollo web, destacando la diversidad de tecnologías y
-              enfoques utilizados para resolver problemas reales.
+              {t("description")}
             </motion.p>
           </motion.header>
 
@@ -80,6 +81,7 @@ export const Projects = () => {
                 <ProjectCard
                   project={project}
                   reverse={index % 2 !== 0}
+                  translationKey={project.translationKey}
                 />
               </motion.div>
             ))}

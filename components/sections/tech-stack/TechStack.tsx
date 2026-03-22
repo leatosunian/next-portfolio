@@ -25,6 +25,7 @@ import {
   Box,
   Share2,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 // ─── Animation Variants ──────────────────────────────────────────────────────
 
@@ -89,6 +90,8 @@ const frameworks = [
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function TechStack() {
+  const t = useTranslations("techStack");
+  
   return (
     <section
       className="min-h-screen"
@@ -114,7 +117,7 @@ export default function TechStack() {
               className="text-xs font-bold uppercase text-purple-500 tracking-[0.2em]"
               style={{ fontFamily: "Inter, sans-serif" }}
             >
-              Concimientos
+              {t("sectionLabel")}
             </span>
           </motion.div>
 
@@ -124,7 +127,7 @@ export default function TechStack() {
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Tech <span className="text-purple-500">Stack</span>
+            {t("title")} <span className="text-purple-500">{t("titleHighlight")}</span>
           </motion.h1>
 
           <motion.p
@@ -133,8 +136,7 @@ export default function TechStack() {
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            Conjunto de tecnologías que utilizo para construir aplicaciones web
-            escalables y de alto rendimiento
+            {t("description")}
           </motion.p>
         </motion.header>
 
@@ -158,7 +160,7 @@ export default function TechStack() {
                 className="text-2xl font-bold"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
-                Lenguajes
+                {t("languages")}
               </h2>
               <Code2 style={{ color: "#c799ff" }} size={22} />
             </div>
@@ -170,7 +172,7 @@ export default function TechStack() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              {languages.map(({ icon, label }, index) => (
+              {languages.map(({ icon, label }) => (
                 <motion.div
                   key={label}
                   variants={fadeInUp}
@@ -206,7 +208,7 @@ export default function TechStack() {
                 className="text-2xl font-bold"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
-                Herramientas
+                {t("tools")}
               </h2>
               <Wrench style={{ color: "#ea9bff" }} size={22} />
             </div>
@@ -255,13 +257,13 @@ export default function TechStack() {
                   className="text-3xl font-bold"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
-                  Frameworks
+                  {t("frameworks")}
                 </h2>
                 <p
                   className="max-w-lg mt-2 text-sm"
                   style={{ color: "#adaaad" }}
                 >
-                  Tecnologías que utilizo para construir desde la interfaz hasta el servidor.
+                  {t("frameworksDescription")}
                 </p>
               </div>
 

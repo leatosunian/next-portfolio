@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "title": "Leandro Tosunian | Web Developer",
+    "description": "Web developer specialized in web applications, custom software, online stores, corporate websites and landing pages. I build digital products with Next.js, Node.js and MongoDB."
+  },
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "techStack": "Tech Stack",
+    "certificates": "Certifications",
+    "contact": "Contact",
+    "mainNavigation": "Main navigation",
+    "navigateTo": "Navigate to {section} section",
+    "backToHome": "Back to home",
+    "openMobileMenu": "Open mobile menu",
+    "closeMobileMenu": "Close mobile menu",
+    "mobileNavigation": "Mobile navigation menu",
+    "toggleLanguage": "Toggle language"
+  },
+  "hero": {
+    "eyebrow": "WELCOME",
+    "greeting": "Hi! I'm",
+    "name": "Leandro Tosunian",
+    "role": "Web Developer",
+    "description": "I design and develop web applications from start to finish. TypeScript, Next.js and Node.js are at the core of my current stack. Focused on scalable, maintainable code and efficient solutions.",
+    "projectsButton": "Projects",
+    "downloadCV": "Download CV",
+    "mongodbLabel": "Database",
+    "nodeLabel": "Backend Framework",
+    "nextjsLabel": "Fullstack Framework"
+  },
+  "projects": {
+    "sectionLabel": "Experience",
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "description": "A collection of projects showcasing my skills and experience in web development, highlighting the diversity of technologies and approaches used to solve real problems.",
+    "items": {
+      "sacaturno": {
+        "label": "Online Booking SaaS",
+        "title": "SacaTurno",
+        "description": "Software service for managing online appointments. It includes a 15-day free trial. After that, a monthly subscription is paid through Mercado Pago, with automatic activation. You just need to create your account, set up your business and services, and you can start scheduling appointments."
+      },
+      "telovendo": {
+        "label": "Online Catalog",
+        "title": "Telovendo Santa Fe",
+        "description": "Website for Telovendo Santa Fe, dedicated to vehicle sales. The site features a modern and responsive design, with a main page, a vehicle catalog section, and a contact form to send quote requests. All inventory and inquiries are managed from a private admin panel, which also includes a CRM for customer management and a digital quotation tool that generates a professionally designed PDF for download and client delivery."
+      },
+      "app420": {
+        "label": "Custom Development",
+        "title": "420app - Inventory & Orders",
+        "description": "420App is a custom web application developed to optimize product and order management. Based on a thorough analysis of business needs, it's a tool to simplify daily commercial operations. It allows price adjustments by percentage, individual profit margin settings, and agile order management."
+      },
+      "altiva": {
+        "label": "Corporate Catalog",
+        "title": "Altiva Properties",
+        "description": "Web application for Altiva Properties with a responsive interface, corporate landing page, and property listing module with advanced filters. Includes form management for lead capture and a private admin panel with real estate CRM to manage properties, clients, and inquiries, optimizing commercial follow-up."
+      },
+      "somacann": {
+        "label": "E-commerce",
+        "title": "Somacann",
+        "description": "E-commerce developed on the proprietary E-Mart platform, with product catalog, shopping cart, and checkout integrated with Mercado Pago. Implements order management and optimized purchase flow, oriented towards scalable online sales solutions."
+      },
+      "encino": {
+        "label": "Landing Page",
+        "title": "Encino Carpentry",
+        "description": "Custom landing page developed for Encino Carpentry, with a focus on performance and user experience. Implements responsive design, asset optimization, SEO best practices, and structure oriented towards performance metrics (Core Web Vitals). Includes dynamic sections (gallery, reviews) and contact forms for conversion."
+      },
+      "emart": {
+        "label": "E-commerce Platform",
+        "title": "E-Mart",
+        "description": "Complete e-commerce platform (eMart) with storefront and admin panel. The storefront includes a catalog with advanced filters (categories, variants, price), cart and checkout integrated with Mercado Pago, along with user authentication, purchase history, and order tracking. The backoffice enables comprehensive business management: product CRUD, category handling, shipping configuration, order administration, and notification automation with tracking. Designed with modular architecture, state management, and data persistence to ensure scalability and operational consistency."
+      }
+    }
+  },
+  "techStack": {
+    "sectionLabel": "Knowledge",
+    "title": "Tech",
+    "titleHighlight": "Stack",
+    "description": "Set of technologies I use to build scalable and high-performance web applications",
+    "languages": "Languages",
+    "tools": "Tools",
+    "frameworks": "Frameworks",
+    "frameworksDescription": "Technologies I use to build from the interface to the server."
+  },
+  "certificates": {
+    "sectionLabel": "Education",
+    "title": "Training &",
+    "titleHighlight": "Certifications",
+    "description": "Courses and certifications I have accumulated throughout my training as a developer.",
+    "downloadCertificate": "Download Certificate",
+    "items": {
+      "htmlCss": {
+        "title": "HTML, CSS and JavaScript",
+        "issuer": "UCIP - Mar del Plata, Argentina",
+        "description": "4-month course focused on web development fundamentals: structure, styles, and interactivity from scratch."
+      },
+      "fullstackMern": {
+        "title": "JavaScript Full Stack MERN/MEVN",
+        "issuer": "Udemy",
+        "description": "Full stack web development with JavaScript, covering both frontend and backend. On the frontend, React and Vue.js are used to create dynamic and responsive user interfaces. On the backend, Node.js with Express is employed to build robust and efficient APIs. Additionally, MongoDB is integrated as a NoSQL database to store and manage data flexibly. The course also covers essential topics such as authentication, deployment, and best practices in modern web development."
+      },
+      "fullstackReact": {
+        "title": "Full Stack React, Next.js and Node.js with TypeScript",
+        "issuer": "Udemy",
+        "description": "Comprehensive training in Full Stack development with React and TypeScript, covering from fundamentals (useState, essential hooks) to modern architectures with Next.js 14 and Server Actions. Includes global state management with Context API and Zustand, API consumption, validation with Zod, and forms with React Hook Form. On the backend, API development with Node.js, Express, and databases MongoDB (Mongoose) and PostgreSQL (Prisma), implementing authentication, authorization, and role management. Additionally, key tools like React Query, Tailwind CSS, and Headless UI are covered to build scalable, performant, and production-ready applications."
+      }
+    },
+    "utn": {
+      "badge": "Final Year",
+      "location": "Mar del Plata, Argentina",
+      "title": "Associate Degree in Programming",
+      "issuer": "UTN - National Technological University",
+      "description": "Advanced student, currently in the final year of the Associate Degree in Programming. Training in object-oriented programming, algorithms and data structures, along with database fundamentals, operating systems, and computer architecture. The program is oriented towards software development through problem-solving and practical application in projects.",
+      "viewPlan": "View Study Plan",
+      "status": "Status",
+      "statusValue": "Semester 3/4",
+      "average": "GPA",
+      "averageValue": "8.5/10"
+    }
+  },
+  "contact": {
+    "sectionLabel": "Social Media",
+    "title": "Let's get in",
+    "titleHighlight": "touch",
+    "description": "If you made it this far, we probably have something to talk about. Feel free to reach out, whether for a project or a job opportunity.",
+    "responseTime": "Response within 24 hours",
+    "linksTitle": "Links",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "email": "Email"
+  },
+  "footer": {
+    "ctaTitle": "Ready to start your project?",
+    "ctaDescription": "Let's start developing your idea.",
+    "ctaButton": "Contact",
+    "navigation": "Navigation",
+    "social": "Social",
+    "copyright": "2026 Leandro Tosunian | www.tosunian.dev"
+  }
+}

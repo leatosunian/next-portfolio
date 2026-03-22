@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { animate, motion, Variants } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { AuroraText } from "../../ui/aurora-text"
 import { Particles } from "../../ui/particles"
 import { Button } from "../../ui/button"
@@ -11,6 +11,7 @@ import { Download } from "lucide-react"
 import { useLoader } from "@/app/context/LoaderContext"
 import { CodeMockup } from "./CodeMockup"
 import { FloatingTechCard } from "./FloatingTech"
+import { useTranslations } from "next-intl"
 
 // Animation Variants  
 const fadeInUp: Variants = {
@@ -48,6 +49,8 @@ const cardReveal: Variants = {
 // Hero 
 export const Hero = () => {
    const { isLoaded } = useLoader();
+   const t = useTranslations("hero");
+   
    return (
       <div
          className="relative flex items-center justify-center w-full min-h-screen overflow-hidden"
@@ -87,29 +90,29 @@ export const Hero = () => {
                className="flex flex-col items-start gap-10 sm:gap-10"
                variants={staggerContainer}
                initial="hidden"
-               animate={isLoaded ? "visible" : "hidden"}  // ← antes era solo "visible"
+               animate={isLoaded ? "visible" : "hidden"}
             >
                {/* Eyebrow */}
                <motion.div className="flex items-center gap-3" variants={fadeInUp}>
                   <span className="w-5 h-px bg-[#ad46ff]" />
                   <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.22em] text-[#ad46ff]">
-                     ¡BIENVENIDO!
+                     {t("eyebrow")}
                   </span>
                </motion.div>
 
                {/* Headline*/}
                <motion.div className="flex flex-col w-full" variants={fadeInUp}>
                   <h1 className="text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl font-bold leading-[1.1] text-white tracking-tight">
-                     <span className="block">{"¡Hola! Soy "}</span>
+                     <span className="block">{t("greeting")} </span>
                      <span className="block whitespace-nowrap">
                         <AuroraText speed={2} colors={["#ad46ff", "#a448eb", "#b983df"]} className="font-bold">
-                           Leandro Tosunian
+                           {t("name")}
                         </AuroraText>
                         {","}
                      </span>
                      <span className="block whitespace-nowrap">
                         <AuroraText speed={2} colors={["#ad46ff", "#7e4ca5", "#b57edc"]} className="font-bold">
-                           Desarrollador Web
+                           {t("role")}
                         </AuroraText>
                         {"."}
                      </span>
@@ -121,9 +124,7 @@ export const Hero = () => {
                   className="max-w-xl text-base leading-relaxed sm:text-lg xl:text-xl text-white/60"
                   variants={fadeInUp}
                >
-                  Diseño y desarrollo aplicaciones web de principio a fin. TypeScript, Next.js y Node.js
-                  son el centro de mi stack actual. Enfocado en código escalable, mantenible y soluciones
-                  eficientes.
+                  {t("description")}
                </motion.p>
 
                {/* CTA Buttons */}
@@ -133,7 +134,7 @@ export const Hero = () => {
                      size="lg"
                      variant="outline"
                   >
-                     Proyectos
+                     {t("projectsButton")}
                      <BorderBeam
                         size={60}
                         className="from-transparent via-[#ad46ff] to-transparent"
@@ -151,7 +152,7 @@ export const Hero = () => {
                         variant="outline"
                      >
                         <Download className="w-4 h-4 mr-1.5" />
-                        Descargar CV
+                        {t("downloadCV")}
                      </Button>
                   </Link>
                </motion.div>
@@ -162,7 +163,7 @@ export const Hero = () => {
                className="relative items-center justify-center hidden lg:flex"
                variants={cardReveal}
                initial="hidden"
-               animate={isLoaded ? "visible" : "hidden"}  // ← antes era solo "visible"
+               animate={isLoaded ? "visible" : "hidden"}
             >
                <div className="relative w-full mx-auto max-w-120">
                   {/* vscode mockup */}
@@ -172,7 +173,7 @@ export const Hero = () => {
                   <FloatingTechCard
                      icon="🗄️"
                      label="MongoDB"
-                     sublabel="Base de Datos"
+                     sublabel={t("mongodbLabel")}
                      color="#b983df"
                      className="-top-11 -right-8 xl:-right-12"
                      entryDelay={1.0}
@@ -183,7 +184,7 @@ export const Hero = () => {
                   <FloatingTechCard
                      icon="⬡"
                      label="Node.js"
-                     sublabel="Backend Framework"
+                     sublabel={t("nodeLabel")}
                      color="#ad46ff"
                      className=" top-10 -left-8 xl:-left-14"
                      entryDelay={1.2}
@@ -194,7 +195,7 @@ export const Hero = () => {
                   <FloatingTechCard
                      icon="▲"
                      label="Next.js"
-                     sublabel="Fullstack Framework"
+                     sublabel={t("nextjsLabel")}
                      color="#b983df"
                      className="-bottom-6 right-8 xl:right-12"
                      entryDelay={1.4}
@@ -207,4 +208,3 @@ export const Hero = () => {
       </div>
    )
 }
-

@@ -3,6 +3,7 @@ import { StaticImageData } from 'next/image'
 type TechKey = keyof typeof TechIcons
 
 export interface IProject {
+    translationKey: string
     label: string
     title: string
     description: string

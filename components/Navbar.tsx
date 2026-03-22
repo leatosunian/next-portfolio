@@ -4,15 +4,18 @@ import { useState, useEffect } from "react"
 import { ArrowLeft, Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname, useRouter } from "@/src/i18n/navigation"
 import logo from "@/public/logowhite.png"
 import { useSmoothScroll } from "@/hooks/useSmoothScroll"
+import { useTranslations } from "next-intl"
+import LanguageToggle from "@/components/navbar/LanguageToggle"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const smoothScroll = useSmoothScroll()
+  const t = useTranslations("navbar")
 
   const isStreamingPage = pathname === "/streaming"
   const isCeloPage = pathname === "/celo"
@@ -40,11 +43,11 @@ export default function Navbar() {
   }
 
   const navItems = [
-    { label: "Inicio", id: "hero", number: "01" },
-    { label: "Proyectos", id: "projects", number: "02" },
-    { label: "Tech Stack", id: "tech-stack", number: "03" },
-    { label: "Certificaciones", id: "certificates", number: "04" },
-    { label: "Contacto", id: "contact", number: "05" },
+    { label: t("home"), id: "hero", number: "01" },
+    { label: t("projects"), id: "projects", number: "02" },
+    { label: t("techStack"), id: "tech-stack", number: "03" },
+    { label: t("certificates"), id: "certificates", number: "04" },
+    { label: t("contact"), id: "contact", number: "05" },
   ]
 
   return (
@@ -53,7 +56,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 w-full z-40 transition-all duration-300 outline-none ${isScrolled ? "px-4 py-2" : ""}`}
         role="navigation"
-        aria-label="Main navigation"
+        aria-label={t("mainNavigation")}
       >
         <div
           className={`max-w-7xl mx-auto transition-all duration-300  ${isScrolled
@@ -74,7 +77,7 @@ export default function Navbar() {
                     key={id}
                     onClick={() => scrollToSection(id)}
                     className="relative px-3 py-2 transition-colors text-white/75 hover:text-white cursor-none group"
-                    aria-label={`Navigate to ${label} section`}
+                    aria-label={t("navigateTo", { section: label })}
                   >
                     {label}
                     <span className="absolute bottom-0 w-0 h-px transition-all duration-300 -translate-x-1/2 bg-white left-1/2 group-hover:w-full" />
@@ -83,7 +86,9 @@ export default function Navbar() {
               </div>
             )}
 
-            <div className="items-center hidden md:flex" />
+            <div className="items-center hidden md:flex">
+              <LanguageToggle />
+            </div>
 
             {/* Mobile controls */}
             <div className="flex items-center space-x-3 md:hidden">
@@ -91,21 +96,24 @@ export default function Navbar() {
                 <Link
                   href="/"
                   className="p-2 text-white transition-colors rounded-lg hover:text-white/80 glass"
-                  aria-label="Back to home"
+                  aria-label={t("backToHome")}
                 >
                   <ArrowLeft size={20} />
                 </Link>
               )}
 
               {!isStreamingPage && !isCeloPage && (
-                <button
-                  onClick={() => setIsMobileMenuOpen(true)}
-                  className="text-white transition-colors rounded-lg  hover:text-white/80 glass cursor-none"
-                  aria-label="Open mobile menu"
-                  aria-expanded={isMobileMenuOpen}
-                >
-                  <Menu size={24} />
-                </button>
+                <>
+                  <LanguageToggle />
+                  <button
+                    onClick={() => setIsMobileMenuOpen(true)}
+                    className="text-white transition-colors rounded-lg  hover:text-white/80 glass cursor-none"
+                    aria-label={t("openMobileMenu")}
+                    aria-expanded={isMobileMenuOpen}
+                  >
+                    <Menu size={24} />
+                  </button>
+                </>
               )}
             </div>
           </div>
@@ -127,7 +135,7 @@ export default function Navbar() {
           ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
         role="dialog"
         aria-modal="true"
-        aria-label="Mobile navigation menu"
+        aria-label={t("mobileNavigation")}
       >
         {/* Fondo glassmorphism */}
         <div className="absolute inset-0 bg-[#0e0e10]/80 backdrop-blur-2xl border-l border-white/10" />
@@ -148,7 +156,7 @@ export default function Navbar() {
             text-white/60 hover:text-white
             transition-all duration-300 cursor-none
             ${isMobileMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
-          aria-label="Close mobile menu"
+          aria-label={t("closeMobileMenu")}
         >
           <X size={16} strokeWidth={1.75} />
         </button>
@@ -167,7 +175,7 @@ export default function Navbar() {
                   transition-all duration-300
                   hover:bg-white/5 active:bg-white/10
                   ${isMobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
-                aria-label={`Navigate to ${label} section`}
+                aria-label={t("navigateTo", { section: label })}
               >
                 <span className="text-[10px] font-mono text-purple-500 tracking-widest w-5 group-hover:text-white/50 transition-colors duration-200">
                   {number}
