@@ -24,18 +24,16 @@ const staggerContainer = {
 };
 
 export function CertificateCard({
-  key: _key, // no se usa directamente, lo lee el padre
   image,
   imageAlt,
   accentColor,
   link,
   accentColorRgb,
   reverse,
-  // title, issuer, description vienen del JSON via prop explícita
   title,
   issuer,
   description,
-}: ICertificate & {
+}: Omit<ICertificate, 'key'> & {
   title: string;
   issuer: string;
   description: string;

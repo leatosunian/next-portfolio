@@ -79,26 +79,29 @@ export default function Certificates() {
 
         {/* Certificates list */}
         <div className="flex flex-col gap-24">
-          {certificates.map((cert, index) => (
-            <motion.div
-              key={cert.key}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: index * 0.1,
-              }}
-            >
-              <CertificateCard
-                {...cert}
-                title={t(`items.${cert.key}.title`)}
-                issuer={t(`items.${cert.key}.issuer`)}
-                description={t(`items.${cert.key}.description`)}
-              />
-            </motion.div>
-          ))}
+          {certificates.map((cert, index) => {
+            const { key, ...certProps } = cert; // ← desestructura key fuera del spread
+            return (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: index * 0.1,
+                }}
+              >
+                <CertificateCard
+                  {...certProps}
+                  title={t(`items.${key}.title`)}
+                  issuer={t(`items.${key}.issuer`)}
+                  description={t(`items.${key}.description`)}
+                />
+              </motion.div>
+            );
+          })}
 
           {/* ── UTN card ──────────────────────────────────────────────── */}
           <motion.article
