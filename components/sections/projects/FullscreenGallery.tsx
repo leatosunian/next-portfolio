@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { motion, AnimatePresence, PanInfo } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Image, { StaticImageData } from 'next/image'
+import { useTranslations } from 'next-intl'
 
 interface FullscreenGalleryProps {
   images: StaticImageData[]
@@ -18,41 +19,34 @@ export const FullscreenGallery = ({
   initialIndex,
   isOpen,
   onClose,
-  title
+  title,
 }: FullscreenGalleryProps) => {
+  const t = useTranslations("Gallery")
+
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
   const [direction, setDirection] = useState(0)
 
-  // Reset index when modal opens with new initialIndex
   useEffect(() => {
-    if (isOpen) {
-      setCurrentIndex(initialIndex)
-    }
+    if (isOpen) setCurrentIndex(initialIndex)
   }, [isOpen, initialIndex])
 
-  // Handle keyboard navigation
   useEffect(() => {
     if (!isOpen) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose()
-      } else if (e.key === 'ArrowLeft') {
-        goToPrevious()
-      } else if (e.key === 'ArrowRight') {
-        goToNext()
-      }
+      if (e.key === 'Escape') onClose()
+      else if (e.key === 'ArrowLeft') goToPrevious()
+      else if (e.key === 'ArrowRight') goToNext()
     }
 
     document.addEventListener('keydown', handleKeyDown)
-    // Prevent body scroll when modal is open
     document.body.style.overflow = 'hidden'
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
     }
-  }, [isOpen, onClose])
+  }, [isOpen, onClose]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const goToNext = useCallback(() => {
     setDirection(1)
@@ -69,11 +63,9 @@ export const FullscreenGallery = ({
     setCurrentIndex(index)
   }, [currentIndex])
 
-  // Handle swipe gestures
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const swipeThreshold = 50
     const swipeVelocity = 500
-
     if (info.offset.x > swipeThreshold || info.velocity.x > swipeVelocity) {
       goToPrevious()
     } else if (info.offset.x < -swipeThreshold || info.velocity.x < -swipeVelocity) {
@@ -81,26 +73,16 @@ export const FullscreenGallery = ({
     }
   }
 
-  // Animation variants for slide transitions
   const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? '100%' : '-100%',
-      opacity: 0
-    }),
-    center: {
-      x: 0,
-      opacity: 1
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? '100%' : '-100%',
-      opacity: 0
-    })
+    enter: (dir: number) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir < 0 ? '100%' : '-100%', opacity: 0 }),
   }
 
   if (!isOpen) return null
 
   return (
-    <AnimatePresence >
+    <AnimatePresence>
       {isOpen && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -114,7 +96,7 @@ export const FullscreenGallery = ({
           <button
             onClick={onClose}
             className="absolute z-50 p-3 transition-all rounded-full cursor-none top-4 right-4 bg-white/10 backdrop-blur-sm text-white/80 hover:text-white hover:bg-white/20"
-            aria-label="Cerrar galería"
+            aria-label={t("closeGallery")}
           >
             <X className="w-6 h-6" />
           </button>
@@ -137,26 +119,18 @@ export const FullscreenGallery = ({
             {/* Navigation Arrows */}
             {images.length > 1 && (
               <>
-                {/* Left Arrow */}
                 <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    goToPrevious()
-                  }}
+                  onClick={(e) => { e.stopPropagation(); goToPrevious() }}
                   className="absolute z-50 p-2 transition-all -translate-y-1/2 rounded-full left-4 md:left-8 top-1/2 bg-white/10 backdrop-blur-sm text-white/80 hover:text-white hover:bg-white/20"
-                  aria-label="Imagen anterior"
+                  aria-label={t("prevImage")}
                 >
                   <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
                 </button>
 
-                {/* Right Arrow */}
                 <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    goToNext()
-                  }}
+                  onClick={(e) => { e.stopPropagation(); goToNext() }}
                   className="absolute z-50 p-2 transition-all -translate-y-1/2 rounded-full right-4 md:right-8 top-1/2 bg-white/10 backdrop-blur-sm text-white/80 hover:text-white hover:bg-white/20"
-                  aria-label="Siguiente imagen"
+                  aria-label={t("nextImage")}
                 >
                   <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                 </button>
@@ -175,7 +149,7 @@ export const FullscreenGallery = ({
                   exit="exit"
                   transition={{
                     x: { type: 'spring', stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 }
+                    opacity: { duration: 0.2 },
                   }}
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
@@ -183,10 +157,10 @@ export const FullscreenGallery = ({
                   onDragEnd={handleDragEnd}
                   className="absolute inset-0 flex items-center justify-center cursor-none"
                 >
-                  <div className="relative w-full h-full ">
+                  <div className="relative w-full h-full">
                     <Image
                       src={images[currentIndex]}
-                      alt={`${title} - imagen ${currentIndex + 1}`}
+                      alt={t("imageAlt", { title, number: currentIndex + 1 })}
                       fill
                       className="object-contain rounded-2xl"
                       sizes="100vw"
@@ -205,22 +179,18 @@ export const FullscreenGallery = ({
               {images.map((_, index) => (
                 <button
                   key={index}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    goToSlide(index)
-                  }}
-                  className={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 ${index === currentIndex
-                    ? 'bg-purple-500 w-6 h-2'
-                    : 'bg-white/50 hover:bg-white/80 w-2 h-2'
-                    }`}
-                  aria-label={`Ir a imagen ${index + 1}`}
+                  onClick={(e) => { e.stopPropagation(); goToSlide(index) }}
+                  className={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+                    index === currentIndex
+                      ? 'bg-purple-500 w-6 h-2'
+                      : 'bg-white/50 hover:bg-white/80 w-2 h-2'
+                  }`}
+                  aria-label={t("goToImage", { number: index + 1 })}
                   aria-current={index === currentIndex ? 'true' : 'false'}
                 />
               ))}
             </div>
           )}
-
-
         </motion.div>
       )}
     </AnimatePresence>

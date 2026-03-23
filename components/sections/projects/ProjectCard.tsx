@@ -1,26 +1,42 @@
 "use client"
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { Globe } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { IProject } from '@/app/interfaces/IProject'
 import { TechIcons } from '@/components/ui/tech-icons'
 import { ImageGallery } from './ImageGallery'
-import { Globe } from 'lucide-react'
 
-// project card component
-export const ProjectCard = ({ project, reverse = false }: { project: IProject; reverse?: boolean }) => {
+interface ProjectCardProps {
+  project: IProject
+  reverse?: boolean
+}
+
+export const ProjectCard = ({ project, reverse = false }: ProjectCardProps) => {
+  // t('items.sacaturno.title') etc.
+  const t = useTranslations('Projects')
+
+  const label       = t(`items.${project.key}.label`)
+  const title       = t(`items.${project.key}.title`)
+  const description = t(`items.${project.key}.description`)
+
   return (
-    <div className={`flex flex-col gap-8 lg:gap-16 min-w-0 w-full ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-start lg:items-center`}>
+    <div
+      className={`flex flex-col gap-8 lg:gap-16 min-w-0 w-full ${
+        reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
+      } items-start lg:items-center`}
+    >
       {/* Text Content */}
       <div className="flex flex-col gap-5 lg:w-1/2">
         {/* Label */}
         <span className="text-sm font-medium tracking-wide text-purple-500 uppercase">
-          {project.label}
+          {label}
         </span>
 
         {/* Title */}
         <h3 className="text-4xl font-bold leading-tight text-white lg:text-4xl xl:text-5xl text-balance">
-          {project.title}
+          {title}
         </h3>
 
         {/* Description Card */}
@@ -30,17 +46,14 @@ export const ProjectCard = ({ project, reverse = false }: { project: IProject; r
           transition={{ duration: 0.3 }}
         >
           <p className="leading-relaxed text-zinc-300">
-            {project.description}
+            {description}
           </p>
         </motion.div>
 
         {/* Link Button and Tech Stack */}
         <div className="flex flex-wrap items-center gap-3">
           {project.link && project.domain && (
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href={project.link}
                 target="_blank"
@@ -76,10 +89,13 @@ export const ProjectCard = ({ project, reverse = false }: { project: IProject; r
       {/* Image Gallery */}
       <div className="relative w-full min-w-0 lg:w-1/2">
         <div className="relative overflow-hidden shadow-2xl rounded-xl aspect-video shadow-purple-500/10">
-          <ImageGallery images={project.projectImages} galleryImages={project.galleryImages} title={project.title} />
+          <ImageGallery
+            images={project.projectImages}
+            galleryImages={project.galleryImages}
+            title={title}
+          />
         </div>
       </div>
-
     </div>
   )
 }

@@ -1,11 +1,13 @@
 "use client";
+
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { ProjectCard } from "./ProjectCard";
 import { projects } from "@/lib/projects";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
 const staggerContainer = {
@@ -14,25 +16,30 @@ const staggerContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
-// Main component to render featured projects
 export const Projects = () => {
+  const t = useTranslations("Projects");
+
   return (
-    <section className="relative  bg-[#0e0e10] w-full px-6 py-26 overflow-x-hidden lg:px-12 xl:px-20" id="projects">
+    <section
+      className="relative bg-[#0e0e10] w-full px-6 py-26 overflow-x-hidden lg:px-12 xl:px-20"
+      id="projects"
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-10 ">
-          <motion.header 
+        <div className="flex flex-col gap-10">
+          {/* Header */}
+          <motion.header
             className="space-y-4 mb-15"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
           >
-            <motion.div 
+            <motion.div
               className="flex items-center gap-4"
               variants={fadeInUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -42,7 +49,7 @@ export const Projects = () => {
                 className="text-xs font-bold uppercase tracking-[0.2em] text-purple-500"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >
-                Experiencia
+                {t("sectionLabel")}
               </span>
             </motion.div>
 
@@ -52,7 +59,8 @@ export const Projects = () => {
               variants={fadeInUp}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              Proyectos <span className="text-purple-500">Destacados</span>
+              {t("title")}{" "}
+              <span className="text-purple-500">{t("titleHighlight")}</span>
             </motion.h1>
 
             <motion.p
@@ -61,9 +69,7 @@ export const Projects = () => {
               variants={fadeInUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              Conjunto de proyectos que muestran mis habilidades y experiencia
-              en desarrollo web, destacando la diversidad de tecnologías y
-              enfoques utilizados para resolver problemas reales.
+              {t("description")}
             </motion.p>
           </motion.header>
 
@@ -71,16 +77,17 @@ export const Projects = () => {
           <div className="flex flex-col gap-24 lg:gap-32">
             {projects.map((project, index) => (
               <motion.div
-                key={index}
+                key={project.key}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: index * 0.1,
+                }}
               >
-                <ProjectCard
-                  project={project}
-                  reverse={index % 2 !== 0}
-                />
+                <ProjectCard project={project} reverse={index % 2 !== 0} />
               </motion.div>
             ))}
           </div>

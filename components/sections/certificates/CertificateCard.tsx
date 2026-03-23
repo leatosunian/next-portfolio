@@ -1,14 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { ICertificate } from "@/app/interfaces/ICertificate";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
 const staggerContainer = {
@@ -17,22 +18,30 @@ const staggerContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.12,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
 export function CertificateCard({
-  title,
-  issuer,
-  description,
+  key: _key, // no se usa directamente, lo lee el padre
   image,
   imageAlt,
   accentColor,
   link,
   accentColorRgb,
   reverse,
-}: ICertificate) {
+  // title, issuer, description vienen del JSON via prop explícita
+  title,
+  issuer,
+  description,
+}: ICertificate & {
+  title: string;
+  issuer: string;
+  description: string;
+}) {
+  const t = useTranslations("Certificates");
+
   return (
     <article className="relative group">
       {/* Decorative glow */}
@@ -42,8 +51,9 @@ export function CertificateCard({
       />
 
       <div
-        className={`relative z-10 flex flex-col gap-10 md:items-center ${reverse ? "md:flex-row-reverse" : "md:flex-row"
-          }`}
+        className={`relative z-10 flex flex-col gap-10 md:items-center ${
+          reverse ? "md:flex-row-reverse" : "md:flex-row"
+        }`}
       >
         {/* Image */}
         <motion.div
@@ -62,7 +72,7 @@ export function CertificateCard({
             className="object-cover transition-all duration-700 scale-105 grayscale group-hover:grayscale-0 group-hover:scale-100"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          {/* inner ring */}
+          {/* Inner ring */}
           <div
             className="absolute inset-0 pointer-events-none rounded-xl ring-1 ring-inset"
             style={{ boxShadow: "inset 0 0 0 1px rgba(72,71,74,0.2)" }}
@@ -116,7 +126,7 @@ export function CertificateCard({
               className="group flex cursor-none items-center w-fit gap-2 rounded-xl border border-purple-500/20 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
             >
               <Download size={18} />
-              Descargar Certificado
+              {t("downloadButton")}
             </Link>
           </motion.div>
         </motion.div>

@@ -1,14 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { ShineBorder } from "./ui/shine-border";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
 const staggerContainer = {
@@ -17,29 +18,31 @@ const staggerContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.08,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
-const navLinks = [
-  { label: "Inicio", id: "hero" },
-  { label: "Proyectos", id: "projects" },
-  { label: "Stack", id: "tech-stack" },
-  { label: "Certificaciones", id: "certificates" },
-  { label: "Contacto", id: "contact" },
-];
-
 const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/leandrotosunian/" },
-  { label: "GitHub", href: "https://github.com/leatosunian" },
-  { label: "WhatsApp", href: "https://api.whatsapp.com/send?phone=5492235423025" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/in/leandrotosunian/" },
+  { label: "GitHub",    href: "https://github.com/leatosunian" },
+  { label: "WhatsApp",  href: "https://api.whatsapp.com/send?phone=5492235423025" },
   { label: "Instagram", href: "https://www.instagram.com/tosunian.dev/" },
-  { label: "Email", href: "mailto:leandrotosunian@hotmail.com" },
+  { label: "Email",     href: "mailto:leandrotosunian@hotmail.com" },
 ];
 
 export default function Footer() {
-  const smoothScroll = useSmoothScroll()
+  const t = useTranslations("Footer");
+  const smoothScroll = useSmoothScroll();
+
+  // navLinks usa claves del JSON para que el label cambie con el idioma
+  const navLinks = [
+    { label: t("navHome"),         id: "hero" },
+    { label: t("navProjects"),     id: "projects" },
+    { label: t("navStack"),        id: "tech-stack" },
+    { label: t("navCertificates"), id: "certificates" },
+    { label: t("navContact"),      id: "contact" },
+  ];
 
   return (
     <motion.footer
@@ -66,10 +69,10 @@ export default function Footer() {
             />
             <div>
               <h3 className="text-2xl font-bold font-headline">
-                ¿Listo para empezar tu proyecto?
+                {t("ctaTitle")}
               </h3>
               <p className="mt-1 text-sm font-body text-zinc-400">
-                Comencemos a desarrollar tu idea.
+                {t("ctaSubtitle")}
               </p>
             </div>
             <motion.div
@@ -81,8 +84,11 @@ export default function Footer() {
                 target="_blank"
                 className="group flex cursor-none items-center gap-2 rounded-full border border-white/10 bg-[#1f1f22] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500 hover:text-white whitespace-nowrap"
               >
-                Contactar
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                {t("ctaButton")}
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-1"
+                />
               </Link>
             </motion.div>
           </motion.div>
@@ -97,12 +103,12 @@ export default function Footer() {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <p className="font-label text-[0.65rem] font-bold uppercase tracking-widest text-zinc-500">
-                Navegación
+                {t("navigation")}
               </p>
               <nav className="flex flex-col gap-3">
                 {navLinks.map(({ label, id }, index) => (
                   <motion.button
-                    key={label}
+                    key={id}
                     onClick={() => smoothScroll(id)}
                     className="text-sm font-medium transition-colors cursor-none font-label w-fit text-zinc-300 hover:text-purple-500"
                     whileHover={{ x: 4 }}
@@ -121,7 +127,7 @@ export default function Footer() {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
             >
               <p className="font-label text-[0.65rem] font-bold uppercase tracking-widest text-zinc-500">
-                Social
+                {t("social")}
               </p>
               <nav className="flex flex-col gap-3">
                 {socialLinks.map(({ label, href }, index) => (
@@ -154,15 +160,8 @@ export default function Footer() {
       >
         <div className="flex flex-col items-center justify-between gap-4 px-6 py-6 mx-auto max-w-7xl sm:flex-row sm:items-center">
           <p className="text-xs font-body text-zinc-500">
-            © 2026 Leandro Tosunian | www.tosunian.dev
+            {t("copyright")}
           </p>
-          {/* <motion.button
-            onClick={() => smoothScroll("projects")}
-            className="items-center justify-center hidden w-8 h-8 transition-all border rounded-full sm:flex border-white/10 text-zinc-400 hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-purple-400"
-            aria-label="Back to top"
-          >
-            <ChevronUp size={16} />
-          </motion.button> */}
         </div>
       </motion.div>
     </motion.footer>

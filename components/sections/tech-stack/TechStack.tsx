@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   Code2,
   Wrench,
@@ -30,7 +31,7 @@ import {
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
 const staggerContainer = {
@@ -39,9 +40,9 @@ const staggerContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.08,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
 const cardStagger = {
@@ -50,12 +51,12 @@ const cardStagger = {
     opacity: 1,
     transition: {
       staggerChildren: 0.05,
-      delayChildren: 0.15
-    }
-  }
+      delayChildren: 0.15,
+    },
+  },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// ─── Datos estáticos — nombres propios, no se traducen ───────────────────────
 
 const languages = [
   { icon: <FileCode size={32} />, label: "HTML5" },
@@ -65,30 +66,32 @@ const languages = [
 ];
 
 const tools = [
-  { icon: <Globe size={20} />, label: "Postman" },
-  { icon: <Compass size={20} />, label: "MongoDB Compass" },
-  { icon: <GitBranch size={20} />, label: "GitHub" },
-  { icon: <Database size={20} />, label: "SQL Workbench" },
-  { icon: <Pen size={20} />, label: "Figma" },
+  { icon: <Globe size={20} />,      label: "Postman" },
+  { icon: <Compass size={20} />,    label: "MongoDB Compass" },
+  { icon: <GitBranch size={20} />,  label: "GitHub" },
+  { icon: <Database size={20} />,   label: "SQL Workbench" },
+  { icon: <Pen size={20} />,        label: "Figma" },
 ];
 
 const frameworks = [
-  { icon: <Code size={32} />, label: "Node.js" },
-  { icon: <Network size={32} />, label: "Express.js" },
-  { icon: <Monitor size={32} />, label: "React.js" },
-  { icon: <Layers size={32} />, label: "Next.js" },
-  { icon: <LayoutGrid size={32} />, label: "Vue.js" },
-  { icon: <HardDrive size={32} />, label: "MongoDB" },
-  { icon: <Database size={32} />, label: "MySQL" },
-  { icon: <Brush size={32} />, label: "Tailwind" },
-  { icon: <Box size={32} />, label: "Shadcn" },
-  { icon: <Shield size={32} />, label: "JWT" },
+  { icon: <Code size={32} />,          label: "Node.js" },
+  { icon: <Network size={32} />,       label: "Express.js" },
+  { icon: <Monitor size={32} />,       label: "React.js" },
+  { icon: <Layers size={32} />,        label: "Next.js" },
+  { icon: <LayoutGrid size={32} />,    label: "Vue.js" },
+  { icon: <HardDrive size={32} />,     label: "MongoDB" },
+  { icon: <Database size={32} />,      label: "MySQL" },
+  { icon: <Brush size={32} />,         label: "Tailwind" },
+  { icon: <Box size={32} />,           label: "Shadcn" },
+  { icon: <Shield size={32} />,        label: "JWT" },
   { icon: <ArrowLeftRight size={32} />, label: "Socket.io" },
 ];
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function TechStack() {
+  const t = useTranslations("TechStack");
+
   return (
     <section
       className="min-h-screen"
@@ -97,14 +100,14 @@ export default function TechStack() {
     >
       <div className="px-6 py-24 mx-auto max-w-7xl">
         {/* Header */}
-        <motion.header 
+        <motion.header
           className="space-y-4 mb-15"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
         >
-          <motion.div 
+          <motion.div
             className="flex items-center gap-4"
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -114,7 +117,7 @@ export default function TechStack() {
               className="text-xs font-bold uppercase text-purple-500 tracking-[0.2em]"
               style={{ fontFamily: "Inter, sans-serif" }}
             >
-              Concimientos
+              {t("sectionLabel")}
             </span>
           </motion.div>
 
@@ -124,7 +127,8 @@ export default function TechStack() {
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Tech <span className="text-purple-500">Stack</span>
+            {t("title")}{" "}
+            <span className="text-purple-500">{t("titleHighlight")}</span>
           </motion.h1>
 
           <motion.p
@@ -133,13 +137,13 @@ export default function TechStack() {
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            Conjunto de tecnologías que utilizo para construir aplicaciones web
-            escalables y de alto rendimiento
+            {t("description")}
           </motion.p>
         </motion.header>
 
         {/* Bento Grid */}
         <div className="grid items-start grid-cols-1 gap-6 md:grid-cols-12">
+
           {/* ── Lenguajes ── */}
           <motion.section
             className="h-full p-8 border md:col-span-4 rounded-xl"
@@ -158,19 +162,19 @@ export default function TechStack() {
                 className="text-2xl font-bold"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
-                Lenguajes
+                {t("languages")}
               </h2>
               <Code2 style={{ color: "#c799ff" }} size={22} />
             </div>
 
-            <motion.div 
+            <motion.div
               className="grid grid-cols-2 gap-4"
               variants={cardStagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              {languages.map(({ icon, label }, index) => (
+              {languages.map(({ icon, label }) => (
                 <motion.div
                   key={label}
                   variants={fadeInUp}
@@ -195,7 +199,7 @@ export default function TechStack() {
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
           >
-            {/* decorative blur */}
+            {/* Decorative blur */}
             <div
               className="absolute top-0 right-0 w-32 h-32 translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
               style={{ backgroundColor: "rgba(234,155,255,0.05)" }}
@@ -206,12 +210,12 @@ export default function TechStack() {
                 className="text-2xl font-bold"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
-                Herramientas
+                {t("tools")}
               </h2>
               <Wrench style={{ color: "#ea9bff" }} size={22} />
             </div>
 
-            <motion.div 
+            <motion.div
               className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"
               variants={cardStagger}
               initial="hidden"
@@ -230,7 +234,7 @@ export default function TechStack() {
             </motion.div>
           </motion.section>
 
-          {/* ── Technologies & Frameworks ── */}
+          {/* ── Frameworks ── */}
           <motion.section
             className="relative p-10 mt-6 overflow-hidden border md:col-span-12 rounded-xl"
             style={{
@@ -243,7 +247,7 @@ export default function TechStack() {
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
           >
-            {/* decorative blur */}
+            {/* Decorative blur */}
             <div
               className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full blur-[100px]"
               style={{ backgroundColor: "rgba(199,153,255,0.1)" }}
@@ -255,13 +259,13 @@ export default function TechStack() {
                   className="text-3xl font-bold"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
-                  Frameworks
+                  {t("frameworks")}
                 </h2>
                 <p
                   className="max-w-lg mt-2 text-sm"
                   style={{ color: "#adaaad" }}
                 >
-                  Tecnologías que utilizo para construir desde la interfaz hasta el servidor.
+                  {t("frameworksDescription")}
                 </p>
               </div>
 
@@ -273,10 +277,7 @@ export default function TechStack() {
                   <div
                     key={i}
                     className="flex items-center justify-center w-10 h-10 rounded-full"
-                    style={{
-                      backgroundColor: "#262529",
-                      color: "#c799ff",
-                    }}
+                    style={{ backgroundColor: "#262529", color: "#c799ff" }}
                   >
                     {icon}
                   </div>
@@ -284,7 +285,7 @@ export default function TechStack() {
               </div>
             </div>
 
-            <motion.div 
+            <motion.div
               className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
               variants={cardStagger}
               initial="hidden"
@@ -321,11 +322,11 @@ function LanguageCard({
     <motion.div
       className="p-6 transition-all duration-300 border border-transparent rounded-lg cursor-none group"
       style={{ backgroundColor: "#262529" }}
-      whileHover={{ 
-        scale: 1.03, 
+      whileHover={{
+        scale: 1.03,
         backgroundColor: "#2c2c2f",
         borderColor: "rgba(199,153,255,0.2)",
-        boxShadow: "0 0 20px 0 rgba(199,153,255,0.2)"
+        boxShadow: "0 0 20px 0 rgba(199,153,255,0.2)",
       }}
       transition={{ duration: 0.3 }}
     >
@@ -347,15 +348,21 @@ function LanguageCard({
   );
 }
 
-function ToolCard({ icon, label }: { icon: React.ReactNode; label: string }) {
+function ToolCard({
+  icon,
+  label,
+}: {
+  icon: React.ReactNode;
+  label: string;
+}) {
   return (
     <motion.div
       className="flex flex-col items-center gap-3 p-4 transition-all border border-transparent rounded-lg cursor-none"
       style={{ backgroundColor: "#262529" }}
-      whileHover={{ 
+      whileHover={{
         scale: 1.05,
         backgroundColor: "#2c2c2f",
-        borderColor: "rgba(234,155,255,0.2)"
+        borderColor: "rgba(234,155,255,0.2)",
       }}
       transition={{ duration: 0.3 }}
     >
@@ -384,9 +391,9 @@ function FrameworkCard({
         backgroundColor: "#131316",
         borderColor: "rgba(72,71,74,0.05)",
       }}
-      whileHover={{ 
+      whileHover={{
         scale: 1.05,
-        borderColor: "rgba(199,153,255,0.2)"
+        borderColor: "rgba(199,153,255,0.2)",
       }}
       transition={{ duration: 0.3 }}
     >

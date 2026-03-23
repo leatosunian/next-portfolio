@@ -1,0 +1,139 @@
+{
+  "Navbar": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "techStack": "Tech Stack",
+    "certificates": "Certificaciones",
+    "contact": "Contacto"
+  },
+  "Hero": {
+    "eyebrow": "¡BIENVENIDO!",
+    "greeting": "¡Hola! Soy",
+    "role": "Desarrollador Web",
+    "description": "Diseño y desarrollo aplicaciones web de principio a fin. TypeScript, Next.js y Node.js son el centro de mi stack actual. Enfocado en código escalable, mantenible y soluciones eficientes.",
+    "ctaProjects": "Proyectos",
+    "ctaCV": "Descargar CV",
+    "mongodbSublabel": "Base de Datos",
+    "nodeSublabel": "Backend Framework",
+    "nextjsSublabel": "Fullstack Framework"
+  },
+  "Projects": {
+    "sectionLabel": "Experiencia",
+    "title": "Proyectos",
+    "titleHighlight": "Destacados",
+    "description": "Conjunto de proyectos que muestran mis habilidades y experiencia en desarrollo web, destacando la diversidad de tecnologías y enfoques utilizados para resolver problemas reales.",
+    "items": {
+      "sacaturno": {
+        "label": "SaaS Turnos Online",
+        "title": "SacaTurno",
+        "description": "Servicio de software para gestionar turnos de forma online. Cuenta con 15 días de prueba gratuita. Luego, se paga una suscripción mensual a través de Mercado Pago, con activación automática. Solo tenés que crear tu cuenta, configurar tu negocio y servicios, y ya podés empezar a cargar turnos."
+      },
+      "telovendo": {
+        "label": "Catálogo Online",
+        "title": "Telovendo Santa Fé",
+        "description": "Página web para Telovendo Santa Fé, dedicados a la venta de vehículos. Diseño moderno y responsivo, catálogo de vehículos, formulario de cotización, panel de administración privado con CRM para gestión de clientes y presupuestador digital en PDF."
+      },
+      "app420": {
+        "label": "Desarrollo a medida",
+        "title": "420app - Inventario y Pedidos",
+        "description": "420App es una aplicación web desarrollada a medida para optimizar la administración de productos y pedidos. Permite aplicar ajustes de precios por porcentaje, definir márgenes de ganancia individuales y gestionar pedidos ágil y eficientemente."
+      },
+      "altiva": {
+        "label": "Catálogo Corporativo",
+        "title": "Altiva Propiedades",
+        "description": "Aplicación web para Altiva Propiedades con interfaz responsive, landing institucional y módulo de listado de propiedades con filtros avanzados. Incluye panel de administración con CRM inmobiliario para administrar propiedades, clientes y consultas."
+      },
+      "somacann": {
+        "label": "E-commerce",
+        "title": "Somacann",
+        "description": "E-commerce desarrollado sobre la plataforma propia E-Mart, con catálogo de productos, carrito de compras y checkout integrado con Mercado Pago. Implementa gestión de pedidos y flujo de compra optimizado."
+      },
+      "encino": {
+        "label": "Landing Page",
+        "title": "Encino Carpintería",
+        "description": "Landing page a medida para Encino Carpintería, con foco en performance y experiencia de usuario. Diseño responsive, optimización de assets, buenas prácticas de SEO, secciones dinámicas y formularios de contacto."
+      },
+      "emart": {
+        "label": "Plataforma e-commerce",
+        "title": "E-Mart",
+        "description": "Plataforma e-commerce completa con frontend de tienda y panel de administración. Catálogo con filtros avanzados, checkout con Mercado Pago, autenticación de usuarios, historial de compras. Backoffice con gestión integral de productos, categorías, envíos, órdenes y notificaciones automáticas."
+      }
+    }
+  },
+  "Gallery": {
+    "openFullscreen": "Ver en pantalla completa",
+    "prevImage": "Imagen anterior",
+    "nextImage": "Siguiente imagen",
+    "goToImage": "Ir a imagen {number}",
+    "closeGallery": "Cerrar galería",
+    "imageAlt": "{title} - imagen {number}"
+  },
+  "TechStack": {
+    "sectionLabel": "Conocimientos",
+    "title": "Tech",
+    "titleHighlight": "Stack",
+    "description": "Conjunto de tecnologías que utilizo para construir aplicaciones web escalables y de alto rendimiento",
+    "languages": "Lenguajes",
+    "tools": "Herramientas",
+    "frameworks": "Frameworks",
+    "frameworksDescription": "Tecnologías que utilizo para construir desde la interfaz hasta el servidor."
+  },
+  "Certificates": {
+    "sectionLabel": "Educación",
+    "title": "Formación y",
+    "titleHighlight": "Certificaciones",
+    "description": "Cursos y certificaciones que fui sumando a lo largo de mi formación como desarrollador.",
+    "downloadButton": "Descargar Certificado",
+    "items": {
+      "ucip": {
+        "title": "HTML, CSS y JavaScript",
+        "issuer": "UCIP - Mar del Plata, Argentina",
+        "description": "Curso de 4 meses enfocado en los fundamentos del desarrollo web: estructura, estilos e interactividad desde cero."
+      },
+      "udemy1": {
+        "title": "JavaScript Full Stack MERN/MEVN",
+        "issuer": "Udemy",
+        "description": "Desarrollo web full stack con JavaScript. Frontend con React y Vue.js, backend con Node.js y Express, MongoDB como base de datos. Cubre autenticación, despliegue y mejores prácticas del desarrollo web moderno."
+      },
+      "udemy2": {
+        "title": "Full Stack React, Next.js y Node.js con TypeScript",
+        "issuer": "Udemy",
+        "description": "Formación integral en Full Stack con React y TypeScript. Next.js 14 con Server Actions, Zustand, Zod, React Hook Form, APIs con Node.js, MongoDB (Mongoose) y PostgreSQL (Prisma), autenticación y gestión de roles."
+      },
+      "utn": {
+        "badge": "Último Año",
+        "location": "Mar del Plata, Argentina",
+        "title": "Tecnicatura Superior en Programación",
+        "issuer": "UTN - Universidad Tecnológica Nacional",
+        "description": "Estudiante avanzado, cursando el último año de la Tecnicatura Superior en Programación. Formación en programación orientada a objetos, algoritmos y estructuras de datos, junto con fundamentos de bases de datos, sistemas operativos y arquitectura de computadoras.",
+        "ctaButton": "Ver Plan de Estudios",
+        "statusLabel": "Estado",
+        "statusValue": "Cuatrimestre 3/4",
+        "gpaLabel": "Promedio",
+        "gpaValue": "8.5/10"
+      }
+    }
+  },
+  "Contact": {
+    "sectionLabel": "Redes sociales",
+    "title": "Pongámonos en",
+    "titleHighlight": "contacto",
+    "description": "Si llegaste hasta acá, probablemente tengamos algo para hablar. Escribime sin compromiso, sea para un proyecto o para una oportunidad laboral.",
+    "responseTime": "Respuesta antes de 24 horas",
+    "linksLabel": "Links",
+    "emailLabel": "Correo electrónico"
+  },
+  "Footer": {
+    "ctaTitle": "¿Listo para empezar tu proyecto?",
+    "ctaSubtitle": "Comencemos a desarrollar tu idea.",
+    "ctaButton": "Contactar",
+    "navigation": "Navegación",
+    "social": "Social",
+    "copyright": "© 2026 Leandro Tosunian | www.tosunian.dev",
+    "navHome": "Inicio",
+    "navProjects": "Proyectos",
+    "navStack": "Stack",
+    "navCertificates": "Certificaciones",
+    "navContact": "Contacto"
+  }
+}

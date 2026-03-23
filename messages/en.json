@@ -1,0 +1,139 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "techStack": "Tech Stack",
+    "certificates": "Certifications",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "eyebrow": "WELCOME!",
+    "greeting": "Hi! I'm",
+    "role": "Web Developer",
+    "description": "I design and develop web applications end-to-end. TypeScript, Next.js, and Node.js are at the core of my current stack. Focused on scalable, maintainable code and efficient solutions.",
+    "ctaProjects": "Projects",
+    "ctaCV": "Download CV",
+    "mongodbSublabel": "Database",
+    "nodeSublabel": "Backend Framework",
+    "nextjsSublabel": "Fullstack Framework"
+  },
+  "Projects": {
+    "sectionLabel": "Experience",
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "description": "A set of projects showcasing my skills and experience in web development, highlighting the diversity of technologies and approaches used to solve real-world problems.",
+    "items": {
+      "sacaturno": {
+        "label": "Online Booking SaaS",
+        "title": "SacaTurno",
+        "description": "Software service for managing appointments online. Includes a 15-day free trial, then a monthly subscription via Mercado Pago with automatic activation. Just create your account, configure your business and services, and start booking right away."
+      },
+      "telovendo": {
+        "label": "Online Catalog",
+        "title": "Telovendo Santa Fé",
+        "description": "Website for Telovendo Santa Fé, a vehicle dealership. Modern responsive design, vehicle catalog, quote request form, private admin panel with CRM for client management and a digital PDF quoting tool."
+      },
+      "app420": {
+        "label": "Custom Development",
+        "title": "420app - Inventory & Orders",
+        "description": "Custom-built web application to streamline product and order management. Features percentage-based price adjustments, individual profit margin settings, and efficient order management."
+      },
+      "altiva": {
+        "label": "Corporate Catalog",
+        "title": "Altiva Propiedades",
+        "description": "Web application for Altiva Propiedades with a responsive interface, institutional landing page, and property listing module with advanced filters. Includes a private admin panel with a real estate CRM."
+      },
+      "somacann": {
+        "label": "E-commerce",
+        "title": "Somacann",
+        "description": "E-commerce built on the proprietary E-Mart platform, with a product catalog, shopping cart, and Mercado Pago checkout. Implements order management and an optimized purchase flow."
+      },
+      "encino": {
+        "label": "Landing Page",
+        "title": "Encino Carpintería",
+        "description": "Custom landing page for Encino Carpintería, focused on performance and user experience. Responsive design, asset optimization, SEO best practices, dynamic sections, and contact forms."
+      },
+      "emart": {
+        "label": "E-commerce Platform",
+        "title": "E-Mart",
+        "description": "Full-featured e-commerce platform with a storefront and admin panel. Catalog with advanced filters, Mercado Pago checkout, user authentication, purchase history. Backoffice with full management of products, categories, shipping, orders, and automated notifications."
+      }
+    }
+  },
+  "Gallery": {
+    "openFullscreen": "View fullscreen",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "goToImage": "Go to image {number}",
+    "closeGallery": "Close gallery",
+    "imageAlt": "{title} - image {number}"
+  },
+  "TechStack": {
+    "sectionLabel": "Skills",
+    "title": "Tech",
+    "titleHighlight": "Stack",
+    "description": "A set of technologies I use to build scalable, high-performance web applications",
+    "languages": "Languages",
+    "tools": "Tools",
+    "frameworks": "Frameworks",
+    "frameworksDescription": "Technologies I use to build from the interface to the server."
+  },
+  "Certificates": {
+    "sectionLabel": "Education",
+    "title": "Courses &",
+    "titleHighlight": "Certifications",
+    "description": "Courses and certifications I've collected throughout my journey as a developer.",
+    "downloadButton": "Download Certificate",
+    "items": {
+      "ucip": {
+        "title": "HTML, CSS & JavaScript",
+        "issuer": "UCIP - Mar del Plata, Argentina",
+        "description": "A 4-month course focused on the fundamentals of web development: structure, styles, and interactivity from scratch."
+      },
+      "udemy1": {
+        "title": "JavaScript Full Stack MERN/MEVN",
+        "issuer": "Udemy",
+        "description": "Full stack web development with JavaScript. Frontend with React and Vue.js, backend with Node.js and Express, MongoDB as the database. Covers authentication, deployment, and modern web development best practices."
+      },
+      "udemy2": {
+        "title": "Full Stack React, Next.js & Node.js with TypeScript",
+        "issuer": "Udemy",
+        "description": "Comprehensive Full Stack training with React and TypeScript. Next.js 14 with Server Actions, Zustand, Zod, React Hook Form, APIs with Node.js, MongoDB (Mongoose) and PostgreSQL (Prisma), authentication and role management."
+      },
+      "utn": {
+        "badge": "Final Year",
+        "location": "Mar del Plata, Argentina",
+        "title": "Higher Technical Degree in Programming",
+        "issuer": "UTN - Universidad Tecnológica Nacional",
+        "description": "Advanced student in the final year. Training in OOP, algorithms and data structures, databases, operating systems, and computer architecture.",
+        "ctaButton": "View Study Plan",
+        "statusLabel": "Status",
+        "statusValue": "Semester 3/4",
+        "gpaLabel": "GPA",
+        "gpaValue": "8.5/10"
+      }
+    }
+  },
+  "Contact": {
+    "sectionLabel": "Social media",
+    "title": "Let's get in",
+    "titleHighlight": "touch",
+    "description": "If you've made it here, we probably have something to talk about. Feel free to reach out, whether for a project or a job opportunity.",
+    "responseTime": "Response within 24 hours",
+    "linksLabel": "Links",
+    "emailLabel": "Email"
+  },
+  "Footer": {
+    "ctaTitle": "Ready to start your project?",
+    "ctaSubtitle": "Let's start building your idea.",
+    "ctaButton": "Contact",
+    "navigation": "Navigation",
+    "social": "Social",
+    "copyright": "© 2026 Leandro Tosunian | www.tosunian.dev",
+    "navHome": "Home",
+    "navProjects": "Projects",
+    "navStack": "Stack",
+    "navCertificates": "Certifications",
+    "navContact": "Contact"
+  }
+}

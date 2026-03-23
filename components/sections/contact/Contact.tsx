@@ -1,15 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, ArrowRight } from "lucide-react";
-import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 // ─── Animation Variants ──────────────────────────────────────────────────────
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
 const staggerContainer = {
@@ -18,75 +19,78 @@ const staggerContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
-
-// ─── Data ────────────────────────────────────────────────────────────────────
-
-const links = [
-  {
-    icon: <FaLinkedin size={20} />,
-    label: "LinkedIn",
-    value: "in/leandrotosunian",
-    href: "https://www.linkedin.com/in/leandrotosunian/",
-  },
-  {
-    icon: <FaGithub size={20} />,
-    label: "GitHub",
-    value: "/leatosunian",
-    href: "https://github.com/leatosunian",
-  },
-  {
-    icon: <FaWhatsapp size={20} />,
-    label: "WhatsApp",
-    value: "+54 223-5423025",
-    href: "https://api.whatsapp.com/send?phone=5492235423025",
-  },
-  {
-    icon: <FaInstagram size={20} />,
-    label: "Instagram",
-    value: "tosunian.dev",
-    href: "https://www.instagram.com/tosunian.dev/",
-  },
-  {
-    icon: <Mail size={20} />,
-    label: "Correo electrónico",
-    value: "leandrotosunian@hotmail.com",
-    href: "mailto:leandrotosunian@hotmail.com",
-  },
-];
-    // eslint-disable-next-line react-hooks/set-state-in-effect
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function Contact() {
+  const t = useTranslations("Contact");
+
+  const links = [
+    {
+      icon: <FaLinkedin size={20} />,
+      label: "LinkedIn",
+      value: "in/leandrotosunian",
+      href: "https://www.linkedin.com/in/leandrotosunian/",
+    },
+    {
+      icon: <FaGithub size={20} />,
+      label: "GitHub",
+      value: "/leatosunian",
+      href: "https://github.com/leatosunian",
+    },
+    {
+      icon: <FaWhatsapp size={20} />,
+      label: "WhatsApp",
+      value: "+54 223-5423025",
+      href: "https://api.whatsapp.com/send?phone=5492235423025",
+    },
+    {
+      icon: <FaInstagram size={20} />,
+      label: "Instagram",
+      value: "tosunian.dev",
+      href: "https://www.instagram.com/tosunian.dev/",
+    },
+    {
+      icon: <Mail size={20} />,
+      label: t("emailLabel"),
+      value: "leandrotosunian@hotmail.com",
+      href: "mailto:leandrotosunian@hotmail.com",
+    },
+  ];
+
   return (
-    <section className="relative h-fit overflow-hidden pt-12 bg-[#0e0e10] text-white" id="contact">
+    <section
+      className="relative h-fit overflow-hidden pt-12 bg-[#0e0e10] text-white"
+      id="contact"
+    >
       {/* Decorative glow */}
       <div
         className="absolute -inset-10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-        style={{ backgroundColor: `rgba(199, 153, 255, 0.2)` }}
+        style={{ backgroundColor: "rgba(199, 153, 255, 0.2)" }}
       />
 
       <div className="flex flex-col justify-between gap-0 px-6 mx-auto py-14 lg:gap-20 lg:flex-row max-w-7xl">
+
         {/* Header */}
-        <motion.header 
+        <motion.header
           className="mb-10 space-y-4 lg:mb-24"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
         >
-          <motion.div 
+          <motion.div
             className="flex items-center gap-4"
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div className="w-8 h-px bg-purple-500" />
             <span className="font-label text-xs font-bold uppercase tracking-[0.2em] text-purple-500">
-              Redes sociales
+              {t("sectionLabel")}
             </span>
           </motion.div>
 
@@ -96,47 +100,49 @@ export default function Contact() {
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Pongámonos en{" "}
-            <span className="text-purple-500">contacto</span>
+            {t("title")}{" "}
+            <span className="text-purple-500">{t("titleHighlight")}</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             className="max-w-2xl mt-8 text-lg leading-relaxed font-body text-zinc-400"
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            Si llegaste hasta acá, probablemente tengamos algo para hablar. Escribime sin compromiso, sea para un proyecto o para una oportunidad laboral.
+            {t("description")}
           </motion.p>
 
-          <motion.div 
+          {/* Response time badge — desktop */}
+          <motion.div
             className="items-center self-start hidden gap-3 px-6 py-4 mt-8 bg-black border rounded-full sm:flex w-fit border-white/5"
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div className="h-2 w-2 animate-pulse rounded-full bg-purple-500 shadow-[0_0_8px_rgba(199,153,255,0.8)]" />
             <span className="font-label text-[0.7rem] uppercase tracking-widest text-zinc-400">
-              Respuesta antes de 24 horas
+              {t("responseTime")}
             </span>
           </motion.div>
         </motion.header>
 
-        {/* Content grid */}
-        <motion.div 
+        {/* Links grid */}
+        <motion.div
           className="mb-24 space-y-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
         >
-          {/* Right — Connect links */}
           <div className="flex flex-col gap-4 lg:col-span-5">
             {/* Section label */}
-            <motion.div 
+            <motion.div
               className="pb-2"
               variants={fadeInUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <h2 className="text-2xl font-bold font-headline">Links</h2>
+              <h2 className="text-2xl font-bold font-headline">
+                {t("linksLabel")}
+              </h2>
               <div className="w-12 h-1 mt-2 bg-purple-400 rounded-full" />
             </motion.div>
 
@@ -144,7 +150,11 @@ export default function Contact() {
               <motion.div
                 key={value}
                 variants={fadeInUp}
-                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+                transition={{
+                  duration: 0.4,
+                  ease: "easeOut",
+                  delay: index * 0.05,
+                }}
               >
                 <ContactLink
                   icon={icon}
@@ -155,15 +165,15 @@ export default function Contact() {
               </motion.div>
             ))}
 
-            {/* Status indicator */}
-            <motion.div 
+            {/* Response time badge — mobile */}
+            <motion.div
               className="flex items-center self-start gap-3 px-6 py-4 mt-4 bg-black border rounded-full sm:hidden border-white/5"
               variants={fadeInUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className="h-2 w-2 animate-pulse rounded-full bg-purple-500 shadow-[0_0_8px_rgba(199,153,255,0.8)]" />
               <span className="font-label text-[0.7rem] uppercase tracking-widest text-zinc-400">
-                Respuesta antes de 24 horas
+                {t("responseTime")}
               </span>
             </motion.div>
           </div>
