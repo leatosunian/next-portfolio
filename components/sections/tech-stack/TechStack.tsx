@@ -20,12 +20,22 @@ import {
   Layers,
   LayoutGrid,
   HardDrive,
-  Shield,
-  ArrowLeftRight,
   Brush,
   Box,
+  Shield,
+  ArrowLeftRight,
   Share2,
+  Mail,
+  Wind,
+  CreditCard,
+  RefreshCw,
+  ShieldCheck,
+  Cloud,
+  Component,
+  FileText,
+  Package,
 } from "lucide-react";
+import { SiMercadopago } from "react-icons/si";
 
 // ─── Animation Variants ──────────────────────────────────────────────────────
 
@@ -59,32 +69,52 @@ const cardStagger = {
 // ─── Datos estáticos — nombres propios, no se traducen ───────────────────────
 
 const languages = [
-  { icon: <FileCode size={32} />, label: "HTML5" },
-  { icon: <Palette size={32} />, label: "CSS3" },
   { icon: <Braces size={32} />, label: "TypeScript" },
   { icon: <Coffee size={32} />, label: "Java" },
+  { icon: <FileCode size={32} />, label: "HTML5" },
+  { icon: <Palette size={32} />, label: "CSS3" },
 ];
 
 const tools = [
-  { icon: <Globe size={20} />,      label: "Postman" },
-  { icon: <Compass size={20} />,    label: "MongoDB Compass" },
-  { icon: <GitBranch size={20} />,  label: "GitHub" },
-  { icon: <Database size={20} />,   label: "SQL Workbench" },
-  { icon: <Pen size={20} />,        label: "Figma" },
+  { icon: <GitBranch size={20} />, label: "GitHub" },
+  { icon: <Globe size={20} />,     label: "Postman" },
+  { icon: <Compass size={20} />,   label: "MongoDB Compass" },
+  { icon: <Database size={20} />,  label: "SQL Workbench" },
+  { icon: <Pen size={20} />,       label: "Figma" },
+  { icon: <Code size={20} />,      label: "Claude Code" },
+  { icon: <Layers size={20} />,    label: "Google Stitch" },
 ];
 
+// ✅ Solo frameworks reales: runtimes, meta-frameworks, CSS framework
 const frameworks = [
-  { icon: <Code size={32} />,          label: "Node.js" },
-  { icon: <Network size={32} />,       label: "Express.js" },
-  { icon: <Monitor size={32} />,       label: "React.js" },
-  { icon: <Layers size={32} />,        label: "Next.js" },
-  { icon: <LayoutGrid size={32} />,    label: "Vue.js" },
-  { icon: <HardDrive size={32} />,     label: "MongoDB" },
-  { icon: <Database size={32} />,      label: "MySQL" },
-  { icon: <Brush size={32} />,         label: "Tailwind" },
-  { icon: <Box size={32} />,           label: "Shadcn" },
-  { icon: <Shield size={32} />,        label: "JWT" },
+  { icon: <Layers size={32} />,     label: "Next.js" },
+  { icon: <Code size={32} />,       label: "Node.js" },
+  { icon: <Coffee size={32} />,     label: "Spring Boot" },
+  { icon: <Network size={32} />,    label: "Express.js" },
+  //{ icon: <LayoutGrid size={32} />, label: "Vue.js" },
+  { icon: <Brush size={32} />,      label: "Tailwind" },
+];
+
+const databases = [
+  { icon: <HardDrive size={32} />, label: "MongoDB" },
+  { icon: <Database size={32} />,  label: "MySQL" },
+];
+
+// ✅ Librerías: React + movidas desde frameworks + nuevas
+const libraries = [
+  { icon: <Monitor size={32} />,        label: "React.js" },
+  { icon: <Coffee size={32} />,        label: "Spring" },
+  { icon: <RefreshCw size={32} />,      label: "Axios" },
+  { icon: <ShieldCheck size={32} />,    label: "Zod" },
+  { icon: <Box size={32} />,            label: "Shadcn" },
+  { icon: <Shield size={32} />,         label: "JWT" },
   { icon: <ArrowLeftRight size={32} />, label: "Socket.io" },
+  { icon: <Mail size={32} />,           label: "Resend" },
+  { icon: <Wind size={32} />,           label: "Framer Motion" },
+  { icon: <SiMercadopago size={32} />,     label: "Mercado Pago" },
+  { icon: <Cloud size={32} />,          label: "Cloudinary" },
+  { icon: <Component size={32} />,      label: "Radix UI" },
+  { icon: <FileText size={32} />,       label: "jsPDF" },
 ];
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -142,7 +172,7 @@ export default function TechStack() {
         </motion.header>
 
         {/* Bento Grid */}
-        <div className="grid items-start grid-cols-1 gap-6 md:grid-cols-12">
+        <div className="grid items-stretch grid-cols-1 gap-6 md:grid-cols-12">
 
           {/* ── Lenguajes ── */}
           <motion.section
@@ -199,7 +229,6 @@ export default function TechStack() {
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
           >
-            {/* Decorative blur */}
             <div
               className="absolute top-0 right-0 w-32 h-32 translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
               style={{ backgroundColor: "rgba(234,155,255,0.05)" }}
@@ -216,7 +245,7 @@ export default function TechStack() {
             </div>
 
             <motion.div
-              className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"
+              className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
               variants={cardStagger}
               initial="hidden"
               whileInView="visible"
@@ -236,7 +265,7 @@ export default function TechStack() {
 
           {/* ── Frameworks ── */}
           <motion.section
-            className="relative p-10 mt-6 overflow-hidden border md:col-span-12 rounded-xl"
+            className="relative h-full p-10 md:mt-3 overflow-hidden border md:col-span-7 rounded-xl"
             style={{
               backgroundColor: "#19191c",
               borderColor: "rgba(72,71,74,0.1)",
@@ -247,7 +276,6 @@ export default function TechStack() {
             variants={fadeInUp}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
           >
-            {/* Decorative blur */}
             <div
               className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full blur-[100px]"
               style={{ backgroundColor: "rgba(199,153,255,0.1)" }}
@@ -261,10 +289,7 @@ export default function TechStack() {
                 >
                   {t("frameworks")}
                 </h2>
-                <p
-                  className="max-w-lg mt-2 text-sm"
-                  style={{ color: "#adaaad" }}
-                >
+                <p className="max-w-lg mt-2 text-sm" style={{ color: "#adaaad" }}>
                   {t("frameworksDescription")}
                 </p>
               </div>
@@ -286,7 +311,7 @@ export default function TechStack() {
             </div>
 
             <motion.div
-              className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+              className="grid grid-cols-2 gap-6 sm:grid-cols-3"
               variants={cardStagger}
               initial="hidden"
               whileInView="visible"
@@ -303,6 +328,131 @@ export default function TechStack() {
               ))}
             </motion.div>
           </motion.section>
+
+          {/* ── Databases ── */}
+          <motion.section
+            className="relative h-full p-10 md:mt-3 overflow-hidden border md:col-span-5 rounded-xl"
+            style={{
+              backgroundColor: "#19191c",
+              borderColor: "rgba(72,71,74,0.1)",
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+          >
+            <div
+              className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full blur-[100px]"
+              style={{ backgroundColor: "rgba(199,153,255,0.08)" }}
+            />
+
+            <div className="flex flex-col items-start justify-between gap-8 mb-12 md:flex-row md:items-start">
+              <div>
+                <h2
+                  className="text-3xl font-bold"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                >
+                  {t("databases")}
+                </h2>
+                <p className="max-w-lg mt-2 text-sm" style={{ color: "#adaaad" }}>
+                  {t("databasesDescription")}
+                </p>
+              </div>
+
+              <div
+                className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full"
+                style={{ backgroundColor: "#262529", color: "#c799ff" }}
+              >
+                <Database size={18} />
+              </div>
+            </div>
+
+            <motion.div
+              className="grid grid-cols-2 gap-6"
+              variants={cardStagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              {databases.map(({ icon, label }) => (
+                <motion.div
+                  key={label}
+                  variants={fadeInUp}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <FrameworkCard icon={icon} label={label} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.section>
+
+          {/* ── Libraries ── */}
+          <motion.section
+            className="relative p-10 md:mt-6 overflow-hidden border md:col-span-12 rounded-xl"
+            style={{
+              backgroundColor: "#19191c",
+              borderColor: "rgba(72,71,74,0.1)",
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={fadeInUp}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
+          >
+            <div
+              className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full blur-[100px]"
+              style={{ backgroundColor: "rgba(199,153,255,0.08)" }}
+            />
+
+            <div className="flex flex-col items-start justify-between gap-8 mb-12 md:flex-row md:items-center">
+              <div>
+                <h2
+                  className="text-3xl font-bold"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                >
+                  {t("libraries")}
+                </h2>
+                <p className="max-w-lg mt-2 text-sm" style={{ color: "#adaaad" }}>
+                  {t("librariesDescription")}
+                </p>
+              </div>
+
+              <div className="flex gap-2">
+                {[
+                  <Package key="package" size={18} />,
+                  <Share2 key="share" size={18} />,
+                ].map((icon, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-center w-10 h-10 rounded-full"
+                    style={{ backgroundColor: "#262529", color: "#c799ff" }}
+                  >
+                    {icon}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <motion.div
+              className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+              variants={cardStagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
+              {libraries.map(({ icon, label }) => (
+                <motion.div
+                  key={label}
+                  variants={fadeInUp}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <FrameworkCard icon={icon} label={label} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.section>
+
         </div>
       </div>
     </section>
@@ -311,13 +461,7 @@ export default function TechStack() {
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-function LanguageCard({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) {
+function LanguageCard({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <motion.div
       className="p-6 transition-all duration-300 border border-transparent rounded-lg cursor-none group"
@@ -348,13 +492,7 @@ function LanguageCard({
   );
 }
 
-function ToolCard({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) {
+function ToolCard({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <motion.div
       className="flex flex-col items-center gap-3 p-4 transition-all border border-transparent rounded-lg cursor-none"
@@ -377,13 +515,7 @@ function ToolCard({
   );
 }
 
-function FrameworkCard({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) {
+function FrameworkCard({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <motion.div
       className="p-6 text-center transition-all border cursor-none group rounded-xl"

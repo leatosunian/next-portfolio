@@ -76,7 +76,11 @@
     "languages": "Lenguajes",
     "tools": "Herramientas",
     "frameworks": "Frameworks",
-    "frameworksDescription": "Tecnologías que utilizo para construir desde la interfaz hasta el servidor."
+    "frameworksDescription": "Tecnologías que utilizo para construir desde la interfaz hasta el servidor.",
+    "databases": "Bases de datos",
+    "databasesDescription": "Sistemas de bases de datos que utilizo para la persistencia y gestión de datos.",
+    "libraries": "Librerías",
+    "librariesDescription": "Herramientas que integro para extender funcionalidades en mis proyectos."
   },
   "Certificates": {
     "sectionLabel": "Educación",

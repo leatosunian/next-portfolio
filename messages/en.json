@@ -76,7 +76,11 @@
     "languages": "Languages",
     "tools": "Tools",
     "frameworks": "Frameworks",
-    "frameworksDescription": "Technologies I use to build from the interface to the server."
+    "frameworksDescription": "Technologies I use to build from the interface to the server.",
+    "databases": "Databases",
+    "databasesDescription": "Database systems I use for data persistence and management.",
+    "libraries": "Libraries",
+    "librariesDescription": "Tools I integrate to extend functionality across my projects."
   },
   "Certificates": {
     "sectionLabel": "Education",
