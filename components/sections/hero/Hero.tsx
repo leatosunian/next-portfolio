@@ -103,7 +103,7 @@ export const Hero = () => {
 
           {/* Headline */}
           <motion.div className="flex flex-col w-full" variants={fadeInUp}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl font-bold leading-[1.1] text-white tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-5xl xl:text-5xl 2xl:text-7xl font-bold leading-[1.1] text-white tracking-tight">
               <span className="block">{t("greeting")}</span>
               <span className="block whitespace-nowrap">
                 <AuroraText
@@ -130,7 +130,7 @@ export const Hero = () => {
 
           {/* Description */}
           <motion.p
-            className="max-w-xl text-base leading-relaxed sm:text-lg xl:text-xl text-white/60"
+            className="max-w-xl text-base leading-relaxed sm:text-base 2xl:text-lg  text-white/60"
             variants={fadeInUp}
           >
             {t("description")}
