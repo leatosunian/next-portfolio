@@ -99,6 +99,11 @@
         "issuer": "Udemy",
         "description": "Desarrollo web full stack con JavaScript. Frontend con React y Vue.js, backend con Node.js y Express, MongoDB como base de datos. Cubre autenticación, despliegue y mejores prácticas del desarrollo web moderno."
       },
+      "anthropic": {
+        "title": "Claude Code In Action",
+        "issuer": "Anthropic Academy",
+        "description": "Curso práctico sobre el CLI agéntico de Claude Code: construcción de agentes autónomos, uso de herramientas, gestión de contexto e integración de Claude en flujos de desarrollo reales con la API de Anthropic."
+      },
       "udemy2": {
         "title": "Full Stack React, Next.js y Node.js con TypeScript",
         "issuer": "Udemy",
