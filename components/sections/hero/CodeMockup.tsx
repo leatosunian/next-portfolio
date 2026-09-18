@@ -19,7 +19,7 @@ const CODE_LINES: CodeLine[] = [
         num: "01",
         parts: [
             { text: "import", color: "purple" },
-            { text: " { WebDeveloper } ", color: "muted" },
+            { text: " { Developer } ", color: "muted" },
             { text: "from", color: "purple" },
             { text: " '@tosunian/dev'", color: "dim" },
         ],
@@ -32,31 +32,23 @@ const CODE_LINES: CodeLine[] = [
         num: "03",
         parts: [
             { text: "const", color: "purple" },
-            { text: " portfolio ", color: "muted" },
+            { text: " leandro ", color: "muted" },
             { text: "= ", color: "muted" },
             { text: "new ", color: "purple" },
-            { text: "Architect", color: "dim" },
+            { text: "Developer", color: "dim" },
             { text: "({", color: "muted" },
         ],
     },
     {
         num: "04",
         parts: [
-            { text: "  name: ", color: "muted" },
-            { text: "'Leandro'", color: "dim" },
+            { text: "  role: ", color: "muted" },
+            { text: "'Full Stack'", color: "dim" },
             { text: ",", color: "muted" },
         ],
     },
     {
         num: "05",
-        parts: [
-            { text: "  focus: ", color: "muted" },
-            { text: "'Performance'", color: "dim" },
-            { text: ",", color: "muted" },
-        ],
-    },
-    {
-        num: "06",
         parts: [
             { text: "  stack: [", color: "muted" },
             { text: "'Next.js'", color: "dim" },
@@ -64,7 +56,15 @@ const CODE_LINES: CodeLine[] = [
             { text: "'Node.js'", color: "dim" },
             { text: ", ", color: "muted" },
             { text: "'MongoDB'", color: "dim" },
-            { text: "]", color: "muted" },
+            { text: "],", color: "muted" },
+        ],
+    },
+    {
+        num: "06",
+        parts: [
+            { text: "  available: ", color: "muted" },
+            { text: "true", color: "purple" },
+            { text: ",", color: "muted" },
         ],
     },
     {
@@ -81,9 +81,9 @@ const COLOR_MAP: Record<PartColor, string> = {
 }
 
 const STACK_ICONS = [
-    { icon: "⚡", label: "TypeScript" },
     { icon: "▲", label: "Next.js" },
     { icon: "⬡", label: "Node.js" },
+    { icon: "◆", label: "MongoDB" },
 ] as const
 
 export const CodeMockup = () => (
@@ -96,7 +96,7 @@ export const CodeMockup = () => (
                 <div className="w-3 h-3 rounded-full bg-[#ad46ff]/50" />
             </div>
             <span className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-white/25">
-                VS CODE — PAGE.TSX
+                VS CODE — LEANDRO.TS
             </span>
         </div>
 

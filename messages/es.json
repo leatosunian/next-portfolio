@@ -110,11 +110,10 @@
         "description": "Formación integral en Full Stack con React y TypeScript. Next.js 14 con Server Actions, Zustand, Zod, React Hook Form, APIs con Node.js, MongoDB (Mongoose) y PostgreSQL (Prisma), autenticación y gestión de roles."
       },
       "utn": {
-        "badge": "Último Año",
         "location": "Mar del Plata, Argentina",
         "title": "Tecnicatura Superior en Programación",
         "issuer": "UTN - Universidad Tecnológica Nacional",
-        "description": "Estudiante avanzado, cursando el último año de la Tecnicatura Superior en Programación. Formación en programación orientada a objetos, algoritmos y estructuras de datos, junto con fundamentos de bases de datos, sistemas operativos y arquitectura de computadoras.",
+        "description": "Perfil full stack en formación avanzada, orientado a integrarse a equipos de desarrollo profesional: manejo de Java + Spring Boot en el backend y Angular en el frontend, sostenido por bases firmes en ciencias de la computación, arquitectura de software y patrones de diseño. Experiencia aplicando metodologías ágiles, análisis y diseño de sistemas y gestión de proyectos sobre el ciclo de vida real del software.",
         "ctaButton": "Ver Plan de Estudios",
         "statusLabel": "Estado",
         "statusValue": "Último cuatrimestre",

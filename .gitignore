@@ -1,3 +1,4 @@
+
 # dependencies
 /node_modules
 /.pnp
@@ -37,3 +38,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+CLAUDE.md
+DESIGN.md
+.claude/
+.github/copilot-instructions.md
+.github/instructions/
+.github/prompts/

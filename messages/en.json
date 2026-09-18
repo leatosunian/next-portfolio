@@ -110,11 +110,10 @@
         "description": "Comprehensive Full Stack training with React and TypeScript. Next.js 14 with Server Actions, Zustand, Zod, React Hook Form, APIs with Node.js, MongoDB (Mongoose) and PostgreSQL (Prisma), authentication and role management."
       },
       "utn": {
-        "badge": "Final Year",
         "location": "Mar del Plata, Argentina",
         "title": "Higher Technical Degree in Programming",
         "issuer": "UTN - Universidad Tecnológica Nacional",
-        "description": "Advanced student in the final year. Training in OOP, algorithms and data structures, databases, operating systems, and computer architecture.",
+        "description": "Full stack profile in advanced training, geared toward joining professional development teams: hands-on with Java + Spring Boot on the backend and Angular on the frontend, backed by solid foundations in computer science, software architecture, and design patterns. Experience applying agile methodologies, systems analysis and design, and project management across the real software development lifecycle.",
         "ctaButton": "View Study Plan",
         "statusLabel": "Status",
         "statusValue": "Final semester",

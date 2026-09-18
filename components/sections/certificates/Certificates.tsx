@@ -152,19 +152,11 @@ export default function Certificates() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={staggerContainer}
               >
-                {/* Badge + location */}
+                {/* Location */}
                 <motion.div
-                  className="flex flex-wrap items-center justify-between gap-4"
                   variants={fadeInUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                  <span
-                    className="inline-block rounded-full border border-purple-500/40 bg-purple-500/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-purple-400"
-                    style={{ fontFamily: "Inter, sans-serif" }}
-                  >
-                    {t("items.utn.badge")}
-                  </span>
-
                   <span
                     className="flex items-center gap-1.5 text-sm"
                     style={{ color: "#adaaad", fontFamily: "Inter, sans-serif" }}
