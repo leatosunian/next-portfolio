@@ -1,15 +1,10 @@
 import type { ReactNode } from 'react';
 
+// <html> y <body> los provee app/[locale]/layout.tsx, que conoce el idioma
 export default function RootLayout({
   children,
 }: {
   children: ReactNode;
 }) {
-  return (
-    <html suppressHydrationWarning>
-      <body suppressHydrationWarning>
-        {children}
-      </body>
-    </html>
-  );
+  return children;
 }

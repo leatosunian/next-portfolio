@@ -117,9 +117,9 @@
         "description": "Advanced student in the final year. Training in OOP, algorithms and data structures, databases, operating systems, and computer architecture.",
         "ctaButton": "View Study Plan",
         "statusLabel": "Status",
-        "statusValue": "Semester 3/4",
-        "gpaLabel": "GPA",
-        "gpaValue": "8.5/10"
+        "statusValue": "Final semester",
+        "gpaLabel": "Expected graduation",
+        "gpaValue": "December 2026"
       }
     }
   },

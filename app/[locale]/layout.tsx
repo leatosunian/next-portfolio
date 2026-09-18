@@ -9,6 +9,7 @@ import { routing } from '@/i18n/routing';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import Loader from '@/components/Loader';
 import { LoaderProvider } from '../context/LoaderContext';
+import { LANGUAGE_ALTERNATES, SITE_URL } from '@/lib/site';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -39,7 +40,7 @@ export async function generateMetadata({
     description: isEn
       ? 'Web developer specialized in web applications, custom software, online stores, institutional pages and landing pages. Building digital products with Next.js, Node.js and MongoDB.'
       : 'Desarrollador web especializado en aplicaciones web, software a medida, tiendas online, páginas institucionales y landing pages. Construyo productos digitales con Next.js, Node.js y MongoDB.',
-    metadataBase: new URL('https://tosunian.dev'),
+    metadataBase: new URL(SITE_URL),
     icons: {
       icon: [
         { url: '/favicon.ico', sizes: 'any' },
@@ -52,7 +53,7 @@ export async function generateMetadata({
       shortcut: '/favicon.ico',
     },
     openGraph: {
-      url: 'https://tosunian.dev',
+      url: `${SITE_URL}/${locale}`,
       siteName: 'Leandro Tosunian',
       title: isEn
         ? 'Leandro Tosunian | Web Developer'
@@ -61,6 +62,7 @@ export async function generateMetadata({
         ? 'Web developer specialized in web applications, custom software, online stores, institutional pages and landing pages.'
         : 'Desarrollador web especializado en aplicaciones web, software a medida, tiendas online, páginas institucionales y landing pages.',
       locale: isEn ? 'en_US' : 'es_AR',
+      alternateLocale: isEn ? 'es_AR' : 'en_US',
       type: 'website',
       images: [
         {
@@ -74,10 +76,10 @@ export async function generateMetadata({
       ],
     },
     alternates: {
-      canonical: 'https://tosunian.dev',
+      canonical: `${SITE_URL}/${locale}`,
       languages: {
-        es: 'https://tosunian.dev',
-        en: 'https://tosunian.dev/en',
+        ...LANGUAGE_ALTERNATES,
+        'x-default': SITE_URL,
       },
     },
   };
@@ -99,18 +101,21 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
 
-  // ⚠️ SIN <html> ni <body> — los provee app/layout.tsx
-  // Solo agregamos las clases de fuente al div wrapper y los providers
+  // <html> y <body> viven acá (y no en app/layout.tsx) para poder setear lang={locale}
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        <LoaderProvider>
-          <Loader />
-          <TooltipProvider>
-            {children}
-          </TooltipProvider>
-        </LoaderProvider>
-      </NextIntlClientProvider>
-    </div>
+    <html lang={locale} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <LoaderProvider>
+              <Loader />
+              <TooltipProvider>
+                {children}
+              </TooltipProvider>
+            </LoaderProvider>
+          </NextIntlClientProvider>
+        </div>
+      </body>
+    </html>
   );
 }

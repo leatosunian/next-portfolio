@@ -117,9 +117,9 @@
         "description": "Estudiante avanzado, cursando el último año de la Tecnicatura Superior en Programación. Formación en programación orientada a objetos, algoritmos y estructuras de datos, junto con fundamentos de bases de datos, sistemas operativos y arquitectura de computadoras.",
         "ctaButton": "Ver Plan de Estudios",
         "statusLabel": "Estado",
-        "statusValue": "Cuatrimestre 3/4",
-        "gpaLabel": "Promedio",
-        "gpaValue": "8.5/10"
+        "statusValue": "Último cuatrimestre",
+        "gpaLabel": "Fecha de finalización",
+        "gpaValue": "Diciembre 2026"
       }
     }
   },
