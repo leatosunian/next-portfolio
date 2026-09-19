@@ -1,6 +1,6 @@
 {
   "Navbar": {
-    "home": "Inicio",
+    "backToTop": "Volver arriba",
     "projects": "Proyectos",
     "techStack": "Tech Stack",
     "certificates": "Certificaciones",
@@ -26,7 +26,7 @@
       "sacaturno": {
         "label": "SaaS Turnos Online",
         "title": "SacaTurno",
-        "description": "Servicio de software para gestionar turnos de forma online. Cuenta con 15 días de prueba gratuita. Luego, se paga una suscripción mensual a través de Mercado Pago, con activación automática. Solo tenés que crear tu cuenta, configurar tu negocio y servicios, y ya podés empezar a cargar turnos."
+        "description": "SaaS de reservas online para negocios. Cada negocio tiene su página pública donde el cliente elige servicio, sucursal, especialista y horario, y paga la seña con Mercado Pago, sin comisiones. El panel de administración suma agenda automatizada con plantillas semanales, gestión de sucursales y empleados con permisos, recordatorios por email y estadísticas. Tiene 3 planes con suscripción mensual por Mercado Pago, 15 días de prueba y una demo interactiva."
       },
       "telovendo": {
         "label": "Catálogo Online",
@@ -130,6 +130,16 @@
     "responseTime": "Respuesta antes de 24 horas",
     "linksLabel": "Links",
     "emailLabel": "Correo electrónico"
+  },
+  "NotFound": {
+    "metaTitle": "Página no encontrada | Leandro Tosunian",
+    "eyebrow": "Error 404",
+    "title": "Esta página",
+    "titleHighlight": "no existe.",
+    "description": "Puede que el enlace esté roto o que la página se haya movido. Volvé al inicio o mirá mis proyectos.",
+    "ctaHome": "Volver al inicio",
+    "ctaProjects": "Ver proyectos",
+    "terminalStatus": "Ruta no encontrada"
   },
   "Footer": {
     "ctaTitle": "¿Listo para empezar tu proyecto?",

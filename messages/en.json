@@ -1,6 +1,6 @@
 {
   "Navbar": {
-    "home": "Home",
+    "backToTop": "Back to top",
     "projects": "Projects",
     "techStack": "Tech Stack",
     "certificates": "Certifications",
@@ -26,7 +26,7 @@
       "sacaturno": {
         "label": "Online Booking SaaS",
         "title": "SacaTurno",
-        "description": "Software service for managing appointments online. Includes a 15-day free trial, then a monthly subscription via Mercado Pago with automatic activation. Just create your account, configure your business and services, and start booking right away."
+        "description": "Online booking SaaS for businesses. Each business gets a public page where clients pick a service, branch, specialist and time slot, and pay a deposit through Mercado Pago with no commission. The admin panel adds automated scheduling from weekly templates, branch and employee management with permissions, email reminders and analytics. It offers 3 plans billed monthly through Mercado Pago, a 15-day free trial and an interactive demo."
       },
       "telovendo": {
         "label": "Online Catalog",
@@ -130,6 +130,16 @@
     "responseTime": "Response within 24 hours",
     "linksLabel": "Links",
     "emailLabel": "Email"
+  },
+  "NotFound": {
+    "metaTitle": "Page not found | Leandro Tosunian",
+    "eyebrow": "Error 404",
+    "title": "This page",
+    "titleHighlight": "doesn't exist.",
+    "description": "The link may be broken or the page may have moved. Head back home or take a look at my projects.",
+    "ctaHome": "Back to home",
+    "ctaProjects": "View projects",
+    "terminalStatus": "Route not found"
   },
   "Footer": {
     "ctaTitle": "Ready to start your project?",

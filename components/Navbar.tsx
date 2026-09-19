@@ -45,12 +45,19 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { label: t('home'), id: 'hero', number: '01' },
-    { label: t('projects'), id: 'projects', number: '02' },
-    { label: t('techStack'), id: 'tech-stack', number: '03' },
-    { label: t('certificates'), id: 'certificates', number: '04' },
-    { label: t('contact'), id: 'contact', number: '05' },
+    { label: t('projects'), id: 'projects', number: '01' },
+    { label: t('techStack'), id: 'tech-stack', number: '02' },
+    { label: t('certificates'), id: 'certificates', number: '03' },
+    { label: t('contact'), id: 'contact', number: '04' },
   ];
+
+  // En la home el logo vuelve arriba; en otras rutas navega a la home
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname !== '/') return;
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    smoothScroll('hero');
+  };
 
   return (
     <>
@@ -69,7 +76,12 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="text-lg font-bold text-white cursor-none sm:text-xl md:flex-1">
+            <Link
+              href="/"
+              onClick={handleLogoClick}
+              className="text-lg font-bold text-white cursor-none sm:text-xl md:flex-1"
+              aria-label={t('backToTop')}
+            >
               <Image src={logo} width={43} height={43} alt="Logo" />
             </Link>
 

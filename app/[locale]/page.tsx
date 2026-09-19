@@ -1,5 +1,6 @@
 import { DockComponent } from '@/components/DockComponent';
 import Navbar from '@/components/Navbar';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import Projects from '@/components/sections/projects/Projects';
 import { Hero } from '@/components/sections/hero/Hero';
 import { SmoothCursor } from '@/components/ui/smooth-cursor';
@@ -26,6 +27,7 @@ export default function Home() {
         <Contact />
         <Footer />
         <DockComponent />
+        <ScrollToTop />
       </TooltipProvider>
     </main>
   );

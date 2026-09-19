@@ -89,10 +89,10 @@ const DATA = {
 
 export function DockComponent() {
   return (
-    <div className="fixed z-50 flex-col items-center hidden w-full -translate-x-1/2 sm:flex bottom-4 left-1/2">
+    <div className="fixed z-50 flex-col items-center hidden w-full -translate-x-1/2 pointer-events-none sm:flex bottom-4 left-1/2">
 
       <TooltipProvider>
-        <Dock direction="middle" className="text-foreground/80 bg-[#0e0e10]/60">
+        <Dock direction="middle" className="pointer-events-auto text-foreground/80 bg-[#0e0e10]/60">
            {Object.entries(DATA.contact.social).map(([name, social]) => (
             <DockIcon key={name} className="cursor-none">
               <Tooltip>
