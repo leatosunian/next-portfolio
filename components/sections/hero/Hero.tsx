@@ -156,7 +156,7 @@ export const Hero = () => {
             </Button>
 
             <Link
-              href="https://drive.google.com/file/d/1T5ys_UxPdNVaPX4I4JWOVs6GqJJBtLPd/view?usp=sharing"
+              href="https://drive.google.com/drive/folders/1rQ9CACqFu3JFB7ldhhzIu8Bd0BhIzACl?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -84,7 +84,7 @@ export const projects: IProject[] = [
     key: 'somacann',
     projectImages: [image_cannabica],
     galleryImages: [image_cannabica],
-    link: 'https://cannabicagroup.com.ar/',
+    link: 'https://somacann.netlify.app/',
     domain: 'cannabicagroup.com.ar',
     technologies: ['vue', 'express', 'node', 'mongodb'],
   },
