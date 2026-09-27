@@ -1,8 +1,8 @@
 "use client"
 
-import { AnimatePresence, motion, PanInfo } from "framer-motion"
+import { AnimatePresence, motion, PanInfo, useInView } from "framer-motion"
 import { StaticImageData } from "next/image"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Expand } from 'lucide-react'
 import { useTranslations } from "next-intl"
@@ -16,6 +16,11 @@ interface ImageGalleryProps {
 
 export const ImageGallery = ({ images, galleryImages, title }: ImageGalleryProps) => {
   const t = useTranslations("Gallery")
+
+  const containerRef = useRef<HTMLDivElement>(null)
+  // El carrusel solo rota mientras la galería está visible: cada proyecto muestra
+  // su primera imagen y arranca la animación al entrar en el viewport.
+  const isInView = useInView(containerRef, { amount: 0.5 })
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
@@ -62,12 +67,12 @@ export const ImageGallery = ({ images, galleryImages, title }: ImageGalleryProps
 
   const openFullscreen = useCallback(() => setIsFullscreenOpen(true), [])
 
-  // Auto-rotation
+  // Auto-rotation (solo mientras la galería está visible en el viewport)
   useEffect(() => {
-    if (images.length <= 1 || isPaused || isFullscreenOpen) return
+    if (images.length <= 1 || isPaused || isFullscreenOpen || !isInView) return
     const interval = setInterval(goToNext, 3000)
     return () => clearInterval(interval)
-  }, [images.length, isPaused, goToNext, isFullscreenOpen])
+  }, [images.length, isPaused, goToNext, isFullscreenOpen, isInView])
 
   const slideVariants = {
     enter: (dir: number) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
@@ -78,6 +83,7 @@ export const ImageGallery = ({ images, galleryImages, title }: ImageGalleryProps
   return (
     <>
       <div
+        ref={containerRef}
         className="relative w-full h-full overflow-hidden group cursor-none"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
