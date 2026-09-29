@@ -4,7 +4,11 @@
     "projects": "Proyectos",
     "techStack": "Tech Stack",
     "certificates": "Certificaciones",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "contactCta": "Contactame",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "mobileMenu": "Menú de navegación"
   },
   "Hero": {
     "eyebrow": "¡BIENVENIDO!",
